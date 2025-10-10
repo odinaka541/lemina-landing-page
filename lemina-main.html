@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemina - Market Intelligence for Nigerian Fintech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                </div>
+                <span class="text-2xl font-bold text-slate-900">Lemina</span>
+            </div>
+            <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500/30">
+                Request Report
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-purple-50/30 to-emerald-50/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span>Limited to 15 Early Adopters</span>
+                    </div>
+                    
+                    <h1 class="text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                        Market Intelligence for
+                        <span class="gradient-text block">Nigerian Fintech</span>
+                    </h1>
+                    
+                    <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                        Investment-grade financial analysis on <span class="font-semibold text-slate-900">200+ Nigerian fintech companies</span>. 
+                        Know which companies are burning cash, which are overvalued, and which are about to fail.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <a href="#contact" class="group bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:shadow-2xl hover:shadow-emerald-500/30 flex items-center justify-center space-x-2">
+                            <span>Get Sample Report</span>
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="#data" class="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-semibold border-2 border-slate-200 hover:border-emerald-500 transition-all duration-200 flex items-center justify-center">
+                            View Sample Data
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">200+</div>
+                            <div class="text-sm text-slate-600">Companies Tracked</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">$950</div>
+                            <div class="text-sm text-slate-600">vs $50k McKinsey</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">Q4 2025</div>
+                            <div class="text-sm text-slate-600">Latest Data</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
+                    <div class="relative bg-white rounded-2xl shadow-2xl p-8 border border-slate-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-bold text-slate-900">Capital Efficiency</h3>
+                            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-700 font-medium">Company A</span>
+                                    <span class="text-slate-500">4.2x burn</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                    <div class="bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-700 font-medium">Company B</span>
+                                    <span class="text-slate-500">3.1x burn</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-700 font-medium">Company C</span>
+                                    <span class="text-slate-500">1.8x burn</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                    <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-700 font-medium">Company D</span>
+                                    <span class="text-slate-500">0.9x burn</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                    <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <div class="flex items-center text-sm text-slate-600">
+                                <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                                </svg>
+                                <span>12 companies have less than 6 months of runway</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 px-6 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">
+                        VCs are flying blind in African markets
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 text-slate-300">
+                            <svg class="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <p class="text-lg">Spend 100+ hours researching each deal and still miss red flags</p>
+                        </div>
+                        <div class="flex items-start space-x-4 text-slate-300">
+                            <svg class="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                            </svg>
+                            <p class="text-lg">McKinsey charges $50,000 for market intelligence reports</p>
+                        </div>
+                        <div class="flex items-start space-x-4 text-slate-300">
+                            <svg class="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <p class="text-lg">Decision-makers need answers in days, not months</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-emerald-500/10 to-purple-500/10 rounded-2xl p-8 border border-emerald-500/20">
+                    <div class="text-yellow-400 text-5xl font-bold mb-4">$5M-20M</div>
+                    <p class="text-white text-xl mb-6">
+                        Average VC investment size in Nigerian fintech
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        One bad investment decision costs <span class="text-emerald-400 font-semibold">$5M-20M</span>. 
+                        Our intelligence report costs <span class="text-yellow-400 font-semibold">$950</span>. 
+                        That's <span class="font-semibold">0.005%</span> of your investment—for certainty.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-slate-900 mb-4">
+                    Investment-grade intelligence at 1/50th the cost
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Everything you need to make confident investment decisions in Nigerian fintech
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">200+ Companies Tracked</h3>
+                    <p class="text-slate-600 leading-relaxed">Comprehensive financial metrics: burn rate, runway, valuation multiples, growth rates</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Capital Efficiency Analysis</h3>
+                    <p class="text-slate-600 leading-relaxed">Identify which companies are burning cash recklessly vs. efficiently</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Runway Predictions</h3>
+                    <p class="text-slate-600 leading-relaxed">Know which companies will run out of money in the next 6-12 months</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Valuation Benchmarking</h3>
+                    <p class="text-slate-600 leading-relaxed">See which companies are overvalued vs. undervalued vs. market benchmarks</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Competitive Intelligence</h3>
+                    <p class="text-slate-600 leading-relaxed">Detailed company profiles with sector positioning and market dynamics</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Quarterly Updates</h3>
+                    <p class="text-slate-600 leading-relaxed">12 months of continuous intelligence with quarterly data refreshes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Insights -->
+    <section id="data" class="py-20 px-6 bg-gradient-to-br from-slate-50 via-purple-50/30 to-emerald-50/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-slate-900 mb-4">
+                    The data tells the real story
+                </h2>
+                <p class="text-xl text-slate-600">
+                    Sample insights from our Q4 2025 intelligence report
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center">
+                    <div class="text-6xl font-bold text-red-600 mb-3">12</div>
+                    <div class="text-slate-600 text-lg">Companies with <6 months runway</div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center">
+                    <div class="text-6xl font-bold text-orange-600 mb-3">8</div>
+                    <div class="text-slate-600 text-lg">Companies burning >$3 per $1 revenue</div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center">
+                    <div class="text-6xl font-bold text-emerald-600 mb-3">35%</div>
+                    <div class="text-slate-600 text-lg">Discount to US fintech valuations</div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-2xl p-12 border border-slate-200">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8 text-center">
+                        This intelligence is actionable
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <p class="text-lg text-slate-700">Avoid companies with burn multiples >3.0x—they'll either shut down or take brutal down-rounds</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <p class="text-lg text-slate-700">Target companies with <12 months runway for discounted entry—they're desperate for capital</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <p class="text-lg text-slate-700">Nigerian fintech trades at 8x revenue (vs 12x in US)—identify the undervalued winners before the market corrects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20 px-6 bg-slate-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold text-white mb-6">
+                Early adopter pricing
+            </h2>
+            <p class="text-xl text-slate-400 mb-12">
+                Limited to 15 customers. After that, price increases to $5,000.
+            </p>
+
+            <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl p-12 shadow-2xl">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                    <div class="flex items-baseline justify-center mb-4">
+                        <span class="text-slate-300 text-3xl line-through mr-4">$5,000</span>
+                        <span class="text-7xl font-bold text-white">$950</span>
+                    </div>
+                    <div class="text-emerald-100 text-xl">One-time payment • 12 months access</div>
+                </div>
+
+                <div class="space-y-4 text-left max-w-2xl mx-auto mb-8">
+                    <div class="flex items-center space-x-3 text-white">
+                        <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-lg">Full Q4 2025 intelligence report (80-100 pages)</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-white">
+                        <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-lg">Excel database with 200+ companies</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-white">
+                        <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-lg">Quarterly updates for 12 months</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-white">
+                        <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-lg">Capital efficiency + runway + valuation analysis</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-white">
+                        <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-lg">Direct access to founder for clarifications</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="inline-flex items-center space-x-2 bg-white hover:bg-slate-100 text-emerald-600 px-10 py-5 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-2xl">
+                    <span>Secure Your Spot</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold text-slate-900 mb-4">
+                    Request sample report
+                </h2>
+                <p class="text-xl text-slate-600">
+                    See the data quality for yourself. Email us to get started.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-12 border border-slate-200 text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Get in touch</h3>
+                <p class="text-slate-600 text-lg mb-8">
+                    Email us with your name, company, and role. We'll send you a 10-page sample report within 24 hours.
+                </p>
+                
+                <a href="mailto:hello@lemina.io?subject=Sample Report Request&body=Name:%0D%0ACompany:%0D%0ARole:%0D%0A%0D%0AWhy I need this intelligence:" 
+                   class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-2xl hover:shadow-emerald-500/30">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Email: hello@lemina.io</span>
+                </a>
+                
+                <p class="text-sm text-slate-500 mt-6">
+                    We'll send you a comprehensive sample within 24 hours. No spam, ever.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Lemina</span>
+                </div>
+                
+                <div class="flex items-center space-x-6 mb-6 md:mb-0">
+                    <a href="mailto:hello@lemina.io" class="hover:text-emerald-400 transition-colors">
+                        hello@lemina.io
+                    </a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors">Twitter</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm">
+                <p>© 2025 Lemina. Market Intelligence for African Fintech.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Hero section should be visible immediately
+        document.querySelector('section').style.opacity = '1';
+        document.querySelector('section').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
