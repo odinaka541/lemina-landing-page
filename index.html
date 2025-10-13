@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lemina - Building the investment bank for African tech</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2310B981'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23FCD34D'/%3E%3C/svg%3E">
     <style>
         * {
             margin: 0;
@@ -19,7 +20,6 @@
             overflow-x: hidden;
         }
         
-        /* Gradient background effect */
         .gradient-bg {
             position: fixed;
             top: -50%;
@@ -41,7 +41,6 @@
             to { transform: rotate(360deg); }
         }
         
-        /* Grid overlay */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -56,7 +55,6 @@
             z-index: 1;
         }
         
-        /* Content wrapper */
         .container {
             position: relative;
             z-index: 2;
@@ -65,7 +63,6 @@
             padding: 0 40px;
         }
         
-        /* Navigation */
         nav {
             padding: 40px 0;
             display: flex;
@@ -122,7 +119,6 @@
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
         }
         
-        /* Hero Section */
         .hero {
             padding: 120px 0 80px;
             text-align: center;
@@ -149,14 +145,14 @@
         }
         
         .hero .subtitle {
-            font-size: 18px;
-            color: #A0A0A0;
-            max-width: 600px;
+            font-size: 20px;
+            color: #D0D0D0;
+            max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
+            font-weight: 400;
         }
         
-        /* Data Section */
         .data-section {
             padding: 80px 0;
             border-top: 1px solid rgba(16, 185, 129, 0.1);
@@ -172,12 +168,22 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         
-        .chart-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #10B981;
+        .chart-header {
             margin-bottom: 40px;
+        }
+        
+        .chart-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FAFAFA;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
+        }
+        
+        .chart-subtitle {
+            font-size: 16px;
+            color: #A0A0A0;
+            line-height: 1.5;
         }
         
         .chart-bar {
@@ -187,9 +193,18 @@
         .chart-label {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 8px;
             font-size: 14px;
+        }
+        
+        .company-name {
             color: #D0D0D0;
+            font-weight: 500;
+        }
+        
+        .company-metric {
+            font-weight: 600;
         }
         
         .chart-track {
@@ -243,9 +258,15 @@
             font-size: 16px;
             color: #D0D0D0;
             line-height: 1.5;
+            margin-bottom: 8px;
         }
         
-        /* Product Section */
+        .insight-action {
+            font-size: 14px;
+            color: #10B981;
+            font-weight: 500;
+        }
+        
         .product-section {
             padding: 100px 0;
             border-top: 1px solid rgba(16, 185, 129, 0.1);
@@ -277,7 +298,7 @@
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
         }
         
@@ -296,24 +317,21 @@
             transform: translateY(-8px);
         }
         
-        .product-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            color: #10B981;
-            font-size: 24px;
+        .product-problem {
+            font-size: 14px;
+            color: #EF4444;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .product-name {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 12px;
             color: #FAFAFA;
+            line-height: 1.3;
         }
         
         .product-description {
@@ -322,7 +340,45 @@
             line-height: 1.6;
         }
         
-        /* CTA Section */
+        .clients-section {
+            padding: 100px 0;
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .client-category {
+            padding: 40px;
+            background: rgba(16, 185, 129, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .client-category:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
+        }
+        
+        .client-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #FAFAFA;
+            margin-bottom: 12px;
+        }
+        
+        .client-description {
+            font-size: 14px;
+            color: #A0A0A0;
+            line-height: 1.5;
+        }
+        
         .cta-section {
             padding: 100px 0;
             border-top: 1px solid rgba(16, 185, 129, 0.1);
@@ -383,7 +439,6 @@
             transform: translateY(-2px);
         }
         
-        /* Footer */
         footer {
             padding: 60px 0;
             border-top: 1px solid rgba(16, 185, 129, 0.1);
@@ -408,7 +463,6 @@
             color: #606060;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
@@ -423,7 +477,7 @@
             }
             
             .hero .subtitle {
-                font-size: 16px;
+                font-size: 18px;
             }
             
             .chart-container {
@@ -466,46 +520,49 @@
         <section class="hero">
             <div class="tagline">Building the investment bank for African tech</div>
             <h1>Starting with<br/>intelligence</h1>
-            <p class="subtitle">Comprehensive data on 200+ Nigerian fintech companies. Know which are burning cash, which are overvalued, and which are about to fail.</p>
+            <p class="subtitle">Your analysts spend 40 hours researching each deal. We analyzed 200 Nigerian fintechs so you don't have to. Know which companies are burning cash, running out of runway, and trading at discounts—before you invest.</p>
         </section>
         
         <section class="data-section">
             <div class="chart-container">
-                <div class="chart-title">Capital Efficiency Analysis</div>
+                <div class="chart-header">
+                    <div class="chart-title">These companies will run out of cash by Q1 2025</div>
+                    <div class="chart-subtitle">Without new funding or dramatic cost cuts, these fintechs have 3-6 months before they shut down. If they're in your portfolio or pipeline, you need to know now.</div>
+                </div>
                 <div class="chart-bar">
                     <div class="chart-label">
-                        <span>Company A - Digital Lending</span>
-                        <span style="color: #EF4444;">4.2x burn multiple</span>
+                        <span class="company-name">Digital lending platform (Series B)</span>
+                        <span class="company-metric" style="color: #EF4444;">3.2 months runway</span>
                     </div>
                     <div class="chart-track">
-                        <div class="chart-fill" style="width: 85%; background: #EF4444;"></div>
+                        <div class="chart-fill" style="width: 27%; background: #EF4444;"></div>
                     </div>
                 </div>
                 <div class="chart-bar">
                     <div class="chart-label">
-                        <span>Company B - Payments</span>
-                        <span style="color: #F59E0B;">3.1x burn multiple</span>
+                        <span class="company-name">B2C neobank (Series A)</span>
+                        <span class="company-metric" style="color: #EF4444;">4.1 months runway</span>
                     </div>
                     <div class="chart-track">
-                        <div class="chart-fill" style="width: 70%; background: #F59E0B;"></div>
+                        <div class="chart-fill" style="width: 34%; background: #EF4444;"></div>
                     </div>
                 </div>
                 <div class="chart-bar">
                     <div class="chart-label">
-                        <span>Company C - Neobank</span>
-                        <span style="color: #FCD34D;">1.8x burn multiple</span>
+                        <span class="company-name">Payments processor (Seed)</span>
+                        <span class="company-metric" style="color: #F59E0B;">5.3 months runway</span>
                     </div>
                     <div class="chart-track">
-                        <div class="chart-fill" style="width: 45%; background: #FCD34D;"></div>
+                        <div class="chart-fill" style="width: 44%; background: #F59E0B;"></div>
                     </div>
                 </div>
                 <div class="chart-bar">
                     <div class="chart-label">
-                        <span>Company D - Infrastructure</span>
-                        <span style="color: #10B981;">0.9x burn multiple</span>
+                        <span class="company-name">BNPL provider (Series A)</span>
+                        <span class="company-metric" style="color: #F59E0B;">5.8 months runway</span>
                     </div>
                     <div class="chart-track">
-                        <div class="chart-fill" style="width: 30%; background: #10B981;"></div>
+                        <div class="chart-fill" style="width: 48%; background: #F59E0B;"></div>
                     </div>
                 </div>
             </div>
@@ -513,15 +570,18 @@
             <div class="insights">
                 <div class="insight-card">
                     <div class="insight-number">12</div>
-                    <div class="insight-text">Companies with less than 6 months of runway</div>
+                    <div class="insight-text">Companies will need emergency funding by Q1 2025</div>
+                    <div class="insight-action">→ Avoid or negotiate down-rounds</div>
                 </div>
                 <div class="insight-card">
-                    <div class="insight-number">8</div>
-                    <div class="insight-text">Companies burning more than $3 per $1 revenue</div>
+                    <div class="insight-number">$847M</div>
+                    <div class="insight-text">Capital at risk in companies with burn multiples >3.0x</div>
+                    <div class="insight-action">→ Assess your portfolio exposure</div>
                 </div>
                 <div class="insight-card">
-                    <div class="insight-number">35%</div>
-                    <div class="insight-text">Discount to US fintech valuations</div>
+                    <div class="insight-number">8.2x</div>
+                    <div class="insight-text">Median revenue multiple (down from 12.5x in 2023)</div>
+                    <div class="insight-action">→ Identify undervalued opportunities</div>
                 </div>
             </div>
         </section>
@@ -529,38 +589,47 @@
         <section class="product-section">
             <div class="section-label">What's available now</div>
             <h2 class="section-title">Intelligence Reports</h2>
-            <p class="section-description">Comprehensive financial analysis on Nigerian fintech. Burn rates, runway projections, valuation benchmarking, and investment recommendations.</p>
+            <p class="section-description">Your team spends weeks per deal doing work we've already done for 200 companies. Use our analysis to move faster and make better decisions.</p>
             
             <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-icon">📊</div>
-                    <div class="product-name">200+ Companies</div>
-                    <div class="product-description">Every meaningful fintech in Nigeria, tracked continuously with verified metrics.</div>
+                    <div class="product-problem">Problem: Blind spots in due diligence</div>
+                    <div class="product-name">We tracked all 200+ Nigerian fintechs so you see the complete landscape</div>
+                    <div class="product-description">Your analysts find 20-30 companies via Google. We found, verified, and analyzed all 200+. Don't miss opportunities or back companies in dying sectors.</div>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon">🔥</div>
-                    <div class="product-name">Burn Analysis</div>
-                    <div class="product-description">Which companies are capital efficient vs. burning cash unsustainably.</div>
+                    <div class="product-problem">Problem: Can't assess burn risk</div>
+                    <div class="product-name">We calculated burn multiples and runway for every company</div>
+                    <div class="product-description">Know which portfolio companies will run out of cash in 6 months. Know which pipeline companies are capital efficient vs. burning unsustainably.</div>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon">⏱️</div>
-                    <div class="product-name">Runway Tracking</div>
-                    <div class="product-description">Know which companies will run out of money in the next 6-12 months.</div>
+                    <div class="product-problem">Problem: Valuation uncertainty</div>
+                    <div class="product-name">We benchmarked valuations across the entire market</div>
+                    <div class="product-description">See which companies trade at 20x revenue (avoid) vs. 5x (opportunity). Know sector-specific multiples. Make data-driven pricing decisions.</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">💰</div>
-                    <div class="product-name">Valuation Benchmarks</div>
-                    <div class="product-description">See which companies are overvalued, undervalued, or fairly priced.</div>
+            </div>
+        </section>
+        
+        <section class="clients-section">
+            <div class="section-label">Who we work with</div>
+            <h2 class="section-title">Built for decision-makers</h2>
+            
+            <div class="clients-grid">
+                <div class="client-category">
+                    <div class="client-title">Venture Capital</div>
+                    <div class="client-description">Deal sourcing, due diligence, portfolio monitoring</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">📈</div>
-                    <div class="product-name">Investment Scores</div>
-                    <div class="product-description">Buy/Hold/Avoid recommendations based on financial health and unit economics.</div>
+                <div class="client-category">
+                    <div class="client-title">Banks & Financial Institutions</div>
+                    <div class="client-description">Partnership evaluation, market entry strategy</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">🔄</div>
-                    <div class="product-name">Quarterly Updates</div>
-                    <div class="product-description">Continuous intelligence for 12 months. Market evolves, so does the data.</div>
+                <div class="client-category">
+                    <div class="client-title">Corporate Development</div>
+                    <div class="client-description">M&A target identification, competitive intelligence</div>
+                </div>
+                <div class="client-category">
+                    <div class="client-title">Research Institutions</div>
+                    <div class="client-description">AI training data, market analysis, benchmarking</div>
                 </div>
             </div>
         </section>
@@ -569,7 +638,7 @@
             <div class="cta-box">
                 <div class="cta-title">Early Adopter Access</div>
                 <div class="cta-price">$950</div>
-                <div class="cta-note">Limited to 15 customers • Full year of intelligence</div>
+                <div class="cta-note">Limited to 15 customers • Full year of quarterly updates</div>
                 <a href="mailto:hello@lemina.io?subject=Intelligence Report Request" class="cta-button">Request access</a>
             </div>
         </section>
@@ -581,7 +650,6 @@
     </div>
     
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -592,7 +660,6 @@
             });
         });
         
-        // Animate charts on scroll
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px'
