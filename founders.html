@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Company - Lemina</title>
+    <meta name="description" content="Get your Nigerian tech company featured in Lemina's intelligence reports and discovered by investors.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY"); // Get from emailjs.com
+    })();
+    </script>
+
+    <!-- Then update the form submit handler -->
+    <script>
+    document.getElementById('founderForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        // Send via EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(() => {
+                window.location.href = 'thank-you.html?company=' + document.getElementById('companyName').value;
+            }, (error) => {
+                alert('Error: ' + error.text);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Add My Company';
+            });
+    });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .benefits {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .benefits h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        label .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+
+        label .optional {
+            color: #95a5a6;
+            font-weight: 400;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .helper-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+
+            .benefits {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="assets/lemina.svg" alt="Lemina Logo" class="logo" onerror="this.style.display='none'">
+            <h1>Add Your Company to Lemina</h1>
+            <p>Get discovered by investors. Featured in intelligence reports.</p>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="benefits">
+            <h2>Why Add Your Company?</h2>
+            <ul>
+                <li>Get discovered by VCs and angel investors actively looking for deals</li>
+                <li>Featured in our intelligence reports read by 100+ investors</li>
+                <li>Free company profile in our database</li>
+                <li>Potential warm introductions to investors</li>
+                <li>Quarterly updates to keep your profile fresh</li>
+            </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="form-container">
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="founderForm">
+                <!-- Section 1: Company Basics -->
+                <div class="form-section">
+                    <h3>1. Company Basics</h3>
+                    
+                    <div class="form-group">
+                        <label for="companyName">Company Name<span class="required">*</span></label>
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website">Website<span class="required">*</span></label>
+                        <input type="url" id="website" name="website" placeholder="https://yourcompany.com" required>
+                        <div class="helper-text">Include https://</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sector">Sector<span class="required">*</span></label>
+                        <select id="sector" name="sector" required>
+                            <option value="">Select sector...</option>
+                            <option value="fintech">Fintech</option>
+                            <option value="healthtech">Healthtech</option>
+                            <option value="edtech">Edtech</option>
+                            <option value="agritech">Agritech</option>
+                            <option value="logistics">Logistics</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="proptech">Proptech</option>
+                            <option value="hrtech">HRtech</option>
+                            <option value="cleantech">Cleantech</option>
+                            <option value="media">Media & Entertainment</option>
+                            <option value="saas">SaaS / B2B Software</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">One-line Description<span class="required">*</span></label>
+                        <input type="text" id="description" name="description" placeholder="e.g., Digital banking for SMEs" required maxlength="100">
+                        <div class="helper-text">Max 100 characters - be concise!</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foundedDate">Founded Date<span class="optional">(optional)</span></label>
+                        <input type="date" id="foundedDate" name="foundedDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hqCity">HQ Location (City)<span class="required">*</span></label>
+                        <input type="text" id="hqCity" name="hqCity" placeholder="e.g., Lagos" required>
+                    </div>
+                </div>
+
+                <!-- Section 2: Founder Information -->
+                <div class="form-section">
+                    <h3>2. Your Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="founderName">Your Full Name<span class="required">*</span></label>
+                        <input type="text" id="founderName" name="founderName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="founderRole">Your Role<span class="required">*</span></label>
+                        <input type="text" id="founderRole" name="founderRole" placeholder="e.g., CEO, Co-Founder" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="founderEmail">Your Email<span class="required">*</span></label>
+                        <input type="email" id="founderEmail" name="founderEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but recommended)</span></label>
+                        <input type="url" id="founderLinkedIn" name="founderLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                </div>
+
+                <!-- Section 3: Product & Traction (Optional) -->
+                <div class="form-section">
+                    <h3>3. Product & Traction <span class="optional">(optional)</span></h3>
+                    
+                    <div class="form-group">
+                        <label for="productDescription">What do you build?<span class="optional">(optional)</span></label>
+                        <textarea id="productDescription" name="productDescription" placeholder="Brief description of your product/service"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetCustomer">Who is your customer?<span class="optional">(optional)</span></label>
+                        <input type="text" id="targetCustomer" name="targetCustomer" placeholder="e.g., SMEs in Nigeria, Individual consumers">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you have traction?<span class="optional">(optional)</span></label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="hasTraction" value="yes">
+                                Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="hasTraction" value="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractionMetrics">If yes, brief metrics<span class="optional">(optional)</span></label>
+                        <textarea id="tractionMetrics" name="tractionMetrics" placeholder="e.g., 10,000 users, $50k MRR, 30% MoM growth"></textarea>
+                        <div class="helper-text">Optional but helps VCs discover you</div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Funding (Optional) -->
+                <div class="form-section">
+                    <h3>4. Funding <span class="optional">(optional)</span></h3>
+                    
+                    <div class="form-group">
+                        <label>Have you raised funding?<span class="optional">(optional)</span></label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="hasFunding" value="yes">
+                                Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="hasFunding" value="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fundingDetails">If yes, how much and from whom?<span class="optional">(optional)</span></label>
+                        <textarea id="fundingDetails" name="fundingDetails" placeholder="e.g., $500k seed from XYZ Ventures in 2024"></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 5: Permissions -->
+                <div class="form-section">
+                    <h3>5. Permissions</h3>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="featureInReports" value="yes" checked>
+                            Yes, feature my company in Lemina intelligence reports
+                        </label>
+                        <label>
+                            <input type="checkbox" name="notifyViewers" value="yes" checked>
+                            Yes, notify me when investors view my profile
+                        </label>
+                        <label>
+                            <input type="checkbox" name="newsletter" value="yes" checked>
+                            Yes, send me quarterly market insights (newsletter)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Add My Company
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Questions? Email us at hello@lemina.io or <a href="index.html">return to homepage</a></p>
+        </div>
+    </div>
+
+    <!-- Form Handling Script -->
+    <script>
+        document.getElementById('founderForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            errorMessage.style.display = 'none';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            formData.forEach((value, key) => {
+                // Handle checkboxes and radio buttons
+                if (this.elements[key].type === 'checkbox') {
+                    if (!data[key]) data[key] = [];
+                    if (this.elements[key].checked) {
+                        data[key].push(value);
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+            
+            // Add timestamp
+            data.submittedAt = new Date().toISOString();
+            
+            try {
+                // TODO: Replace with your actual endpoint
+                // For now, we'll use a mock endpoint that always succeeds
+                
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Store in localStorage as backup (temporary solution)
+                const submissions = JSON.parse(localStorage.getItem('founderSubmissions') || '[]');
+                submissions.push(data);
+                localStorage.setItem('founderSubmissions', JSON.stringify(submissions));
+                
+                console.log('Form submitted:', data);
+                
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html?company=' + encodeURIComponent(data.companyName);
+                
+            } catch (error) {
+                console.error('Submission error:', error);
+                errorMessage.textContent = 'Something went wrong. Please try again or email us at hello@lemina.io';
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Add My Company';
+            }
+        });
+    </script>
+</body>
+</html>
