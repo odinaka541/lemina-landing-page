@@ -30,7 +30,7 @@
         // Send via EmailJS
         emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
             .then(() => {
-                window.location.href = 'thank-you.html?company=' + document.getElementById('companyName').value;
+                window.location.href = '../thank-you/?company=' + document.getElementById('companyName').value;
             }, (error) => {
                 alert('Error: ' + error.text);
                 submitBtn.disabled = false;
