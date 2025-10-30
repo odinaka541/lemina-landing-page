@@ -74,24 +74,35 @@
             padding-top: 40px;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
         .logo-mark {
-            width: 80px;
-            height: 80px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            border-radius: 20px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
-            box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
         }
-
+        
         .logo-dot {
-            width: 16px;
-            height: 16px;
+            width: 8px;
+            height: 8px;
             background: #FCD34D;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(252, 211, 77, 0.5);
+            box-shadow: 0 0 10px rgba(252, 211, 77, 0.5);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .header h1 {
@@ -414,7 +425,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo-dot">
+            <div class="logo">
                 <img src="/assets/lemina.svg" alt="Lemina" style="width: 40px; height: 40px; border-radius: 10px;">
                 <div class="logo-text">Lemina</div>
             </div>
