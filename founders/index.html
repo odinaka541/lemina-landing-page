@@ -18,69 +18,126 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            background: #0A0A0A;
+            color: #FAFAFA;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(16, 185, 129, 0.15) 0%, 
+                rgba(139, 92, 246, 0.1) 25%,
+                rgba(252, 211, 77, 0.05) 50%,
+                transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .container {
-            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            padding: 40px 20px;
         }
 
         .header {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: white;
-            padding: 40px;
             text-align: center;
+            margin-bottom: 60px;
+            padding-top: 40px;
         }
 
-        .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 12px;
+        .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
         }
 
         .logo-dot {
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             background: #FCD34D;
             border-radius: 50%;
+            box-shadow: 0 0 15px rgba(252, 211, 77, 0.5);
         }
 
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #FAFAFA 0%, #A0A0A0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
+        .header .subtitle {
+            font-size: 22px;
+            color: #10B981;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .description {
+            font-size: 18px;
+            color: #D0D0D0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         .benefits {
-            background: #F0FDF4;
-            padding: 30px 40px;
-            border-bottom: 1px solid #D1FAE5;
+            background: rgba(16, 185, 129, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .benefits h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #059669;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #10B981;
+            letter-spacing: -0.5px;
         }
 
         .benefits ul {
@@ -88,10 +145,12 @@
         }
 
         .benefits li {
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: 12px 0;
+            padding-left: 32px;
             position: relative;
-            font-size: 1.05em;
+            font-size: 16px;
+            color: #D0D0D0;
+            line-height: 1.6;
         }
 
         .benefits li:before {
@@ -100,46 +159,58 @@
             left: 0;
             color: #10B981;
             font-weight: bold;
-            font-size: 1.3em;
+            font-size: 20px;
         }
 
-        .form-container {
+        .form-card {
+            background: rgba(16, 185, 129, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 16px;
             padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .form-section {
-            margin-bottom: 40px;
+            margin-bottom: 48px;
+        }
+
+        .form-section:last-of-type {
+            margin-bottom: 0;
         }
 
         .form-section h3 {
-            font-size: 1.3em;
-            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
             color: #10B981;
-            border-bottom: 2px solid #10B981;
-            padding-bottom: 10px;
+            letter-spacing: -0.5px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
-            color: #333;
+            color: #FAFAFA;
+            font-size: 15px;
         }
 
         label .required {
-            color: #DC2626;
-            margin-left: 3px;
+            color: #EF4444;
+            margin-left: 4px;
         }
 
         label .optional {
             color: #64748B;
             font-weight: 400;
-            font-size: 0.9em;
-            margin-left: 5px;
+            font-size: 14px;
+            margin-left: 6px;
         }
 
         input[type="text"],
@@ -149,12 +220,19 @@
         select,
         textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #E2E8F0;
-            border-radius: 6px;
-            font-size: 1em;
-            transition: border-color 0.3s;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            font-size: 15px;
+            color: #FAFAFA;
+            transition: all 0.3s;
             font-family: inherit;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #64748B;
         }
 
         input:focus,
@@ -162,6 +240,22 @@
         textarea:focus {
             outline: none;
             border-color: #10B981;
+            background: rgba(16, 185, 129, 0.05);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310B981' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select option {
+            background: #1A1A1A;
+            color: #FAFAFA;
         }
 
         textarea {
@@ -173,7 +267,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .radio-group label {
@@ -181,144 +275,178 @@
             align-items: center;
             font-weight: 400;
             cursor: pointer;
-            padding: 10px;
-            border: 2px solid #E2E8F0;
-            border-radius: 6px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 8px;
             transition: all 0.3s;
         }
 
         .radio-group label:hover {
             border-color: #10B981;
-            background: #F0FDF4;
+            background: rgba(16, 185, 129, 0.05);
         }
 
         .radio-group input[type="radio"] {
             width: auto;
-            margin-right: 10px;
+            margin-right: 12px;
             cursor: pointer;
+            accent-color: #10B981;
         }
 
         .checkbox-group {
-            margin-top: 15px;
-            padding: 20px;
-            background: #F8FAFC;
-            border-radius: 6px;
+            margin-top: 16px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .checkbox-group label {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-weight: 400;
             cursor: pointer;
         }
 
+        .checkbox-group label:last-child {
+            margin-bottom: 0;
+        }
+
         .checkbox-group input[type="checkbox"] {
             width: auto;
-            margin-right: 10px;
-            margin-top: 3px;
+            margin-right: 12px;
+            margin-top: 4px;
             cursor: pointer;
+            accent-color: #10B981;
         }
 
         .helper-text {
-            font-size: 0.9em;
+            font-size: 14px;
             color: #64748B;
-            margin-top: 5px;
+            margin-top: 8px;
+            line-height: 1.5;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: white;
+            color: #FAFAFA;
             border: none;
-            border-radius: 6px;
-            font-size: 1.2em;
+            border-radius: 12px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+            margin-top: 32px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 48px rgba(16, 185, 129, 0.5);
         }
 
         .submit-btn:disabled {
-            background: #94A3B8;
+            background: #374151;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
 
         .error-message {
-            background: #FEE2E2;
-            border: 1px solid #FCA5A5;
-            color: #991B1B;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 20px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #FCA5A5;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
             display: none;
         }
 
         .footer {
             text-align: center;
-            padding: 20px;
-            color: #64748B;
-            font-size: 0.9em;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .footer a {
             color: #10B981;
             text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
         .footer a:hover {
-            text-decoration: underline;
+            color: #FCD34D;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 40px;
             }
 
-            .form-container {
-                padding: 20px;
+            .header .subtitle {
+                font-size: 18px;
+            }
+
+            .header .description {
+                font-size: 16px;
+            }
+
+            .form-card {
+                padding: 24px;
             }
 
             .benefits {
-                padding: 20px;
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="gradient-bg"></div>
+    <div class="grid-overlay"></div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo">
+            <div class="logo-mark">
                 <div class="logo-dot"></div>
             </div>
-            <h1>Add Your Company to Lemina</h1>
-            <p>Get discovered by investors actively searching for what you're building</p>
+            <h1>Add Your Company<br/>to Lemina</h1>
+            <div class="subtitle">Get discovered by investors actively deploying capital</div>
+            <p class="description">
+                Featured in intelligence reports. Connected to active VCs. Free company profile in our verified database.
+            </p>
         </div>
 
-        <!-- Benefits Section -->
+        <!-- Benefits -->
         <div class="benefits">
             <h2>Why Add Your Company?</h2>
             <ul>
                 <li>Get discovered by VCs and angel investors actively looking for deals</li>
                 <li>Featured in our intelligence reports read by 100+ investors</li>
                 <li>Free company profile in our verified database</li>
-                <li>Potential warm introductions to active investors</li>
-                <li>Quarterly reminders to keep your profile fresh</li>
+                <li>Potential warm introductions to investors searching for what you're building</li>
+                <li>Quarterly reminders to keep your profile fresh and discoverable</li>
             </ul>
         </div>
 
         <!-- Form -->
-        <div class="form-container">
+        <div class="form-card">
             <div class="error-message" id="errorMessage"></div>
 
             <form id="founderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                
+                <!-- Hidden fields for Formspree -->
+                <input type="hidden" name="_subject" value="New Founder Submission - Lemina">
+                <input type="hidden" name="_cc" value="3odinaka@gmail.com">
+                <input type="hidden" name="_next" value="https://lemina.io/thank-you/">
+                <input type="text" name="_gotcha" style="display:none">
                 
                 <!-- SECTION 1: COMPANY BASICS -->
                 <div class="form-section">
@@ -336,22 +464,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="sector">Sector<span class="required">*</span></label>
+                        <label for="sector">Primary Sector<span class="required">*</span></label>
                         <select id="sector" name="sector" required>
                             <option value="">Select sector...</option>
-                            <option value="fintech">Fintech</option>
+                            <option value="payments">Payments & Processing</option>
+                            <option value="lending">Lending & Credit</option>
+                            <option value="neobank">Digital Banking / Neobank</option>
+                            <option value="infrastructure">Financial Infrastructure / APIs</option>
+                            <option value="wealthtech">Wealth Management / Investment</option>
+                            <option value="insurtech">Insurance Technology</option>
+                            <option value="regtech">Regulatory Technology</option>
+                            <option value="other-fintech">Other Fintech</option>
                             <option value="healthtech">Healthtech</option>
                             <option value="edtech">Edtech</option>
                             <option value="agritech">Agritech</option>
                             <option value="logistics">Logistics</option>
                             <option value="ecommerce">E-commerce</option>
-                            <option value="proptech">Proptech</option>
-                            <option value="hrtech">HRtech</option>
-                            <option value="cleantech">Cleantech</option>
-                            <option value="media">Media & Entertainment</option>
-                            <option value="saas">SaaS / B2B Software</option>
                             <option value="other">Other</option>
                         </select>
+                        <div class="helper-text">We focus on fintech but track all Nigerian tech</div>
                     </div>
 
                     <div class="form-group">
@@ -494,7 +625,7 @@
                 <div class="form-section">
                     <h3>4. Regulatory & Compliance</h3>
                     <p style="font-size: 14px; color: #64748B; margin-bottom: 20px;">
-                        This helps investors assess regulatory risk and compliance status
+                        Helps investors assess regulatory risk and compliance status
                     </p>
                     
                     <div class="form-group">
@@ -572,7 +703,7 @@
                     <div class="checkbox-group">
                         <label>
                             <input type="checkbox" name="featureInReports" value="yes" checked required>
-                            <strong>Yes, feature my company in Lemina intelligence reports</strong>
+                            <strong style="color: #FAFAFA;">Yes, feature my company in Lemina intelligence reports</strong>
                         </label>
                         <label>
                             <input type="checkbox" name="shareWithInvestors" value="yes" checked>
@@ -595,14 +726,14 @@
 
                 <!-- Submit Button -->
                 <button type="submit" class="submit-btn" id="submitBtn">
-                    Add My Company
+                    Add My Company →
                 </button>
             </form>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>Questions? Email us at <a href="mailto:admin@lemina.co">admin@lemina.co</a> or <a href="../">return to homepage</a></p>
+            <p>Questions? Email <a href="mailto:admin@lemina.co">admin@lemina.co</a> or <a href="../">return to homepage</a></p>
         </div>
     </div>
 
@@ -630,8 +761,8 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
             
-            // Formspree will handle the actual submission
-            // After successful submission, redirect happens automatically
+            // Formspree handles submission
+            // Redirect set in hidden _next field
         });
     </script>
 </body>
