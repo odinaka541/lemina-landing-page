@@ -315,165 +315,275 @@
             </ul>
         </div>
 
-        <!-- Form -->
-        <div class="form-container">
-            <div class="error-message" id="errorMessage"></div>
+        <!-- SECTION 1: COMPANY BASICS (Maps to: Company Profiling) -->
+        <div class="form-section">
+            <h3>1. Company Basics</h3>
+            
+            <div class="form-group">
+                <label for="companyName">Company Name<span class="required">*</span></label>
+                <input type="text" id="companyName" name="companyName" required>
+            </div>
 
-            <form id="founderForm">
-                <!-- Section 1: Company Basics -->
-                <div class="form-section">
-                    <h3>1. Company Basics</h3>
-                    
-                    <div class="form-group">
-                        <label for="companyName">Company Name<span class="required">*</span></label>
-                        <input type="text" id="companyName" name="companyName" required>
-                    </div>
+            <div class="form-group">
+                <label for="website">Website<span class="required">*</span></label>
+                <input type="url" id="website" name="website" placeholder="https://yourcompany.com" required>
+            </div>
 
-                    <div class="form-group">
-                        <label for="website">Website<span class="required">*</span></label>
-                        <input type="url" id="website" name="website" placeholder="https://yourcompany.com" required>
-                        <div class="helper-text">Include https://</div>
-                    </div>
+            <div class="form-group">
+                <label for="sector">Primary Sector<span class="required">*</span></label>
+                <select id="sector" name="sector" required>
+                    <option value="">Select sector...</option>
+                    <option value="payments">Payments & Processing</option>
+                    <option value="lending">Lending & Credit</option>
+                    <option value="neobank">Digital Banking / Neobank</option>
+                    <option value="infrastructure">Financial Infrastructure / APIs</option>
+                    <option value="wealthtech">Wealth Management / Investment</option>
+                    <option value="insurtech">Insurance Technology</option>
+                    <option value="regtech">Regulatory Technology</option>
+                    <option value="other-fintech">Other Fintech</option>
+                    <option value="non-fintech">Non-Fintech Tech</option>
+                </select>
+                <div class="helper-text">We focus on fintech but track all Nigerian tech</div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="sector">Sector<span class="required">*</span></label>
-                        <select id="sector" name="sector" required>
-                            <option value="">Select sector...</option>
-                            <option value="fintech">Fintech</option>
-                            <option value="healthtech">Healthtech</option>
-                            <option value="edtech">Edtech</option>
-                            <option value="agritech">Agritech</option>
-                            <option value="logistics">Logistics</option>
-                            <option value="ecommerce">E-commerce</option>
-                            <option value="proptech">Proptech</option>
-                            <option value="hrtech">HRtech</option>
-                            <option value="cleantech">Cleantech</option>
-                            <option value="media">Media & Entertainment</option>
-                            <option value="saas">SaaS / B2B Software</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
+            <div class="form-group">
+                <label for="description">One-line Description<span class="required">*</span></label>
+                <input type="text" id="description" name="description" placeholder="e.g., B2B payment infrastructure for SMEs" required maxlength="120">
+                <div class="helper-text">What you build, for whom - max 120 characters</div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="description">One-line Description<span class="required">*</span></label>
-                        <input type="text" id="description" name="description" placeholder="e.g., Digital banking for SMEs" required maxlength="100">
-                        <div class="helper-text">Max 100 characters - be concise!</div>
-                    </div>
+            <div class="form-group">
+                <label for="foundedYear">Founded Year<span class="required">*</span></label>
+                <input type="number" id="foundedYear" name="foundedYear" placeholder="2024" min="2010" max="2025" required>
+            </div>
 
-                    <div class="form-group">
-                        <label for="foundedDate">Founded Date<span class="optional">(optional)</span></label>
-                        <input type="date" id="foundedDate" name="foundedDate">
-                    </div>
+            <div class="form-group">
+                <label for="hqCity">Headquarters<span class="required">*</span></label>
+                <input type="text" id="hqCity" name="hqCity" placeholder="e.g., Lagos, Nigeria" required>
+            </div>
 
-                    <div class="form-group">
-                        <label for="hqCity">HQ Location (City)<span class="required">*</span></label>
-                        <input type="text" id="hqCity" name="hqCity" placeholder="e.g., Lagos" required>
-                    </div>
+            <div class="form-group">
+                <label for="teamSize">Team Size<span class="required">*</span></label>
+                <select id="teamSize" name="teamSize" required>
+                    <option value="">Select range...</option>
+                    <option value="1-5">1-5 people</option>
+                    <option value="6-10">6-10 people</option>
+                    <option value="11-25">11-25 people</option>
+                    <option value="26-50">26-50 people</option>
+                    <option value="51-100">51-100 people</option>
+                    <option value="100+">100+ people</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- SECTION 2: TRACTION & METRICS (Maps to: Data Verification + Real-Time Updates) -->
+        <div class="form-section">
+            <h3>2. Traction & Metrics</h3>
+            
+            <div class="form-group">
+                <label for="stage">Current Stage<span class="required">*</span></label>
+                <select id="stage" name="stage" required>
+                    <option value="">Select stage...</option>
+                    <option value="idea">Idea / Pre-product</option>
+                    <option value="mvp">MVP / Beta</option>
+                    <option value="pre-revenue">Live Product / Pre-revenue</option>
+                    <option value="revenue">Generating Revenue</option>
+                    <option value="scaling">Scaling / Growth</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hasTraction">Do you have traction?<span class="required">*</span></label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="hasTraction" value="yes" required>
+                        Yes - we have users/revenue
+                    </label>
+                    <label>
+                        <input type="radio" name="hasTraction" value="no" required>
+                        No - still building
+                    </label>
                 </div>
+            </div>
 
-                <!-- Section 2: Founder Information -->
-                <div class="form-section">
-                    <h3>2. Your Information</h3>
-                    
-                    <div class="form-group">
-                        <label for="founderName">Your Full Name<span class="required">*</span></label>
-                        <input type="text" id="founderName" name="founderName" required>
-                    </div>
+            <div class="form-group" id="tractionDetails" style="display:none;">
+                <label for="keyMetric">Key Metric<span class="optional">(optional but recommended)</span></label>
+                <input type="text" id="keyMetric" name="keyMetric" placeholder="e.g., 10,000 active users OR $50k MRR OR ₦1B monthly GMV">
+                <div class="helper-text">Your most impressive number - helps investors discover you</div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="founderRole">Your Role<span class="required">*</span></label>
-                        <input type="text" id="founderRole" name="founderRole" placeholder="e.g., CEO, Co-Founder" required>
-                    </div>
+            <div class="form-group">
+                <label for="growthRate">Growth Rate (last 3 months)<span class="optional">(optional)</span></label>
+                <select id="growthRate" name="growthRate">
+                    <option value="">Select range...</option>
+                    <option value="negative">Negative / Flat</option>
+                    <option value="0-10">0-10% monthly</option>
+                    <option value="10-20">10-20% monthly</option>
+                    <option value="20-50">20-50% monthly</option>
+                    <option value="50+">50%+ monthly</option>
+                </select>
+            </div>
+        </div>
 
-                    <div class="form-group">
-                        <label for="founderEmail">Your Email<span class="required">*</span></label>
-                        <input type="email" id="founderEmail" name="founderEmail" required>
-                    </div>
+        <!-- SECTION 3: FUNDING (Maps to: Company Profiling + Data Verification) -->
+        <div class="form-section">
+            <h3>3. Funding</h3>
+            
+            <div class="form-group">
+                <label for="fundingStatus">Funding Status<span class="required">*</span></label>
+                <select id="fundingStatus" name="fundingStatus" required>
+                    <option value="">Select status...</option>
+                    <option value="bootstrapped">Bootstrapped / Self-funded</option>
+                    <option value="friends-family">Friends & Family</option>
+                    <option value="pre-seed">Pre-seed</option>
+                    <option value="seed">Seed</option>
+                    <option value="series-a">Series A</option>
+                    <option value="series-b+">Series B+</option>
+                    <option value="raising">Currently Raising</option>
+                </select>
+            </div>
 
-                    <div class="form-group">
-                        <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but recommended)</span></label>
-                        <input type="url" id="founderLinkedIn" name="founderLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
-                    </div>
+            <div class="form-group">
+                <label for="totalFunding">Total Funding Raised<span class="optional">(optional)</span></label>
+                <select id="totalFunding" name="totalFunding">
+                    <option value="">Select range...</option>
+                    <option value="0">$0 (Bootstrapped)</option>
+                    <option value="1-50k">$1k - $50k</option>
+                    <option value="50-250k">$50k - $250k</option>
+                    <option value="250k-1m">$250k - $1M</option>
+                    <option value="1-5m">$1M - $5M</option>
+                    <option value="5m+">$5M+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="investors">Key Investors<span class="optional">(optional)</span></label>
+                <input type="text" id="investors" name="investors" placeholder="e.g., TLcom Capital, Partech Africa">
+                <div class="helper-text">If you've raised from notable VCs, list them</div>
+            </div>
+
+            <div class="form-group">
+                <label for="raisingNow">Are you raising now?<span class="required">*</span></label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="raisingNow" value="yes" required>
+                        Yes - actively fundraising
+                    </label>
+                    <label>
+                        <input type="radio" name="raisingNow" value="no" required>
+                        No - not raising currently
+                    </label>
                 </div>
+            </div>
 
-                <!-- Section 3: Product & Traction (Optional) -->
-                <div class="form-section">
-                    <h3>3. Product & Traction <span class="optional">(optional)</span></h3>
-                    
-                    <div class="form-group">
-                        <label for="productDescription">What do you build?<span class="optional">(optional)</span></label>
-                        <textarea id="productDescription" name="productDescription" placeholder="Brief description of your product/service"></textarea>
-                    </div>
+            <div class="form-group" id="raiseDetails" style="display:none;">
+                <label for="raiseAmount">How much are you raising?<span class="optional">(optional)</span></label>
+                <input type="text" id="raiseAmount" name="raiseAmount" placeholder="e.g., $500k seed round">
+            </div>
+        </div>
 
-                    <div class="form-group">
-                        <label for="targetCustomer">Who is your customer?<span class="optional">(optional)</span></label>
-                        <input type="text" id="targetCustomer" name="targetCustomer" placeholder="e.g., SMEs in Nigeria, Individual consumers">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Do you have traction?<span class="optional">(optional)</span></label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="hasTraction" value="yes">
-                                Yes
-                            </label>
-                            <label>
-                                <input type="radio" name="hasTraction" value="no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tractionMetrics">If yes, brief metrics<span class="optional">(optional)</span></label>
-                        <textarea id="tractionMetrics" name="tractionMetrics" placeholder="e.g., 10,000 users, $50k MRR, 30% MoM growth"></textarea>
-                        <div class="helper-text">Optional but helps VCs discover you</div>
-                    </div>
+        <!-- SECTION 4: REGULATORY & COMPLIANCE (Maps to: Regulatory Intelligence) -->
+        <div class="form-section">
+            <h3>4. Regulatory & Compliance</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                This helps investors assess regulatory risk and compliance status
+            </p>
+            
+            <div class="form-group">
+                <label for="registered">Is your company officially registered?<span class="required">*</span></label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="registered" value="yes" required>
+                        Yes (CAC registered)
+                    </label>
+                    <label>
+                        <input type="radio" name="registered" value="no" required>
+                        No / In progress
+                    </label>
                 </div>
+            </div>
 
-                <!-- Section 4: Funding (Optional) -->
-                <div class="form-section">
-                    <h3>4. Funding <span class="optional">(optional)</span></h3>
-                    
-                    <div class="form-group">
-                        <label>Have you raised funding?<span class="optional">(optional)</span></label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="hasFunding" value="yes">
-                                Yes
-                            </label>
-                            <label>
-                                <input type="radio" name="hasFunding" value="no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fundingDetails">If yes, how much and from whom?<span class="optional">(optional)</span></label>
-                        <textarea id="fundingDetails" name="fundingDetails" placeholder="e.g., $500k seed from XYZ Ventures in 2024"></textarea>
-                    </div>
+            <div class="form-group">
+                <label for="licenses">Do you have/need regulatory licenses?<span class="optional">(optional)</span></label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="license_cbn" value="yes">
+                        CBN License (Central Bank of Nigeria)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="license_sec" value="yes">
+                        SEC License (Securities & Exchange)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="license_naicom" value="yes">
+                        NAICOM License (Insurance)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="license_none" value="yes">
+                        No licenses required for our business
+                    </label>
                 </div>
+            </div>
+        </div>
 
-                <!-- Section 5: Permissions -->
-                <div class="form-section">
-                    <h3>5. Permissions</h3>
-                    
-                    <div class="checkbox-group">
-                        <label>
-                            <input type="checkbox" name="featureInReports" value="yes" checked>
-                            Yes, feature my company in Lemina intelligence reports
-                        </label>
-                        <label>
-                            <input type="checkbox" name="notifyViewers" value="yes" checked>
-                            Yes, notify me when investors view my profile
-                        </label>
-                        <label>
-                            <input type="checkbox" name="newsletter" value="yes" checked>
-                            Yes, send me quarterly market insights (newsletter)
-                        </label>
-                    </div>
-                </div>
+        <!-- SECTION 5: FOUNDER INFO (Contact for Real-Time Updates) -->
+        <div class="form-section">
+            <h3>5. Your Information</h3>
+            
+            <div class="form-group">
+                <label for="founderName">Your Full Name<span class="required">*</span></label>
+                <input type="text" id="founderName" name="founderName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="founderRole">Your Role<span class="required">*</span></label>
+                <input type="text" id="founderRole" name="founderRole" placeholder="e.g., CEO, Co-Founder" required>
+            </div>
+
+            <div class="form-group">
+                <label for="founderEmail">Your Email<span class="required">*</span></label>
+                <input type="email" id="founderEmail" name="founderEmail" required>
+                <div class="helper-text">We'll use this to notify you when investors view your profile</div>
+            </div>
+
+            <div class="form-group">
+                <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but recommended)</span></label>
+                <input type="url" id="founderLinkedIn" name="founderLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
+            </div>
+
+            <div class="form-group">
+                <label for="founderTwitter">Your Twitter/X<span class="optional">(optional)</span></label>
+                <input type="text" id="founderTwitter" name="founderTwitter" placeholder="@yourhandle">
+            </div>
+        </div>
+
+        <!-- SECTION 6: PERMISSIONS -->
+        <div class="form-section">
+            <h3>6. Permissions</h3>
+            
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="featureInReports" value="yes" checked required>
+                    <strong>Yes, feature my company in Lemina intelligence reports</strong> (required to be included)
+                </label>
+                <label>
+                    <input type="checkbox" name="shareWithInvestors" value="yes" checked>
+                    Yes, share my profile with investors looking for companies like mine
+                </label>
+                <label>
+                    <input type="checkbox" name="notifyViewers" value="yes" checked>
+                    Yes, notify me when investors view my profile
+                </label>
+                <label>
+                    <input type="checkbox" name="quarterlyUpdates" value="yes" checked>
+                    Yes, send me reminders to update my company profile quarterly
+                </label>
+                <label>
+                    <input type="checkbox" name="newsletter" value="yes" checked>
+                    Yes, send me market insights newsletter
+                </label>
+            </div>
+        </div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="submit-btn" id="submitBtn">
