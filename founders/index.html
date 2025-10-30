@@ -7,37 +7,8 @@
     <meta name="description" content="Get your Nigerian tech company featured in Lemina's intelligence reports and discovered by investors.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-    (function(){
-        emailjs.init("YOUR_PUBLIC_KEY"); // Get from emailjs.com
-    })();
-    </script>
-
-    <!-- Then update the form submit handler -->
-    <script>
-    document.getElementById('founderForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        
-        // Send via EmailJS
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-            .then(() => {
-                window.location.href = '../thank-you/?company=' + document.getElementById('companyName').value;
-            }, (error) => {
-                alert('Error: ' + error.text);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Add My Company';
-            });
-    });
-    </script>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
 
     <style>
         * {
@@ -50,7 +21,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -65,7 +36,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
             padding: 40px;
             text-align: center;
@@ -74,7 +45,19 @@
         .logo {
             width: 60px;
             height: 60px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-dot {
+            width: 12px;
+            height: 12px;
+            background: #FCD34D;
+            border-radius: 50%;
         }
 
         .header h1 {
@@ -89,15 +72,15 @@
         }
 
         .benefits {
-            background: #f8f9fa;
+            background: #F0FDF4;
             padding: 30px 40px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #D1FAE5;
         }
 
         .benefits h2 {
             font-size: 1.5em;
             margin-bottom: 20px;
-            color: #333;
+            color: #059669;
         }
 
         .benefits ul {
@@ -108,14 +91,14 @@
             padding: 10px 0;
             padding-left: 30px;
             position: relative;
-            font-size: 1.1em;
+            font-size: 1.05em;
         }
 
         .benefits li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #10B981;
             font-weight: bold;
             font-size: 1.3em;
         }
@@ -131,8 +114,8 @@
         .form-section h3 {
             font-size: 1.3em;
             margin-bottom: 20px;
-            color: #667eea;
-            border-bottom: 2px solid #667eea;
+            color: #10B981;
+            border-bottom: 2px solid #10B981;
             padding-bottom: 10px;
         }
 
@@ -148,12 +131,12 @@
         }
 
         label .required {
-            color: #e74c3c;
+            color: #DC2626;
             margin-left: 3px;
         }
 
         label .optional {
-            color: #95a5a6;
+            color: #64748B;
             font-weight: 400;
             font-size: 0.9em;
             margin-left: 5px;
@@ -162,12 +145,12 @@
         input[type="text"],
         input[type="email"],
         input[type="url"],
-        input[type="date"],
+        input[type="number"],
         select,
         textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #E2E8F0;
             border-radius: 6px;
             font-size: 1em;
             transition: border-color 0.3s;
@@ -178,7 +161,7 @@
         select:focus,
         textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #10B981;
         }
 
         textarea {
@@ -188,7 +171,8 @@
 
         .radio-group {
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            gap: 12px;
             margin-top: 10px;
         }
 
@@ -197,18 +181,27 @@
             align-items: center;
             font-weight: 400;
             cursor: pointer;
+            padding: 10px;
+            border: 2px solid #E2E8F0;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .radio-group label:hover {
+            border-color: #10B981;
+            background: #F0FDF4;
         }
 
         .radio-group input[type="radio"] {
             width: auto;
-            margin-right: 8px;
+            margin-right: 10px;
             cursor: pointer;
         }
 
         .checkbox-group {
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 20px;
-            background: #f8f9fa;
+            background: #F8FAFC;
             border-radius: 6px;
         }
 
@@ -229,14 +222,14 @@
 
         .helper-text {
             font-size: 0.9em;
-            color: #666;
+            color: #64748B;
             margin-top: 5px;
         }
 
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
             border: none;
             border-radius: 6px;
@@ -248,19 +241,19 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
         }
 
         .submit-btn:disabled {
-            background: #95a5a6;
+            background: #94A3B8;
             cursor: not-allowed;
             transform: none;
         }
 
         .error-message {
-            background: #fee;
-            border: 1px solid #fcc;
-            color: #c33;
+            background: #FEE2E2;
+            border: 1px solid #FCA5A5;
+            color: #991B1B;
             padding: 12px;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -270,13 +263,17 @@
         .footer {
             text-align: center;
             padding: 20px;
-            color: #666;
+            color: #64748B;
             font-size: 0.9em;
         }
 
         .footer a {
-            color: #667eea;
+            color: #10B981;
             text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -298,9 +295,11 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img src="assets/lemina.svg" alt="Lemina Logo" class="logo" onerror="this.style.display='none'">
+            <div class="logo">
+                <div class="logo-dot"></div>
+            </div>
             <h1>Add Your Company to Lemina</h1>
-            <p>Get discovered by investors. Featured in intelligence reports.</p>
+            <p>Get discovered by investors actively searching for what you're building</p>
         </div>
 
         <!-- Benefits Section -->
@@ -309,9 +308,9 @@
             <ul>
                 <li>Get discovered by VCs and angel investors actively looking for deals</li>
                 <li>Featured in our intelligence reports read by 100+ investors</li>
-                <li>Free company profile in our database</li>
-                <li>Potential warm introductions to investors</li>
-                <li>Quarterly updates to keep your profile fresh</li>
+                <li>Free company profile in our verified database</li>
+                <li>Potential warm introductions to active investors</li>
+                <li>Quarterly reminders to keep your profile fresh</li>
             </ul>
         </div>
 
@@ -319,8 +318,9 @@
         <div class="form-container">
             <div class="error-message" id="errorMessage"></div>
 
-            <form id="founderForm">
-                <!-- Section 1: Company Basics -->
+            <form id="founderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                
+                <!-- SECTION 1: COMPANY BASICS -->
                 <div class="form-section">
                     <h3>1. Company Basics</h3>
                     
@@ -356,24 +356,187 @@
 
                     <div class="form-group">
                         <label for="description">One-line Description<span class="required">*</span></label>
-                        <input type="text" id="description" name="description" placeholder="e.g., Digital banking for SMEs" required maxlength="100">
-                        <div class="helper-text">Max 100 characters - be concise!</div>
+                        <input type="text" id="description" name="description" placeholder="e.g., B2B payment infrastructure for SMEs" required maxlength="120">
+                        <div class="helper-text">What you build, for whom - max 120 characters</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="foundedDate">Founded Date<span class="optional">(optional)</span></label>
-                        <input type="date" id="foundedDate" name="foundedDate">
+                        <label for="foundedYear">Founded Year<span class="required">*</span></label>
+                        <input type="number" id="foundedYear" name="foundedYear" placeholder="2024" min="2010" max="2025" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="hqCity">HQ Location (City)<span class="required">*</span></label>
-                        <input type="text" id="hqCity" name="hqCity" placeholder="e.g., Lagos" required>
+                        <label for="hqCity">Headquarters<span class="required">*</span></label>
+                        <input type="text" id="hqCity" name="hqCity" placeholder="e.g., Lagos, Nigeria" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teamSize">Team Size<span class="required">*</span></label>
+                        <select id="teamSize" name="teamSize" required>
+                            <option value="">Select range...</option>
+                            <option value="1-5">1-5 people</option>
+                            <option value="6-10">6-10 people</option>
+                            <option value="11-25">11-25 people</option>
+                            <option value="26-50">26-50 people</option>
+                            <option value="51-100">51-100 people</option>
+                            <option value="100+">100+ people</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Section 2: Founder Information -->
+                <!-- SECTION 2: TRACTION & METRICS -->
                 <div class="form-section">
-                    <h3>2. Your Information</h3>
+                    <h3>2. Traction & Metrics</h3>
+                    
+                    <div class="form-group">
+                        <label for="stage">Current Stage<span class="required">*</span></label>
+                        <select id="stage" name="stage" required>
+                            <option value="">Select stage...</option>
+                            <option value="idea">Idea / Pre-product</option>
+                            <option value="mvp">MVP / Beta</option>
+                            <option value="pre-revenue">Live Product / Pre-revenue</option>
+                            <option value="revenue">Generating Revenue</option>
+                            <option value="scaling">Scaling / Growth</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you have traction?<span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="hasTraction" value="yes" required>
+                                Yes - we have users/revenue
+                            </label>
+                            <label>
+                                <input type="radio" name="hasTraction" value="no" required>
+                                No - still building
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="tractionDetails" style="display:none;">
+                        <label for="keyMetric">Key Metric<span class="optional">(optional but recommended)</span></label>
+                        <input type="text" id="keyMetric" name="keyMetric" placeholder="e.g., 10,000 active users OR $50k MRR OR ₦1B monthly GMV">
+                        <div class="helper-text">Your most impressive number - helps investors discover you</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="growthRate">Growth Rate (last 3 months)<span class="optional">(optional)</span></label>
+                        <select id="growthRate" name="growthRate">
+                            <option value="">Select range...</option>
+                            <option value="negative">Negative / Flat</option>
+                            <option value="0-10">0-10% monthly</option>
+                            <option value="10-20">10-20% monthly</option>
+                            <option value="20-50">20-50% monthly</option>
+                            <option value="50+">50%+ monthly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: FUNDING -->
+                <div class="form-section">
+                    <h3>3. Funding</h3>
+                    
+                    <div class="form-group">
+                        <label for="fundingStatus">Funding Status<span class="required">*</span></label>
+                        <select id="fundingStatus" name="fundingStatus" required>
+                            <option value="">Select status...</option>
+                            <option value="bootstrapped">Bootstrapped / Self-funded</option>
+                            <option value="friends-family">Friends & Family</option>
+                            <option value="pre-seed">Pre-seed</option>
+                            <option value="seed">Seed</option>
+                            <option value="series-a">Series A</option>
+                            <option value="series-b+">Series B+</option>
+                            <option value="raising">Currently Raising</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalFunding">Total Funding Raised<span class="optional">(optional)</span></label>
+                        <select id="totalFunding" name="totalFunding">
+                            <option value="">Select range...</option>
+                            <option value="0">$0 (Bootstrapped)</option>
+                            <option value="1-50k">$1k - $50k</option>
+                            <option value="50-250k">$50k - $250k</option>
+                            <option value="250k-1m">$250k - $1M</option>
+                            <option value="1-5m">$1M - $5M</option>
+                            <option value="5m+">$5M+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="investors">Key Investors<span class="optional">(optional)</span></label>
+                        <input type="text" id="investors" name="investors" placeholder="e.g., TLcom Capital, Partech Africa">
+                        <div class="helper-text">If you've raised from notable VCs, list them</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are you raising now?<span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="raisingNow" value="yes" required>
+                                Yes - actively fundraising
+                            </label>
+                            <label>
+                                <input type="radio" name="raisingNow" value="no" required>
+                                No - not raising currently
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="raiseDetails" style="display:none;">
+                        <label for="raiseAmount">How much are you raising?<span class="optional">(optional)</span></label>
+                        <input type="text" id="raiseAmount" name="raiseAmount" placeholder="e.g., $500k seed round">
+                    </div>
+                </div>
+
+                <!-- SECTION 4: REGULATORY & COMPLIANCE -->
+                <div class="form-section">
+                    <h3>4. Regulatory & Compliance</h3>
+                    <p style="font-size: 14px; color: #64748B; margin-bottom: 20px;">
+                        This helps investors assess regulatory risk and compliance status
+                    </p>
+                    
+                    <div class="form-group">
+                        <label>Is your company officially registered?<span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="registered" value="yes" required>
+                                Yes (CAC registered)
+                            </label>
+                            <label>
+                                <input type="radio" name="registered" value="no" required>
+                                No / In progress
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you have/need regulatory licenses?<span class="optional">(optional)</span></label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="license_cbn" value="yes">
+                                CBN License (Central Bank of Nigeria)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="license_sec" value="yes">
+                                SEC License (Securities & Exchange)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="license_naicom" value="yes">
+                                NAICOM License (Insurance)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="license_none" value="yes">
+                                No licenses required for our business
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: FOUNDER INFO -->
+                <div class="form-section">
+                    <h3>5. Your Information</h3>
                     
                     <div class="form-group">
                         <label for="founderName">Your Full Name<span class="required">*</span></label>
@@ -388,89 +551,44 @@
                     <div class="form-group">
                         <label for="founderEmail">Your Email<span class="required">*</span></label>
                         <input type="email" id="founderEmail" name="founderEmail" required>
+                        <div class="helper-text">We'll use this to notify you when investors view your profile</div>
                     </div>
 
                     <div class="form-group">
                         <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but recommended)</span></label>
                         <input type="url" id="founderLinkedIn" name="founderLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
                     </div>
-                </div>
-
-                <!-- Section 3: Product & Traction (Optional) -->
-                <div class="form-section">
-                    <h3>3. Product & Traction <span class="optional">(optional)</span></h3>
-                    
-                    <div class="form-group">
-                        <label for="productDescription">What do you build?<span class="optional">(optional)</span></label>
-                        <textarea id="productDescription" name="productDescription" placeholder="Brief description of your product/service"></textarea>
-                    </div>
 
                     <div class="form-group">
-                        <label for="targetCustomer">Who is your customer?<span class="optional">(optional)</span></label>
-                        <input type="text" id="targetCustomer" name="targetCustomer" placeholder="e.g., SMEs in Nigeria, Individual consumers">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Do you have traction?<span class="optional">(optional)</span></label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="hasTraction" value="yes">
-                                Yes
-                            </label>
-                            <label>
-                                <input type="radio" name="hasTraction" value="no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tractionMetrics">If yes, brief metrics<span class="optional">(optional)</span></label>
-                        <textarea id="tractionMetrics" name="tractionMetrics" placeholder="e.g., 10,000 users, $50k MRR, 30% MoM growth"></textarea>
-                        <div class="helper-text">Optional but helps VCs discover you</div>
+                        <label for="founderTwitter">Your Twitter/X<span class="optional">(optional)</span></label>
+                        <input type="text" id="founderTwitter" name="founderTwitter" placeholder="@yourhandle">
                     </div>
                 </div>
 
-                <!-- Section 4: Funding (Optional) -->
+                <!-- SECTION 6: PERMISSIONS -->
                 <div class="form-section">
-                    <h3>4. Funding <span class="optional">(optional)</span></h3>
-                    
-                    <div class="form-group">
-                        <label>Have you raised funding?<span class="optional">(optional)</span></label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="hasFunding" value="yes">
-                                Yes
-                            </label>
-                            <label>
-                                <input type="radio" name="hasFunding" value="no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fundingDetails">If yes, how much and from whom?<span class="optional">(optional)</span></label>
-                        <textarea id="fundingDetails" name="fundingDetails" placeholder="e.g., $500k seed from XYZ Ventures in 2024"></textarea>
-                    </div>
-                </div>
-
-                <!-- Section 5: Permissions -->
-                <div class="form-section">
-                    <h3>5. Permissions</h3>
+                    <h3>6. Permissions</h3>
                     
                     <div class="checkbox-group">
                         <label>
-                            <input type="checkbox" name="featureInReports" value="yes" checked>
-                            Yes, feature my company in Lemina intelligence reports
+                            <input type="checkbox" name="featureInReports" value="yes" checked required>
+                            <strong>Yes, feature my company in Lemina intelligence reports</strong>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="shareWithInvestors" value="yes" checked>
+                            Yes, share my profile with investors looking for companies like mine
                         </label>
                         <label>
                             <input type="checkbox" name="notifyViewers" value="yes" checked>
                             Yes, notify me when investors view my profile
                         </label>
                         <label>
+                            <input type="checkbox" name="quarterlyUpdates" value="yes" checked>
+                            Yes, send me reminders to update my company profile quarterly
+                        </label>
+                        <label>
                             <input type="checkbox" name="newsletter" value="yes" checked>
-                            Yes, send me quarterly market insights (newsletter)
+                            Yes, send me market insights newsletter
                         </label>
                     </div>
                 </div>
@@ -484,66 +602,36 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p>Questions? Email us at admin@lemina.co or <a href="index.html">return to homepage</a></p>
+            <p>Questions? Email us at <a href="mailto:admin@lemina.co">admin@lemina.co</a> or <a href="../">return to homepage</a></p>
         </div>
     </div>
 
     <!-- Form Handling Script -->
     <script>
-        document.getElementById('founderForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
+        // Show traction details if "yes"
+        document.querySelectorAll('input[name="hasTraction"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('tractionDetails').style.display = 
+                    this.value === 'yes' ? 'block' : 'none';
+            });
+        });
+
+        // Show raise details if raising
+        document.querySelectorAll('input[name="raisingNow"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('raiseDetails').style.display = 
+                    this.value === 'yes' ? 'block' : 'none';
+            });
+        });
+
+        // Form submission
+        document.getElementById('founderForm').addEventListener('submit', function(e) {
             const submitBtn = document.getElementById('submitBtn');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Disable button
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
-            errorMessage.style.display = 'none';
             
-            // Collect form data
-            const formData = new FormData(this);
-            const data = {};
-            
-            formData.forEach((value, key) => {
-                // Handle checkboxes and radio buttons
-                if (this.elements[key].type === 'checkbox') {
-                    if (!data[key]) data[key] = [];
-                    if (this.elements[key].checked) {
-                        data[key].push(value);
-                    }
-                } else {
-                    data[key] = value;
-                }
-            });
-            
-            // Add timestamp
-            data.submittedAt = new Date().toISOString();
-            
-            try {
-                // TODO: Replace with your actual endpoint
-                // For now, we'll use a mock endpoint that always succeeds
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                // Store in localStorage as backup (temporary solution)
-                const submissions = JSON.parse(localStorage.getItem('founderSubmissions') || '[]');
-                submissions.push(data);
-                localStorage.setItem('founderSubmissions', JSON.stringify(submissions));
-                
-                console.log('Form submitted:', data);
-                
-                // Redirect to thank you page
-                window.location.href = 'thank-you.html?company=' + encodeURIComponent(data.companyName);
-                
-            } catch (error) {
-                console.error('Submission error:', error);
-                errorMessage.textContent = 'Something went wrong. Please try again or email us at hello@lemina.io';
-                errorMessage.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Add My Company';
-            }
+            // Formspree will handle the actual submission
+            // After successful submission, redirect happens automatically
         });
     </script>
 </body>
