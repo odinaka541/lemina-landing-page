@@ -1995,9 +1995,6 @@
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2051,13 +2048,6 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 30px;
-        }
-
-        .logo-dot {
-            width: 16px;
-            height: 16px;
-            background: #FCD34D;
-            border-radius: 50%;
         }
 
         .cover h1 {
@@ -2288,30 +2278,30 @@
             background: #F8FAFC;
             border: 2px solid #E2E8F0;
             border-radius: 8px;
-            margin-bottom: 12px;
-            overflow: hidden;
+            padding: 20px;
+            margin-bottom: 16px;
         }
 
         .faq-question {
-            padding: 16px 20px;
             font-size: 16px;
             font-weight: 700;
             color: #059669;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 12px;
         }
 
         .faq-answer {
-            padding: 0 20px 16px 20px;
             font-size: 15px;
             color: #334155;
-            display: none;
+            line-height: 1.6;
         }
 
-        .faq-answer.active {
-            display: block;
+        .more-companies-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #D1FAE5 100%);
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
         }
 
         @media print {
@@ -2333,11 +2323,11 @@
 
         <div class="subtitle">African Tech Market Intelligence</div>
 
-        <div class="badge">Investment-Grade Analysis for Investors</div>
+        <div class="badge">Building the investment bank for African tech</div>
 
         <div class="stat-grid" style="max-width: 600px;">
             <div style="text-align: center;">
-                <div style="font-size: 36px; font-weight: 800;">15+</div>
+                <div style="font-size: 36px; font-weight: 800;">30+</div>
                 <div style="font-size: 14px; opacity: 0.9;">Companies Tracked</div>
             </div>
             <div style="text-align: center;">
@@ -2346,13 +2336,11 @@
             </div>
             <div style="text-align: center;">
                 <div style="font-size: 36px; font-weight: 800;">3</div>
-                <div style="font-size: 14px; opacity: 0.9;">Companies Analyzed</div>
+                <div style="font-size: 14px; opacity: 0.9;">Companies Shown</div>
             </div>
         </div>
 
         <div style="font-size: 18px; opacity: 0.8; margin-top: 80px;">
-            <strong>Building the investment bank for African tech</strong><br />
-            Starting with intelligence<br />
             lemina.co | admin@lemina.co
         </div>
     </div>
@@ -2363,7 +2351,7 @@
 
         <p style="font-size: 18px; color: #334155; margin-bottom: 30px; line-height: 1.8;">
             Lemina is the <strong>market intelligence platform</strong> for investors deploying capital
-            in African markets. We provide comprehensive, verified data on African tech companies—helping
+            in African markets. We provide comprehensive, verified data on 30+ Nigerian tech companies—helping
             you source deals, conduct due diligence, and make confident investment decisions across all sectors.
         </p>
 
@@ -2373,47 +2361,64 @@
             You're about to write a $10,000 check. Maybe $50,000. Maybe more.
         </p>
 
+        <p style="font-size: 16px; color: #334155; margin-bottom: 20px;">
+            You've already done your homework - you've heard about the founders, checked references, run models. You're doing everything right.
+        </p>
+
         <div class="pain-box">
-            <p style="margin-bottom: 12px;"><strong>Here's what keeps you up at night:</strong></p>
+            <p style="margin-bottom: 12px;"><strong>But here's what still keeps you up at night:</strong></p>
             <p style="margin: 8px 0; color: #991B1B;">
-                <strong>Who's building what?</strong> You find 10 companies via Google. You miss the other 90 that never made it to you or your network.
+                <strong>Who else is building in this space?</strong> You've mapped out 1 or 2 competitors through your
+                network
+                and research. But what if there's a stealth player you missed? What if the market's more crowded than
+                you think?
             </p>
             <p style="margin: 8px 0; color: #991B1B;">
-                <strong>What's their real traction?</strong> Founders say "10,000 users." Are those active? Paying?
-                Growing? You don't know.
+                <strong>What's their REAL traction?</strong> Founder says "1,000 active users." Your DD confirms they
+                have 1,000 sign-ups. But how many are actually <em>active</em>? How many are <em>paying</em>? What's
+                the retention curve look like?
+            </p>
+            <!-- <p style="margin: 8px 0; color: #991B1B;">
+                <strong>Am I early or late?</strong> You found this deal through your network. Great. But how many other
+                angels have they already talked to? Are you evaluating or competing? Is this a negotiation or an
+                auction?
+            </p> -->
+            <p style="margin: 8px 0; color: #991B1B;">
+                <strong>Founder says "$5B TAM." You spend 20 hours building a bottom-up model. It's actually $200M.
             </p>
             <p style="margin: 8px 0; color: #991B1B;">
-                <strong>Who's raising?</strong> By the time you hear about a deal, 3 other angels already committed.
-                You're late.
-            </p>
-            <p style="margin: 8px 0; color: #991B1B;">
-                <strong>How big is this market really?</strong> Founder says "$5B TAM." You spend 20 hours building a
-                bottom-up model. It's actually $200M.
-            </p>
-            <p style="margin: 8px 0; color: #991B1B;">
-                <strong>Are they even legal?</strong> Company's been operating 2 years. No CBN license. No CAC
-                registration. Your money funds a shutdown.
+                <strong>What's the regulatory minefield?</strong> They've been operating 18 months. Product-market fit
+                is there. But do they have the licenses they need? Are they compliant? Or is your capital about to fund
+                a very expensive legal lesson?
             </p>
         </div>
 
         <p style="font-size: 16px; color: #334155; margin: 20px 0;">
-            <strong>The real cost?</strong>
+            <strong>The real cost:</strong>
         </p>
 
         <ul style="font-size: 16px; color: #991B1B; margin-bottom: 24px;">
-            <li><strong>You miss the 10x deal</strong> because you didn't know it existed until their Series A was announced</li>
-            <li><strong>You invest $100K in a company burning $50K/month with $200K in the bank.</strong> They're dead
-                in 4 months. Your money's gone.</li>
-            <li><strong>You pass on a great company</strong> because you can't verify their claims in time. Your
-                competitor writes the check. Makes 25x.</li>
-            <li><strong>You spend 60 hours researching.</strong> That's $3,000-6,000 of your time. Per deal. And you
-                still don't have complete information.</li>
+            <li><strong>You're missing deals because they never
+                entered your network.</strong> The founder never got the introduction. You literally couldn't have known they existed.
+            </li>
+            <li><strong>You're getting burned because the data
+                you need doesn't exist in one place.</strong> It's scattered across WhatsApp chats, LinkedIn posts, and founder
+                claims
+                you can't fully verify.</li>
+            <li><strong>You're slow to a decision because comprehensive DD takes
+                40-60 hours.</strong> The system for comprehensive DD is inefficient.</li>
         </ul>
 
-        <div class="pain-box">
-            <strong>The brutal truth:</strong> Every angel investor in Africa is flying blind with fragmented data. You're making $50K-500K
-            decisions
-            with incomplete data, hoping you're not about to step on a landmine. That ends today.
+        <div class="value-box">
+            <strong>You're doing everything right. But there's a better system.</strong>
+            <p style="margin: 10px 0; color: #065F46;">
+                What if you could cut DD time from weeks to less than 10 hours — and with even better quality? What if you could see
+                every company in a sector—not just the ones that got press or intros? What if you had verified traction
+                data, regulatory status, and market sizing done for you—before the first call with the founder?
+            </p>
+            <p style="margin: 10px 0; color: #065F46;">
+                That's Lemina. Not replacing your judgment. <strong>Amplifying it.</strong>
+            </p>
         </div>
 
         <div class="footer">
@@ -2436,33 +2441,30 @@
             <div class="feature-card">
                 <div class="feature-title">1. Company Profiling</div>
                 <div class="feature-desc">
-                    Every Nigerian tech company worth knowing about. Verified traction data (revenue, users,
-                    growth rates). Team backgrounds. Product details. Funding history. Updated in real-time
-                    as companies hit milestones.
+                    Every Nigerian tech company worth knowing about. Verified traction data (revenue, users, growth rates). Team backgrounds. Product details. Funding history. Updated in real-time as companies hit milestones.
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">2. Market Sizing & Landscaping</div>
                 <div class="feature-desc">
-                    Know exactly how big the market is. See who's winning, who's losing, and why. Competitive
-                    positioning maps. TAM/SAM/SOM calculations done for you. Sector-level trends and predictions.
+                    Know exactly how big the market is. See who's winning, who's losing, and why. Competitive positioning maps. TAM/SAM/SOM calculations done for you. Sector-level trends and predictions.
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">3. Regulatory Verification</div>
                 <div class="feature-desc">
-                    CAC registration status. CBN/SEC/NAICOM licensing. Compliance red flags. Know if you're
-                    investing in a legal entity or a lawsuit waiting to happen.
+                    Registration status verified via public records and secured. Licensing tracked and updated.
+                    Compliance
+                    red flags identified early. Know before you invest: are they operating legally or on borrowed time?
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">4. Real-Time Updates</div>
                 <div class="feature-desc">
-                    Companies raise funding? You know within 24 hours. Product launch? You see it. Key hire?
-                    Tracked. Burn rate accelerating? Alert sent. Dashboard launches December 2025 with live data.
+                    Companies raise funding? You know within 24 hours. Product launch? You see it. Key hire? Tracked. Burn rate accelerating? Alert sent. Dashboard launches December 2025 with live data.
                 </div>
             </div>
         </div>
@@ -2470,51 +2472,55 @@
         <h3>How We Actually Do This</h3>
 
         <p style="font-size: 16px; color: #334155; margin-bottom: 20px;">
-            <strong>Most intelligence platforms scrape the internet and call it a day. We don't.</strong>
+            <strong>Most intelligence platforms scrape press releases and call it research. We don't.</strong>
         </p>
 
         <div class="value-box">
-            <strong>Step 1: Founders keep us updated (gamified system)</strong>
+            <strong>Step 1: Founders keep us updated</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                We built a system where founders WANT to update their profiles. Why? Because investors using
-                Lemina actively search for companies. The more complete your profile, the more visibility you get.
-                Founders compete to be featured. We get fresh data. You get accurate intelligence.
+                We built a system where founders WANT to update their profiles. Why? Because investors using Lemina
+                actively search for companies. The more complete and current your profile, the more investor visibility
+                you get. Founders compete to be featured. We get fresh data. You get accurate intelligence. 
             </p>
         </div>
 
         <div class="value-box">
             <strong>Step 2: We collect what investors actually need</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                Not vanity metrics. Real data: Monthly burn rate. Runway. Customer acquisition cost. Churn.
-                Revenue (not GMV). Active users (not downloads). We ask for the questions YOU would ask in due
-                diligence.
+                Not vanity metrics. Real data: For revenue-stage companies: MRR/ARR, burn rate, runway, CAC, LTV, churn + financial analyses.
+                For pre-revenue companies: active user engagement metrics, waitlist size (verified), pilot customer
+                commitments,
+                founder background, technical moat assessment. We ask the questions YOU would ask in DD.
             </p>
         </div>
 
         <div class="value-box">
             <strong>Step 3: Multi-source verification</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                Founder says "$50K MRR"? We verify with: payment processor data (where available), team size
-                (salary burn implies revenue), LinkedIn activity, customer testimonials, regulatory filings.
-                If we can't verify, we flag it.
+                Founder says "$10K MRR"? We verify with: payment processor data (where available), team size (salary burn implies revenue), LinkedIn activity, customer testimonials, regulatory filings. If we can't verify, we flag it.
             </p>
         </div>
 
         <div class="value-box">
-            <strong>Step 4: Market sizing using real data</strong>
+            <strong>Step 4: Market sizing using real data, not fantasy</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                Not "Nigeria has 200M people, therefore TAM is $5B." We calculate bottom-up: How many companies
-                in this sector? Average revenue per company? Growth rates? Market saturation? You get TAM/SAM/SOM
-                models built from actual company data, not fantasy.
+                Not "Nigeria has 200M people, therefore TAM is $5B." We calculate bottom-up: How many companies exist in
+                this
+                sector? What's the average revenue per company? What's the growth rate? What's current market
+                penetration?
+                You get TAM/SAM/SOM models built from actual market data.
             </p>
         </div>
 
-        <h4>Plus: Investment Readiness Scores</h4>
+        <h3>Plus: Investment Readiness Scores</h3>
 
         <p style="font-size: 16px; color: #334155;">
-            We score every company on capital efficiency, growth trajectory, and runway. You see at a glance:
-            <strong>BUY</strong> (strong fundamentals, good entry point), <strong>HOLD</strong> (wait for better
-            metrics), or <strong>AVOID</strong> (red flags present).
+            We score every company on: capital efficiency (burn multiple), growth trajectory (MoM/QoQ), runway (months
+            until
+            they need to raise), team strength (founder backgrounds, advisory board). You see at a glance:
+            <strong>BUY</strong>
+            (strong fundamentals, good entry point), <strong>HOLD</strong> (interesting but wait for better metrics), or
+            <strong>AVOID</strong> (red flags present, pass).
         </p>
 
         <div class="footer">
@@ -2528,29 +2534,38 @@
         <h2>Who Uses Lemina?</h2>
 
         <ul style="font-size: 16px; color: #334155;">
-            <li><strong>Angel Investors & Networks:</strong> Source deals before they're announced. Comprehensive due diligence
-                in less than 10 hours instead of 60. Portfolio benchmarking (is my company ahead or behind the market?).</li>
+            <li><strong>Angel Investors & Networks:</strong> Source deals before they're publicly announced.
+                Comprehensive
+                due diligence in less than 10 hours instead of weeks. Portfolio benchmarking—see how your companies compare to market
+                peers
+                on key metrics.</li>
 
-            <li><strong>Venture Capital Firms:</strong> Market sizing for investment memos. Competitive analysis.
-                Track companies from pre-seed to Series A (see who's ready for your check size).</li>
+            <li><strong>Venture Capital Firms:</strong> Market sizing models for investment memos. Competitive analysis
+                for IC presentations. Track companies from pre-seed to Series A—see who's ready for your check size
+                before
+                they formally fundraise.</li>
 
-            <li><strong>Banks & Financial Institutions:</strong> Evaluate partnership opportunities (should we
-                work with this fintech?). Market entry strategy (which sector is growing fastest?). M&A target
-                identification.</li>
+            <li><strong>Banks & Financial Institutions:</strong> Evaluate fintech partnership opportunities with comprehensive data. Market entry strategy backed by actual sector analysis. M&A target identification—see
+                who's
+                scaling sustainably vs burning hot.</li>
 
-            <li><strong>Corporate Development Teams:</strong> Competitive intelligence (who's building what we should
-                build?). Acquisition targets (who should we buy before our competitor does?). Market trend analysis.
-            </li>
+            <li><strong>Corporate Development Teams:</strong> Competitive intelligence—see what's being built before it
+                disrupts you. Acquisition target screening—find companies that fit your strategic thesis. Market trend
+                analysis
+                to inform build-vs-buy decisions.</li>
 
-            <li><strong>Founders:</strong> Get discovered by investors actively deploying capital. See how you stack
-                up against competitors. Understand what metrics investors care about (so you can improve them).</li>
+            <li><strong>Founders:</strong> Get discovered by investors actively deploying capital. Benchmark your
+                metrics
+                against competitors anonymously. Understand what data points investors actually care about—so you can
+                improve
+                what matters.</li>
         </ul>
 
-        <div class="insight-box">
-            <strong>Who this is NOT for:</strong> If you're looking for publicly-traded African stocks or African
-            real estate intel, we're not your platform. Lemina is built specifically for private company intelligence
-            in the Nigerian tech ecosystem.
-        </div>
+        <!-- <div class="insight-box">
+            <strong>Who this is best suited for:</strong> Investors focused on private company intelligence in African
+            tech.
+            If you're writing $10K-$500K checks into early-stage Nigerian tech companies, this is built for you.
+        </div> -->
 
         <h3>How You'll Use Lemina</h3>
 
@@ -2563,30 +2578,32 @@
         <div class="workflow-step">
             <div class="step-number">1</div>
             <div class="step-text">
-                <strong>Filter by your thesis:</strong> "Show me payments companies, pre-seed to seed stage,
-                generating revenue, raising capital now."
+                <strong>Filter by your thesis:</strong> "Show me: embedded finance companies, pre-seed to seed stage,
+                have active pilot customers, currently raising or planning to raise."
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">2</div>
             <div class="step-text">
-                <strong>Review profiles:</strong> 8 companies match. You see: revenue, burn rate, runway, team,
-                product, customers. Takes 5 minutes per company.
+                <strong>Review profiles in minutes:</strong> 6 companies match your criteria. You see: verified traction
+                metrics, team backgrounds, competitive positioning, regulatory status. Takes 5-7 minutes per company.
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">3</div>
             <div class="step-text">
-                <strong>Reach out to 3 companies</strong> that match your criteria. You're in their inbox BEFORE
-                they announce their round publicly.
+                <strong>Reach out directly or request intro:</strong> You're in their inbox BEFORE they announce
+                publicly,
+                BEFORE it becomes a bidding war, BEFORE your competitor even knows they exist.
             </div>
         </div>
 
-        <div class="pain-box">
-            <strong>What you avoided:</strong> Missing the deal entirely because you heard about it 2 weeks after
-            they closed their round. Watching your competitor invest in a company you didn't even know existed.
+        <div class="value-box">
+            <strong>What you just avoided:</strong> Missing the deal entirely because it never hit your LinkedIn feed.
+            Losing to a competitor who found them first. Paying a 40% higher valuation because you showed up late to a
+            competitive process.
         </div>
 
         <h3 style="margin-top: 30px;">Use Case 2: Due Diligence (Verify in Hours, Not Weeks)</h3>
@@ -2594,39 +2611,41 @@
         <div class="workflow-step">
             <div class="step-number">1</div>
             <div class="step-text">
-                <strong>Founder pitches you.</strong> Claims: $50K MRR, 20% MoM growth, 18 months runway.
+                <strong>Founder pitches you.</strong> Claims: $5K MRR, 15% MoM growth, 18 months runway, compliant with
+                regulations.
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">2</div>
             <div class="step-text">
-                <strong>Pull their Lemina profile.</strong> See: Verified revenue trend (is $50K consistent or
-                a one-time spike?), burn multiple (are they efficient?), regulatory status (do they have required
-                licenses?).
+                <strong>Pull their Lemina profile in 30 seconds.</strong> See: verified revenue trend (is $5K
+                consistent
+                or a one-month spike?), burn multiple (are they capital efficient?), regulatory status (licenses
+                confirmed or flagged).
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">3</div>
             <div class="step-text">
-                <strong>Benchmark against 10 competitors.</strong> How do their metrics compare? Are they top 20%?
-                Bottom 50%?
+                <strong>Benchmark against 8-10 sector competitors.</strong> Where do they rank on revenue, growth rate,
+                capital efficiency? Top quartile or bottom half?
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">4</div>
             <div class="step-text">
-                <strong>Decision in 10 hours</strong> (vs. 60 hours of your team manually researching). Write the
-                check or pass with confidence.
+                <strong>Decision in 10 hours total</strong> (vs. 60+ hours manually researching). You've verified their
+                claims, seen the market context, checked regulatory status. Write the check or pass—with confidence.
             </div>
         </div>
 
-        <div class="pain-box">
-            <strong>What you avoided:</strong> Investing in a company that's burning 3x faster than they claimed.
-            Discovering post-investment that they don't have the required CBN license. Losing $100K because you
-            couldn't verify their claims before someone else closed the deal.
+        <div class="value-box">
+            <strong>What you just avoided:</strong> Investing in a company burning 2-3x faster than they disclosed.
+            Discovering post-investment they're operating without required licenses. Losing a great deal because your
+            60-hour DD process meant someone else closed first.
         </div>
 
         <div class="footer">
@@ -2637,10 +2656,10 @@
 
     <!-- PAGE 5: THE DASHBOARD -->
     <div class="page">
-        <h2>The Lemina Dashboard (Launching December 2025)</h2>
+        <h2>The Lemina Dashboard (Launching January 2026)</h2>
 
         <p style="font-size: 16px; color: #334155; margin-bottom: 30px;">
-            Right now, you get quarterly reports (PDF + Excel). In December 2025, you get a live dashboard + dedicated CRM to manage your deals.
+            Right now, you get reports (PDF + Excel). In January 2026, you get a live dashboard.
             <strong>Early adopters get lifetime access included</strong> (worth $2,500/year once launched).
         </p>
 
@@ -2650,8 +2669,9 @@
             <div class="feature-card">
                 <div class="feature-title">Advanced Search & Filters</div>
                 <div class="feature-desc">
-                    Find exactly what you're looking for in seconds. Filter by 20+ criteria: sector, stage,
-                    revenue range, growth rate, fundraising status, location, team size, burn multiple, runway,
+                    Find exactly what you're looking for in seconds. Filter by 20+ criteria: sector, stage, revenue
+                    range,
+                    growth trajectory, fundraising status, location, team size, capital efficiency, runway remaining,
                     and more.
                 </div>
             </div>
@@ -2659,48 +2679,64 @@
             <div class="feature-card">
                 <div class="feature-title">Real-Time Updates</div>
                 <div class="feature-desc">
-                    No more waiting 3 months for the next report. See updates within 24-48 hours of companies
-                    announcing funding, launching products, or hitting key milestones.
+                    See updates within 24-48 hours of companies
+                    announcing funding, launching products, or hitting key milestones. Stay ahead, not behind.
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">Custom Alerts</div>
                 <div class="feature-desc">
-                    "Alert me when a payments company, pre-seed stage, starts raising capital." Set it and forget it.
-                    We email you when deals matching your criteria become available.
+                    "Alert me when: an embedded finance company, pre-seed stage, announces they're raising." Set it
+                    once.
+                    We email you when deals matching your exact criteria become available. Never miss your thesis again.
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">Market Analytics</div>
                 <div class="feature-desc">
-                    Interactive charts showing funding trends, sector growth, valuation multiples over time.
-                    See where capital is flowing and adjust your thesis accordingly.
+                    Interactive charts showing funding trends over time, sector-level growth rates, valuation multiple
+                    evolution.
+                    See where capital is flowing. Adjust your thesis based on data.
                 </div>
             </div>
 
             <div class="feature-card">
-                <div class="feature-title">Mini CRM</div>
+                <div class="feature-title">Dealroom, CRM</div>
                 <div class="feature-desc">
-                    Track which companies you've contacted, meeting notes, follow-up reminders. Your deal pipeline
-                    in one place alongside the intelligence.
+                    Track companies you've contacted, log meeting notes, set follow-up reminders. Your entire deal
+                    pipeline
+                    in one place alongside the intelligence. Stop using scattered spreadsheets.
                 </div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-title">Export Everything</div>
                 <div class="feature-desc">
-                    Download company lists, market reports, and analytics as CSV, PDF, or Excel whenever you need them.
+                    Download company lists, market analyses, and sector reports as CSV, PDF, or Excel whenever you need
+                    them.
+                    Use for investment memos, IC presentations, or your own analysis.
                 </div>
             </div>
         </div>
 
         <div class="value-box">
-            <strong>Early Adopter Benefit:</strong> You're locking in $99 for LIFETIME access to the dashboard.
-            When we launch in December 2025, regular users pay $2,500/year. You pay $99 once. Ever. That's a
-            <strong>$24,901 savings</strong> over 10 years. Plus, you get to tell us what features to build.
-            We're building this FOR you—not guessing what investors might want.
+            <strong>The Early Adopter Advantage:</strong>
+            <p style="margin: 10px 0; color: #065F46;">
+                You're locking in $99 for LIFETIME dashboard access. When we launch in January 2026, regular users pay
+                $2,500/year. You pay $99 once. Ever.
+            </p>
+            <p style="margin: 10px 0; color: #065F46;">
+                <strong>That's $24,901 saved over 10 years.</strong>
+            </p>
+            <p style="margin: 10px 0; color: #065F46;">
+                Plus: You get to tell us what to build. Need a specific filter? We add it. Want a certain metric
+                tracked?
+                We prioritize it. Regular users get whatever we ship. You get exactly what you need—because you're
+                building
+                it with us.
+            </p>
         </div>
 
         <div class="footer">
@@ -2709,26 +2745,23 @@
         </div>
     </div>
 
-    <!-- PAGES 6-8: COMPANY PROFILES -->
+    <!-- PAGE 6: SAMPLE COMPANY PROFILE -->
     <div class="page">
-        <h2>Sample Company Profiles (FREE)</h2>
+        <h2>Sample Company Profile (FREE)</h2>
 
         <p style="font-size: 18px; color: #334155; margin-bottom: 30px;">
-            The full report includes 15+ company profiles. Here are 3 examples showing the depth of
-            analysis you get:
+            The full report includes 30+ company profiles. Here's 1 example showing the depth of analysis you get:
         </p>
 
         <div class="insight-box">
-            <strong>This sample is completely FREE.</strong> No credit card. No strings attached. We're giving
-            you a real taste of the intelligence so you can see if it's worth $99 for the full package.
+            <strong>This sample is completely FREE.</strong> No credit card. No strings attached. We're giving you a
+            real
+            taste of the intelligence so you can see if it's worth $99 for the full package.
         </div>
-
-        <!-- Insert your 3 company cards here - SerenDPT, Xara, Rivy -->
-        <!-- Copy from your existing index.html carousel -->
 
         <div
             style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 12px; padding: 20px; margin: 20px 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;margin-bottom: 16px;">
                 <span style="font-size: 18px; font-weight: 600; color: #0F172A;">SerenDPT AI</span>
                 <span
                     style="font-size: 14px; color: #10B981; font-weight: 500; padding: 4px 8px; background: rgba(16, 185, 129, 0.1); border-radius: 4px;">Pre-seed</span>
@@ -2744,106 +2777,52 @@
                     <span style="font-weight: 600;">F&F, less than $5K</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #64748B;">Stage</span>
+                    <span style="font-weight: 600;">MVP with early users</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
                     <span style="color: #64748B;">Active Users</span>
-                    <span style="font-weight: 600;">
-                        less than 100</span>
+                    <span style="font-weight: 600;">Less than 100</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span style="color: #64748B;">Monthly Revenue</span>
-                    <span style="font-weight: 600;">
-                        less than $1K</span>
+                    <span style="font-weight: 600;">Pre-revenue (pilot phase)</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span style="color: #64748B;">Team Size</span>
-                    <span style="font-weight: 600;">4</span>
+                    <span style="font-weight: 600;">4 (2 technical, 2 product)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #64748B;">Regulatory Status</span>
+                    <span style="font-weight: 600;">CAC registered, compliant</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span style="color: #64748B;">Why Promising</span>
-                    <span style="font-weight: 600; text-align: right; max-width: 60%;">First player solving
-                        multi-billion dollar EdTech need</span>
+                    <span style="font-weight: 600; text-align: right; max-width: 60%;">First mover solving multi-billion
+                        dollar EdTech accessibility need</span>
                 </div>
             </div>
         </div>
-
-
-
-        <!-- <div
-            style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 12px; padding: 20px; margin: 20px 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                <span style="font-size: 18px; font-weight: 600; color: #0F172A;">Xara</span>
-                <span
-                    style="font-size: 14px; color: #10B981; font-weight: 500; padding: 4px 8px; background: rgba(16, 185, 129, 0.1); border-radius: 4px;">Pre-Seed</span>
+        <div class="more-companies-box">
+            <div style="font-size: 48px; font-weight: 800; color: #10B981; margin-bottom: 16px;">+2 More</div>
+            <div style="font-size: 18px; font-weight: 600; color: #0F172A; margin-bottom: 12px;">
+                Want to see the other 2 sample profiles?
             </div>
-            <div style="display: grid; gap: 12px; font-size: 14px;">
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Focus</span>
-                    <span style="font-weight: 600; text-align: right; max-width: 60%;">WhatsApp-first payment
-                        system</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Total Funding</span>
-                    <span style="font-weight: 600;">Bootstrapped</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Monthly GMV</span>
-                    <span style="font-weight: 600;">₦1B</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Monthly Revenue</span>
-                    <span style="font-weight: 600;">
-                        <$40K< /span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Team Size</span>
-                    <span style="font-weight: 600;">10</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Why Promising</span>
-                    <span style="font-weight: 600; text-align: right; max-width: 60%;">Seamless payments on Africa's
-                        most-used app</span>
-                </div>
+            <div style="font-size: 15px; color: #334155; margin-bottom: 24px;">
+                Including companies in clean energy and payments infrastructure
             </div>
-        </div> -->
+            <div style="font-size: 14px; color: #64748B;">
+                Email <strong style="color: #10B981;">admin@lemina.co</strong> with "Send full sample"
+            </div>
+        </div>
 
-        <div
-            style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 12px; padding: 20px; margin: 20px 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                <span style="font-size: 18px; font-weight: 600; color: #0F172A;">Rivy</span>
-                <span
-                    style="font-size: 14px; color: #10B981; font-weight: 500; padding: 4px 8px; background: rgba(16, 185, 129, 0.1); border-radius: 4px;">Seed</span>
-            </div>
-            <div style="display: grid; gap: 12px; font-size: 14px;">
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Focus</span>
-                    <span style="font-weight: 600; text-align: right; max-width: 60%;">Clean energy financing
-                        platform</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Total Funding</span>
-                    <span style="font-weight: 600;">$4M</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Valuation</span>
-                    <span style="font-weight: 600;">$20M</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Active Loans</span>
-                    <span style="font-weight: 600;">2K+ solar kits</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Monthly Revenue</span>
-                    <span style="font-weight: 600;">$60K</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Team Size</span>
-                    <span style="font-weight: 600;">20</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #64748B;">Why Promising</span>
-                    <span style="font-weight: 600; text-align: right; max-width: 60%;">Addresses Nigeria's energy crisis
-                        at scale</span>
-                </div>
-            </div>
+        <div class="value-box">
+            <strong>In the full report, you get:</strong>
+            <p style="margin: 10px 0; color: #065F46;">
+                30+ profiles like this across fintech, healthtech, edtech, logistics, agritech, and cleantech. Each with
+                verified traction data, team backgrounds, competitive positioning, regulatory status, and investment
+                readiness scores. Plus sector-level market sizing and competitive landscape analysis.
+            </p>
         </div>
 
         <div class="footer">
@@ -2857,49 +2836,69 @@
         <h2>What You Get as an Early Adopter</h2>
 
         <p style="font-size: 18px; color: #334155; margin-bottom: 30px;">
-            This FREE sample shows 3 companies. The full early adopter package includes significantly more:
+            This FREE sample shows 3 company profiles. The full early adopter package includes significantly more:
         </p>
 
         <h3>1. Full Intelligence Report (Delivered in 2026)</h3>
         <ul style="font-size: 16px; color: #334155; margin-bottom: 24px;">
-            <li><strong>15+ company profiles</strong> (vs. 3 in this free sample) - covering fintech, healthtech,
-                edtech, logistics, and more</li>
-            <li><strong>Comprehensive PDF report</strong> with market analysis and competitive landscapes</li>
-            <li><strong>Excel database</strong> with all company data (sortable, filterable)</li>
-            <li><strong>Sector deep-dives:</strong> Which sectors are growing? Which are dying? Where's the white space?
+            <li><strong>30+ company profiles</strong> (vs. 1 in this free sample) - covering fintech, healthtech,
+                edtech,
+                agritech, logistics, cleantech, and more</li>
+            <li><strong>Comprehensive PDF report</strong> with sector-level market analysis and competitive landscapes
             </li>
-            <li><strong>Market sizing models:</strong> TAM/SAM/SOM calculated from actual company data</li>
-            <li><strong>Investment readiness scores:</strong> BUY/HOLD/AVOID ratings with detailed rationale</li>
-            <li><strong>Regulatory intelligence:</strong> Who has licenses? Who's operating without them? Red flags
-                identified.</li>
-            <li><strong>Funding trends:</strong> Where is capital flowing? What are the valuation multiples?</li>
+            <li><strong>Excel database</strong> with all company data (sortable, filterable, ready for your own
+                analysis)</li>
+            <li><strong>Sector deep-dives:</strong> Which sectors are growing fastest? Which are oversaturated? Where
+                are
+                the white space opportunities?</li>
+            <li><strong>Market sizing models:</strong> TAM/SAM/SOM calculated bottom-up from actual company data, not
+                top-down fantasies</li>
+            <li><strong>Investment readiness scores:</strong> BUY/HOLD/AVOID ratings with detailed rationale for each
+                company</li>
+            <li><strong>Regulatory intelligence:</strong> Who has required licenses? Who's operating without them? Red
+                flags
+                identified before you write a check.</li>
+            <li><strong>Funding trends:</strong> Where is capital flowing? What are the valuation multiples by stage and
+                sector?</li>
         </ul>
 
         <h3>2. Real-Time Updates</h3>
         <ul style="font-size: 16px; color: #334155; margin-bottom: 24px;">
-            <li><strong>Until dashboard launches (Dec 2025):</strong> Quarterly report updates</li>
-            <li><strong>After dashboard launches:</strong> Real-time updates (companies raise, launch, hire, burn rate
-                changes—you see it within 24-48 hours)</li>
-            <li><strong>Email alerts:</strong> Get notified when companies matching your criteria take action</li>
-            <li><strong>12 months included,</strong> then ongoing access as long as you're an early adopter</li>
+            <li><strong>Until dashboard launches (January 2026):</strong> Report updates delivered via email
+            </li>
+            <li><strong>After dashboard launches:</strong> Real-time updates—companies raise funding, launch products,
+                hit
+                milestones, you see it within 24-48 hours, not 3 months later</li>
+            <li><strong>Email alerts:</strong> Get notified when companies matching your specific criteria take action
+            </li>
+            <li><strong>12 months included,</strong> then ongoing access for life as an early adopter</li>
         </ul>
 
-        <h3>3. Dashboard Access (Launching December 2025)</h3>
+        <h3>3. Dashboard Access (Launching January 2026)</h3>
         <ul style="font-size: 16px; color: #334155; margin-bottom: 24px;">
-            <li><strong>LIFETIME access</strong> to the dashboard (regular users will pay $2,500/year)</li>
-            <li><strong>Advanced search & filters</strong> - find exactly what you're looking for in seconds</li>
-            <li><strong>Custom alerts</strong> - get notified when deals match your thesis</li>
-            <li><strong>Mini CRM</strong> - track your deal pipeline alongside the intelligence</li>
-            <li><strong>Market analytics</strong> - interactive charts showing trends over time</li>
-            <li><strong>Export capabilities</strong> - download as CSV, PDF, or Excel anytime</li>
+            <li><strong>LIFETIME access</strong> to the dashboard (regular users will pay $2,500/year starting Q2 2026)
+            </li>
+            <li><strong>Advanced search & filters</strong> - find exactly what you're looking for in seconds, not hours
+            </li>
+            <li><strong>Custom alerts</strong> - get notified when deals match your investment thesis automatically</li>
+            <li><strong>Mini CRM</strong> - track your deal pipeline alongside the intelligence, all in one place</li>
+            <li><strong>Market analytics</strong> - interactive charts showing funding trends, sector growth, valuation
+                multiples</li>
+            <li><strong>Export capabilities</strong> - download company lists, reports, and analytics as CSV, PDF, or
+                Excel anytime</li>
         </ul>
 
         <h3>4. Shape the Product</h3>
         <ul style="font-size: 16px; color: #334155; margin-bottom: 24px;">
-            <li><strong>Direct input on features:</strong> Tell us what to build. We build it.</li>
-            <li><strong>Priority support:</strong> Questions answered within 24 hours</li>
-            <li><strong>Custom analysis requests:</strong> Need deeper research on a specific company? We'll do it.</li>
-            <li><strong>Founder introductions:</strong> Want to meet a company you discovered? We facilitate.</li>
+            <li><strong>Direct input on features:</strong> Need a specific metric tracked? Tell us. Want a certain
+                filter?
+                We prioritize it. You're not just buying intelligence—you're co-creating the platform.</li>
+            <li><strong>Priority support:</strong> Questions answered within 24 hours, not generic support ticket queues
+            </li>
+            <li><strong>Custom analysis requests:</strong> Need deeper research on a specific company or sector? We'll
+                do it.</li>
+            <li><strong>Founder introductions:</strong> Found a company you want to meet? We facilitate warm
+                introductions.</li>
         </ul>
 
         <div class="stat-grid">
@@ -2922,17 +2921,25 @@
         <div class="value-box">
             <strong>Let's do the math:</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                Regular price: $2,500/year × 10 years = <strong>$15,000</strong>
+                Regular price: $2,500/year × 10 years = <strong>$25,000</strong>
             </p>
             <p style="margin: 10px 0; color: #065F46;">
-                Early adopter price: <strong>$99</strong> (one-time, lifetime access)
+                Early adopter price: <strong>$99</strong> (one-time payment, lifetime access)
             </p>
             <p style="margin: 10px 0; color: #065F46;">
                 Your savings: <strong>$24,901</strong>
             </p>
             <p style="margin: 10px 0; color: #065F46;">
-                Plus: You get to build the product with us. Your feedback shapes what we create. Regular users
-                get whatever we ship. You get exactly what you need.
+                <strong>But here's what actually matters:</strong> How many hours will this save you? If it saves you
+                just
+                10 hours on your next deal, and your time is worth $100/hour, you've already made $1,000 on a $99
+                investment.
+                That's a 10x return. On one deal.
+            </p>
+            <p style="margin: 10px 0; color: #065F46;">
+                Plus: You get to shape the product. Your feedback determines what we build. Regular users get whatever
+                we
+                ship. You get exactly what you need—because you're building it with us.
             </p>
         </div>
 
@@ -2946,106 +2953,97 @@
     <div class="page">
         <h2>Frequently Asked Questions</h2>
 
-        <p style="font-size: 16px; color: #334155; margin-bottom: 24px;">
-            Click each question to see the answer:
-        </p>
-
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                Is this just publicly available information I could find myself?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">Is this just publicly available information I could find myself?</div>
             <div class="faq-answer">
-                Technically yes, practically no. Sure, you COULD spend 100+ hours per quarter scraping 50+ sources,
-                calling founders, verifying data across 3+ sources, building market sizing models, tracking regulatory
-                status, and synthesizing it all into actionable intelligence. Or you could pay $99 and get it done
-                for you. Your call. (P.S. Your time is worth more than $1/hour, so this is a steal.)
+                Technically yes, practically no. You COULD spend 100+ hours per quarter scraping 50+ sources, calling
+                founders for verification, cross-referencing data points, building market sizing models from scratch,
+                tracking regulatory changes, and synthesizing everything into actionable intelligence. Or you pay $99
+                and get it done for you—by someone who does this full-time, with systems and sources you don't have
+                access to. Your time is worth more than $1/hour. This is the definition of leverage.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                How often is the data updated?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">How often is the data updated?</div>
             <div class="faq-answer">
-                Until the dashboard launches (December 2025), you get quarterly reports. After the dashboard launches,
-                data updates in real-time as companies announce funding, launch products, or hit key milestones. You'll
-                see updates within 24-48 hours of them happening.
+                Until the dashboard launches (January 2026), you get quarterly reports delivered via email. After the
+                dashboard launches, data updates in real-time as companies announce funding, launch products, or hit
+                key milestones. You see updates within 24-48 hours of them happening, not 3 months later when everyone
+                else reads about it on TechCrunch.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                I only invest in [specific sector]. Will this still be useful?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">I focus on a specific sector. Will this still be useful?</div>
             <div class="faq-answer">
-                We track all Nigerian tech sectors (fintech, healthtech, edtech, agritech, logistics, cleantech, etc.).
-                If you only invest in healthtech, you'll filter to see only healthtech companies. That said, knowing
-                what's happening across ALL sectors helps you spot trends early (e.g., "payments companies are getting
-                10x healthtech valuations—maybe I should look there").
+                We track all major Nigerian tech sectors: fintech, healthtech, edtech, agritech, logistics, cleantech,
+                e-commerce, SaaS, and more. If you only invest in one sector, you'll filter to see only those companies.
+                That said, knowing what's happening across ALL sectors helps you spot trends early. Example: if you see
+                payments companies getting 3x the valuations of healthtech at the same stage, that's signal.
+                Cross-sector
+                intelligence makes you smarter, even if you stay focused.
+            </div>
+        </div>
+
+        <!-- <div class="faq-item">
+            <div class="faq-question">Can I share this with my investment committee or partners?</div>
+            <div class="faq-answer">
+                Yes. Your $99 license covers your entire angel network or investment committee. Share freely within your
+                organization. Use it for IC presentations, investment memos, portfolio reviews—whatever you need. We
+                only
+                ask that you don't publicly redistribute the reports or resell access to third parties.
+            </div>
+        </div> -->
+
+        <div class="faq-item">
+            <div class="faq-question">What's the catch? Why is this so cheap?</div>
+            <div class="faq-answer">
+                No catch. We're in early adopter phase. We want 10 sophisticated investors using the product so we can
+                get feedback and build exactly what you need. Regular pricing will be $2,500/year starting Q2 2026.
+                You're locking in $99 lifetime access by joining now. It's cheap because getting your feedback early is
+                worth more to us than charging full price today. This is classic early adopter pricing—available for a
+                limited window, then it's gone forever.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                Can I share this with my investment committee/partners?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">What if I'm not satisfied with the full report?</div>
             <div class="faq-answer">
-                Yes. Your $99 license covers your entire angel network or investment committee. Share freely within
-                your organization. We only ask that you don't publicly redistribute the reports or resell access.
+                If the full report doesn't meet your expectations when delivered in Q1 2026, email us within 14 days and
+                we'll refund 100%. No questions asked. No hoops to jump through. We're confident you'll find at least
+                one
+                deal in our database that makes the $99 look like pocket change. But if we're wrong, we'll give you your
+                money back immediately.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                What's the catch? Why so cheap?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">When do I actually get access to everything?</div>
             <div class="faq-answer">
-                No catch. We're in early adopter phase. We want 10 angels using the product so we can get feedback
-                and build exactly what you need. Regular price will be $2,500/year starting Q2 2026. You lock in
-                $99 lifetime by joining now. It's cheap because we're betting that getting your feedback early is
-                worth more than charging full price today.
+                Full intelligence report: Delivered in Q1 2026 (we're building it now with early adopter input).
+                Dashboard
+                access: January 2026 launch, you get early access as soon as it's ready. Quarterly updates: Every 3
+                months
+                thereafter, delivered via email until dashboard launches, then updated in real-time on the platform.
+                You're
+                essentially pre-ordering a product we're building WITH your feedback, not FOR you blindly.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                What if I'm not satisfied?
-                <span style="font-size: 20px;">+</span>
-            </div>
+            <div class="faq-question">How do I know the data is actually accurate?</div>
             <div class="faq-answer">
-                If the full report doesn't meet your expectations, email us within 14 days of receiving it and we'll
-                refund 100%. No questions asked. We're confident you'll find at least one deal in our database worth
-                10x your $99 investment, but if we're wrong, we'll give you your money back.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                When do I get access to everything?
-                <span style="font-size: 20px;">+</span>
-            </div>
-            <div class="faq-answer">
-                You get the full intelligence report in Q1 2026. Dashboard launches December 2025 (you'll get early
-                access as soon as it's ready). Quarterly updates delivered every 3 months thereafter. Real-time
-                updates begin once the dashboard launches.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                How do I know the data is accurate?
-                <span style="font-size: 20px;">+</span>
-            </div>
-            <div class="faq-answer">
-                Multi-source verification: Every data point comes from 2-3+ sources. We cross-reference founder claims
-                with payment processor data (where available), LinkedIn activity, regulatory filings, and customer
-                testimonials. If we can't verify a claim, we flag it as "unverified" rather than publishing it as fact.
-                We're not perfect (no one is), but we're significantly more accurate than DIY research.
+                Multi-source verification on every data point: We cross-reference founder claims with payment processor
+                integrations (where available), team size verified via LinkedIn, customer testimonials and case studies,
+                regulatory filings checked against public records, press coverage triangulated across multiple sources.
+                If we can't verify a claim with at least 2-3 independent sources, we explicitly flag it as
+                "founder-reported,
+                unverified" rather than publishing it as fact. We're not perfect (no one is), but we're significantly
+                more
+                rigorous than DIY research because verification is our full-time job, not a side task you squeeze in
+                between
+                meetings.
             </div>
         </div>
 
@@ -3062,21 +3060,22 @@
         <div class="workflow-step">
             <div class="step-number">1</div>
             <div class="step-text">
-                <strong>Reply to the email</strong> with "I'm in" or email admin@lemina.co
+                <strong>Reply to the email</strong> with "I'm in" or email admin@lemina.co directly
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">2</div>
             <div class="step-text">
-                <strong>Complete payment:</strong> We'll send you a secure payment link
+                <strong>Complete payment:</strong> We send you a secure payment link (Stripe or PayPal, $99 USD
+                one-time)
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">3</div>
             <div class="step-text">
-                <strong>Receive confirmation:</strong> Within 24 hours, you'll get confirmation email with access
+                <strong>Receive confirmation:</strong> Within 24 hours, you get a confirmation email with onboarding
                 details
                 and timeline for report delivery
             </div>
@@ -3085,57 +3084,70 @@
         <div class="workflow-step">
             <div class="step-number">4</div>
             <div class="step-text">
-                <strong>Get the report:</strong> Full intelligence report delivered Q1 2026 (we're building it now with
-                early adopter feedback)
+                <strong>Get the full report:</strong> Delivered Q1 2026 (we're building it now based on early adopter
+                feedback)
             </div>
         </div>
 
         <div class="workflow-step">
             <div class="step-number">5</div>
             <div class="step-text">
-                <strong>Dashboard access:</strong> Early access to dashboard when it launches December 2025
+                <strong>Dashboard access:</strong> Early access when it launches January 2026, lifetime login
+                credentials included
             </div>
         </div>
 
         <div class="pain-box">
-            <strong>Limited to 10 Early Adopters Only</strong>
+            <strong>Limited to 10 Early Adopters Only—9 Spots Remaining</strong>
             <p style="margin: 10px 0; color: #991B1B;">
-                We're capping early adopters at 10 investors so we can give each of you personal attention and build
-                exactly what you need. Once we hit 10, the early adopter program closes and pricing increases to
-                $2,500/year.
+                We're capping this at 10 investors total. Why? Because we want to give each early adopter direct access
+                to
+                shape the product. At 10 people, we can have real conversations, implement your feedback quickly, and
+                build
+                exactly what you need. At 100 people, you become a support ticket.
             </p>
             <p style="margin: 10px 0; color: #991B1B;">
-                <strong>Current status: 3 spots remaining</strong> (as of this sample report)
+                Once we hit 10 early adopters, the program closes permanently and pricing increases to $2,500/year. This
+                $99 lifetime access opportunity never comes back.
             </p>
         </div>
 
         <h3>What Happens After You Join</h3>
 
         <ul style="font-size: 16px; color: #334155;">
-            <li><strong>Week 1:</strong> You'll receive a welcome email with early adopter onboarding details and a
-                survey asking what data matters most to you.</li>
+            <li><strong>Week 1:</strong> Welcome email with early adopter onboarding. We send you a survey: "What data
+                matters most to you? What sectors do you focus on? What features would make this indispensable?"</li>
 
-            <li><strong>Monthly:</strong> We'll send you progress updates showing what we're building, new companies
-                we've added, and feature previews.</li>
+            <li><strong>Monthly check-ins:</strong> Progress updates showing what we're building, new companies we've
+                added,
+                feature previews. You're not waiting in the dark—you see the product evolve in real-time.</li>
 
-            <li><strong>Q1 2026:</strong> Full intelligence report delivered (PDF + Excel database with all 15+
-                companies)</li>
+            <li><strong>Q1 2026:</strong> Full intelligence report delivered (PDF + Excel database with all 30+
+                companies,
+                sector analyses, market sizing models, investment readiness scores).</li>
 
-            <li><strong>December 2025:</strong> Dashboard launches. You get early access with lifetime login
-                credentials.</li>
+            <li><strong>January 2026:</strong> Dashboard launches. You get early access immediately with lifetime login
+                credentials. No annual renewal. No price increases. Ever.</li>
 
-            <li><strong>Ongoing:</strong> Real-time updates via dashboard, quarterly deep-dive reports, and direct
-                access to request custom analysis.</li>
+            <li><strong>Ongoing:</strong> Real-time updates via dashboard after launch, quarterly deep-dive reports via
+                email,
+                direct access to request custom analysis whenever you need it.</li>
         </ul>
 
         <div class="value-box">
             <strong>Your Impact on the Product:</strong>
             <p style="margin: 10px 0; color: #065F46;">
-                As an early adopter, you're not just buying intelligence—you're shaping the future of how investors
-                discover African tech companies. Need a specific data point we're not tracking? Tell us and we'll add
-                it.
-                Want a feature in the dashboard? Request it and we'll prioritize it. Wish we covered a specific sector?
-                We'll expand there. Regular users get whatever we ship. You get exactly what you need.
+                As an early adopter, you're not a customer—you're a co-creator. Need a specific data point we're not
+                tracking?
+                Tell us and we add it. Want a particular filter in the dashboard? Request it and we prioritize it. Wish
+                we
+                covered a specific sub-sector more deeply? We expand there.
+            </p>
+            <p style="margin: 10px 0; color: #065F46;">
+                Regular users who join in Q2 2026 get whatever we've already built. You get exactly what you
+                need—because
+                you shaped what we built from the beginning. That's the difference between being customer #500 and being
+                early adopter #3.
             </p>
         </div>
 
@@ -3149,7 +3161,7 @@
     <div class="page">
         <div class="cta-box">
             <h2 style="margin-top: 0; color: white; font-size: 36px;">Early Adopter Pricing</h2>
-            <p style="font-size: 18px; margin-bottom: 20px; opacity: 0.9;">Limited to 10 investors • 3 spots remaining
+            <p style="font-size: 18px; margin-bottom: 20px; opacity: 0.9;">Limited to 10 investors • 9 spots remaining
             </p>
 
             <div>
@@ -3168,7 +3180,7 @@
                 <div
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; font-size: 15px;">
                     <div>✓ Full intelligence report (Q1 2026)</div>
-                    <div>✓ 15+ company profiles</div>
+                    <div>✓ 30+ company profiles</div>
                     <div>✓ Real-time updates</div>
                     <div>✓ Dashboard access (lifetime)</div>
                     <div>✓ Investment readiness scores</div>
@@ -3184,14 +3196,17 @@
         <h3 style="margin-top: 40px;">Ready to Stop Flying Blind?</h3>
 
         <p style="font-size: 18px; color: #334155; margin-bottom: 20px;">
-            Every day you wait is another day you're missing deals, investing without complete information, and
-            spending hours on research that should take minutes.
+            Every day you wait is another day you're missing deals that never entered your network. Another day you're
+            spending 60 hours on DD that should take 10. Another day a competitor with better intelligence closes a deal
+            you didn't even know existed.
         </p>
 
         <div
             style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 12px; padding: 24px; margin: 24px 0;">
             <p style="font-size: 16px; color: #334155; font-style: italic; margin-bottom: 12px;">
-                "The best time to get African tech intelligence was 5 years ago. The second best time is today."
+                "The best time to get African tech intelligence was 5 years ago. The second best time is today. The
+                worst
+                time is tomorrow—when this opportunity is gone and you're paying 25x more for the same access."
             </p>
         </div>
 
@@ -3217,8 +3232,7 @@
         </div>
 
         <div class="pain-box">
-            <strong>Don't wait:</strong> We're limiting this to 10 early adopters. Once we hit capacity, the program
-            closes and pricing goes to $2,500/year. Lock in $99 lifetime access today.
+            <strong>Don't wait:</strong> Lock in $99 lifetime access today.
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
@@ -3235,28 +3249,6 @@
             <div>Page 10 of 10</div>
         </div>
     </div>
+</body>
 
-    <!-- FAQ Toggle Script -->
-    <script>
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('span');
-
-            if (answer.classList.contains('active')) {
-                answer.classList.remove('active');
-                icon.textContent = '+';
-            } else {
-                // Close all other FAQs
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('active');
-                });
-                document.querySelectorAll('.faq-question span').forEach(ic => {
-                    ic.textContent = '+';
-                });
-
-                // Open clicked FAQ
-                answer.classList.add('active');
-                icon.textContent = '−';
-            }
-        }
-    </script>
+</html>
