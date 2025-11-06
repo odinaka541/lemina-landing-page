@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Your Company - Lemina</title>
-    <meta name="description" content="Get your Nigerian tech company featured in Lemina's intelligence reports and discovered by investors.">
-    
+    <meta name="description"
+        content="Get your Nigerian tech company featured in Lemina's intelligence reports and discovered by investors.">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
@@ -31,19 +33,24 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 50% 50%, 
-                rgba(16, 185, 129, 0.15) 0%, 
-                rgba(139, 92, 246, 0.1) 25%,
-                rgba(252, 211, 77, 0.05) 50%,
-                transparent 70%);
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(16, 185, 129, 0.15) 0%,
+                    rgba(139, 92, 246, 0.1) 25%,
+                    rgba(252, 211, 77, 0.05) 50%,
+                    transparent 70%);
             animation: rotate 20s linear infinite;
             pointer-events: none;
             z-index: 0;
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .grid-overlay {
@@ -52,7 +59,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
             background-size: 100px 100px;
@@ -79,7 +86,7 @@
             align-items: center;
             gap: 12px;
         }
-        
+
         .logo-mark {
             width: 40px;
             height: 40px;
@@ -90,7 +97,7 @@
             justify-content: center;
             box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
         }
-        
+
         .logo-dot {
             width: 8px;
             height: 8px;
@@ -98,7 +105,7 @@
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(252, 211, 77, 0.5);
         }
-        
+
         .logo-text {
             font-size: 24px;
             font-weight: 600;
@@ -418,6 +425,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="gradient-bg"></div>
     <div class="grid-overlay"></div>
@@ -432,7 +440,8 @@
             <h1>Add Your Company</h1>
             <div class="subtitle">Get discovered by investors actively deploying capital</div>
             <p class="description">
-                Featured in intelligence reports. Connected to active VCs. Free company profile in our verified database.
+                Featured in intelligence reports. Connected to active VCs. Free company profile in our verified
+                database.
             </p>
         </div>
 
@@ -453,17 +462,17 @@
             <div class="error-message" id="errorMessage"></div>
 
             <form id="founderForm" action="https://formspree.io/f/xjkporzg" method="POST">
-                
+
                 <!-- Hidden fields for Formspree -->
                 <input type="hidden" name="_subject" value="New Founder Submission - Lemina">
-                <input type="hidden" name="_cc" value="prince4albert@gmail.com">
+                <input type="hidden" name="_cc" id="notificationEmail" value="">
                 <input type="hidden" name="_next" value="https://lemina.io/thank-you/">
                 <input type="text" name="_gotcha" style="display:none">
-                
+
                 <!-- SECTION 1: COMPANY BASICS -->
                 <div class="form-section">
                     <h3>1. Company Basics</h3>
-                    
+
                     <div class="form-group">
                         <label for="companyName">Company Name<span class="required">*</span></label>
                         <input type="text" id="companyName" name="companyName" required>
@@ -499,13 +508,15 @@
 
                     <div class="form-group">
                         <label for="description">One-line Description<span class="required">*</span></label>
-                        <input type="text" id="description" name="description" placeholder="e.g., B2B payment infrastructure for SMEs" required maxlength="120">
+                        <input type="text" id="description" name="description"
+                            placeholder="e.g., B2B payment infrastructure for SMEs" required maxlength="120">
                         <div class="helper-text">What you build, for whom - max 120 characters</div>
                     </div>
 
                     <div class="form-group">
                         <label for="foundedYear">Founded Year<span class="required">*</span></label>
-                        <input type="number" id="foundedYear" name="foundedYear" placeholder="2024" min="2010" max="2025" required>
+                        <input type="number" id="foundedYear" name="foundedYear" placeholder="2024" min="2010"
+                            max="2025" required>
                     </div>
 
                     <div class="form-group">
@@ -530,7 +541,7 @@
                 <!-- SECTION 2: TRACTION & METRICS -->
                 <div class="form-section">
                     <h3>2. Traction & Metrics</h3>
-                    
+
                     <div class="form-group">
                         <label for="stage">Current Stage<span class="required">*</span></label>
                         <select id="stage" name="stage" required>
@@ -558,13 +569,16 @@
                     </div>
 
                     <div class="form-group" id="tractionDetails" style="display:none;">
-                        <label for="keyMetric">Key Metric<span class="optional">(optional but recommended)</span></label>
-                        <input type="text" id="keyMetric" name="keyMetric" placeholder="e.g., 10,000 active users OR $50k MRR OR ₦1B monthly GMV">
+                        <label for="keyMetric">Key Metric<span class="optional">(optional but
+                                recommended)</span></label>
+                        <input type="text" id="keyMetric" name="keyMetric"
+                            placeholder="e.g., 10,000 active users OR $50k MRR OR ₦1B monthly GMV">
                         <div class="helper-text">Your most impressive number - helps investors discover you</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="growthRate">Growth Rate (last 3 months)<span class="optional">(optional)</span></label>
+                        <label for="growthRate">Growth Rate (last 3 months)<span
+                                class="optional">(optional)</span></label>
                         <select id="growthRate" name="growthRate">
                             <option value="">Select range...</option>
                             <option value="negative">Negative / Flat</option>
@@ -579,7 +593,7 @@
                 <!-- SECTION 3: FUNDING -->
                 <div class="form-section">
                     <h3>3. Funding</h3>
-                    
+
                     <div class="form-group">
                         <label for="fundingStatus">Funding Status<span class="required">*</span></label>
                         <select id="fundingStatus" name="fundingStatus" required>
@@ -609,7 +623,8 @@
 
                     <div class="form-group">
                         <label for="investors">Key Investors<span class="optional">(optional)</span></label>
-                        <input type="text" id="investors" name="investors" placeholder="e.g., TLcom Capital, Partech Africa">
+                        <input type="text" id="investors" name="investors"
+                            placeholder="e.g., TLcom Capital, Partech Africa">
                         <div class="helper-text">If you've raised from notable VCs, list them</div>
                     </div>
 
@@ -628,7 +643,8 @@
                     </div>
 
                     <div class="form-group" id="raiseDetails" style="display:none;">
-                        <label for="raiseAmount">How much are you raising?<span class="optional">(optional)</span></label>
+                        <label for="raiseAmount">How much are you raising?<span
+                                class="optional">(optional)</span></label>
                         <input type="text" id="raiseAmount" name="raiseAmount" placeholder="e.g., $500k seed round">
                     </div>
                 </div>
@@ -639,7 +655,7 @@
                     <p style="font-size: 14px; color: #64748B; margin-bottom: 20px;">
                         Helps investors assess regulatory risk and compliance status
                     </p>
-                    
+
                     <div class="form-group">
                         <label>Is your company officially registered?<span class="required">*</span></label>
                         <div class="radio-group">
@@ -680,7 +696,7 @@
                 <!-- SECTION 5: FOUNDER INFO -->
                 <div class="form-section">
                     <h3>5. Your Information</h3>
-                    
+
                     <div class="form-group">
                         <label for="founderName">Your Full Name<span class="required">*</span></label>
                         <input type="text" id="founderName" name="founderName" required>
@@ -688,7 +704,8 @@
 
                     <div class="form-group">
                         <label for="founderRole">Your Role<span class="required">*</span></label>
-                        <input type="text" id="founderRole" name="founderRole" placeholder="e.g., CEO, Co-Founder" required>
+                        <input type="text" id="founderRole" name="founderRole" placeholder="e.g., CEO, Co-Founder"
+                            required>
                     </div>
 
                     <div class="form-group">
@@ -698,8 +715,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but recommended)</span></label>
-                        <input type="url" id="founderLinkedIn" name="founderLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
+                        <label for="founderLinkedIn">Your LinkedIn<span class="optional">(optional but
+                                recommended)</span></label>
+                        <input type="url" id="founderLinkedIn" name="founderLinkedIn"
+                            placeholder="https://linkedin.com/in/yourprofile">
                     </div>
 
                     <div class="form-group">
@@ -711,11 +730,12 @@
                 <!-- SECTION 6: PERMISSIONS -->
                 <div class="form-section">
                     <h3>6. Permissions</h3>
-                    
+
                     <div class="checkbox-group">
                         <label>
                             <input type="checkbox" name="featureInReports" value="yes" checked required>
-                            <strong style="color: #FAFAFA;">Yes, feature my company in Lemina intelligence reports</strong>
+                            <strong style="color: #FAFAFA;">Yes, feature my company in Lemina intelligence
+                                reports</strong>
                         </label>
                         <label>
                             <input type="checkbox" name="shareWithInvestors" value="yes" checked>
@@ -745,37 +765,348 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p>Questions? Email <a href="mailto:admin@lemina.co">admin@lemina.co</a> or <a href="../">return to homepage</a></p>
+            <p>Questions? Email <a href="mailto:admin@lemina.co">admin@lemina.co</a> or <a href="../">return to
+                    homepage</a></p>
         </div>
     </div>
 
+    <!-- Configuration Module -->
+    <script src="../config.js"></script>
+    
     <!-- Form Handling Script -->
     <script>
+        // ============================================
+        // CONFIGURATION INITIALIZATION
+        // ============================================
+        let config;
+        let SUPABASE_URL;
+        let SUPABASE_ANON_KEY;
+        let FORMSPREE_ENDPOINT;
+        
+        // initialize configuration when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            config = new Config();
+            await config.loadEnvironment();
+            
+            SUPABASE_URL = config.getSupabaseUrl();
+            SUPABASE_ANON_KEY = config.getSupabaseKey();
+            FORMSPREE_ENDPOINT = config.getFormspreeEndpoint();
+            
+            // set notification email in hidden field
+            document.getElementById('notificationEmail').value = config.getNotificationEmail();
+            
+            // update form action with dynamic endpoint
+            document.getElementById('founderForm').action = `https://formspree.io/f/${FORMSPREE_ENDPOINT}`;
+        });
+
+        // ============================================
+        // FORM HANDLING
+        // ============================================
+
         // Show traction details if "yes"
         document.querySelectorAll('input[name="hasTraction"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                document.getElementById('tractionDetails').style.display = 
+            radio.addEventListener('change', function () {
+                document.getElementById('tractionDetails').style.display =
                     this.value === 'yes' ? 'block' : 'none';
             });
         });
 
         // Show raise details if raising
         document.querySelectorAll('input[name="raisingNow"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                document.getElementById('raiseDetails').style.display = 
+            radio.addEventListener('change', function () {
+                document.getElementById('raiseDetails').style.display =
                     this.value === 'yes' ? 'block' : 'none';
             });
         });
 
-        // Form submission
-        document.getElementById('founderForm').addEventListener('submit', function(e) {
+        // ============================================
+        // MAIN FORM SUBMISSION
+        // ============================================
+        document.getElementById('founderForm').addEventListener('submit', async function (e) {
+            e.preventDefault(); // Stop default form submission
+
             const submitBtn = document.getElementById('submitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Disable button
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            
-            // Formspree handles submission
-            // Redirect set in hidden _next field
+            submitBtn.textContent = 'Submitting to database...';
+            errorMessage.style.display = 'none';
+
+            try {
+                // Get form data
+                const formData = new FormData(this);
+
+                // ============================================
+                // STEP 1: INSERT COMPANY
+                // ============================================
+                const companyData = {
+                    name: formData.get('companyName'),
+                    website: formData.get('website'),
+                    sector: mapSectorToDatabase(formData.get('sector')),
+                    sub_sector: formData.get('sector'), // Store original for reference
+                    short_description: formData.get('description'),
+                    founded_year: parseInt(formData.get('foundedYear')),
+                    team_size: mapTeamSizeToNumber(formData.get('teamSize')),
+                    headquarters: formData.get('hqCity'),
+                    founders: formData.get('founderName'), // Store as text for now
+                    linkedin_url: formData.get('founderLinkedIn') || null,
+                    twitter_url: formData.get('founderTwitter') || null,
+                    verification_status: 'self_reported', // Mark as unverified
+                    created_by: formData.get('founderEmail'),
+                    data_quality_score: 40, // Base score for self-reported
+                    business_model: inferBusinessModel(formData.get('sector'))
+                };
+
+                // Insert company
+                const companyResponse = await fetch(`${SUPABASE_URL}/rest/v1/companies`, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=representation' // Returns the inserted row
+                    },
+                    body: JSON.stringify(companyData)
+                });
+
+                if (!companyResponse.ok) {
+                    const error = await companyResponse.json();
+                    throw new Error(`Company insert failed: ${JSON.stringify(error)}`);
+                }
+
+                const company = await companyResponse.json();
+                const companyId = company[0].id;
+
+                console.log('✅ Company inserted with ID:', companyId);
+
+                // ============================================
+                // STEP 2: INSERT METRICS (if has traction)
+                // ============================================
+                if (formData.get('hasTraction') === 'yes' && formData.get('keyMetric')) {
+                    const metricData = {
+                        company_id: companyId,
+                        metric_type: 'key_metric',
+                        value: 0, // We'll parse this better later
+                        unit: 'mixed',
+                        period_type: 'current',
+                        period_date: new Date().toISOString().split('T')[0],
+                        source: 'self_reported',
+                        confidence_level: 'low',
+                        notes: formData.get('keyMetric') // Store full text for manual parsing
+                    };
+
+                    await fetch(`${SUPABASE_URL}/rest/v1/metrics`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(metricData)
+                    });
+
+                    console.log('✅ Metric inserted');
+                }
+
+                // ============================================
+                // STEP 3: INSERT FUNDING ROUND (if applicable)
+                // ============================================
+                const fundingStatus = formData.get('fundingStatus');
+                if (fundingStatus && fundingStatus !== 'bootstrapped') {
+                    const fundingData = {
+                        company_id: companyId,
+                        round_type: mapFundingStatusToRoundType(fundingStatus),
+                        amount_usd: mapFundingRangeToUSD(formData.get('totalFunding')),
+                        is_disclosed: formData.get('totalFunding') ? true : false,
+                        lead_investors: formData.get('investors') || null,
+                        source: 'self_reported',
+                        verified: false,
+                        announced_date: new Date().toISOString().split('T')[0]
+                    };
+
+                    await fetch(`${SUPABASE_URL}/rest/v1/funding_rounds`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(fundingData)
+                    });
+
+                    console.log('✅ Funding round inserted');
+                }
+
+                // ============================================
+                // STEP 4: INSERT REGULATORY INFO
+                // ============================================
+                const registered = formData.get('registered');
+                if (registered === 'yes') {
+                    const regulatoryData = {
+                        company_id: companyId,
+                        license_type: 'cac',
+                        license_name: 'CAC Registration',
+                        status: 'active',
+                        verified: false
+                    };
+
+                    await fetch(`${SUPABASE_URL}/rest/v1/regulatory_info`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(regulatoryData)
+                    });
+
+                    console.log('✅ CAC registration inserted');
+                }
+
+                // Insert CBN license if checked
+                if (formData.get('license_cbn')) {
+                    await fetch(`${SUPABASE_URL}/rest/v1/regulatory_info`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            company_id: companyId,
+                            license_type: 'cbn_payment_service',
+                            license_name: 'CBN Payment Service Provider License',
+                            status: 'unknown',
+                            verified: false
+                        })
+                    });
+                }
+
+                // Insert SEC license if checked
+                if (formData.get('license_sec')) {
+                    await fetch(`${SUPABASE_URL}/rest/v1/regulatory_info`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            company_id: companyId,
+                            license_type: 'sec_investment_advisor',
+                            license_name: 'SEC License',
+                            status: 'unknown',
+                            verified: false
+                        })
+                    });
+                }
+
+                // ============================================
+                // STEP 5: SEND NOTIFICATION EMAIL
+                // ============================================
+                // Send email to you for review (we'll use Formspree just for notifications)
+                const notificationData = new FormData();
+                notificationData.append('companyName', formData.get('companyName'));
+                notificationData.append('founderEmail', formData.get('founderEmail'));
+                notificationData.append('sector', formData.get('sector'));
+                notificationData.append('_subject', `🚨 NEW SUBMISSION: ${formData.get('companyName')}`);
+                notificationData.append('message', `New company added to database!\n\nCompany ID: ${companyId}\nReview at: ${SUPABASE_URL}/project/default/editor/${companyId}`);
+
+                await fetch(`https://formspree.io/f/${FORMSPREE_ENDPOINT}`, {
+                    method: 'POST',
+                    body: notificationData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                console.log('✅ Notification sent');
+
+                // ============================================
+                // SUCCESS! REDIRECT TO THANK YOU PAGE
+                // ============================================
+                window.location.href = '/thank-you/';
+
+            } catch (error) {
+                console.error('❌ Submission error:', error);
+                errorMessage.textContent = `Submission failed: ${error.message}. Please email admin@lemina.co directly.`;
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Try Again';
+            }
         });
+
+        // ============================================
+        // HELPER FUNCTIONS
+        // ============================================
+
+        function mapSectorToDatabase(formSector) {
+            const sectorMap = {
+                'payments': 'Fintech',
+                'lending': 'Fintech',
+                'neobank': 'Fintech',
+                'infrastructure': 'Fintech',
+                'wealthtech': 'Fintech',
+                'insurtech': 'Fintech',
+                'regtech': 'Fintech',
+                'other-fintech': 'Fintech',
+                'healthtech': 'Healthtech',
+                'edtech': 'Edtech',
+                'agritech': 'Agritech',
+                'logistics': 'Logistics',
+                'ecommerce': 'E-commerce',
+                'other': 'Other'
+            };
+            return sectorMap[formSector] || 'Other';
+        }
+
+        function mapTeamSizeToNumber(range) {
+            const sizeMap = {
+                '1-5': 3,
+                '6-10': 8,
+                '11-25': 18,
+                '26-50': 38,
+                '51-100': 75,
+                '100+': 150
+            };
+            return sizeMap[range] || 5;
+        }
+
+        function mapFundingStatusToRoundType(status) {
+            const roundMap = {
+                'bootstrapped': 'bootstrapped',
+                'friends-family': 'pre_seed',
+                'pre-seed': 'pre_seed',
+                'seed': 'seed',
+                'series-a': 'series_a',
+                'series-b+': 'series_b',
+                'raising': 'seed' // Default for "currently raising"
+            };
+            return roundMap[status] || 'other';
+        }
+
+        function mapFundingRangeToUSD(range) {
+            if (!range || range === '0') return 0;
+
+            const rangeMap = {
+                '1-50k': 25000,
+                '50-250k': 150000,
+                '250k-1m': 625000,
+                '1-5m': 3000000,
+                '5m+': 7500000
+            };
+            return rangeMap[range] || null;
+        }
+
+        function inferBusinessModel(sector) {
+            // Most fintech is B2B, but this is a guess
+            if (sector.includes('fintech') || sector === 'infrastructure') {
+                return 'B2B';
+            }
+            return 'B2C'; // Default
+        }
     </script>
 </body>
+
 </html>
