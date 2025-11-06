@@ -25,7 +25,7 @@ export default function Home() {
         },
         {
             name: "Xara",
-            stage: "Pre-Seed",
+            stage: "Pre-seed",
             metrics: [
                 { label: "Focus", value: "WhatsApp-first payment system" },
                 { label: "Total Funding", value: "Bootstrapped" },
@@ -67,7 +67,7 @@ export default function Home() {
         <>
             <div className="gradient-bg"></div>
             <div className="grid-overlay"></div>
-            
+            fo
             <div className="container">
                 <nav>
                     <div className="logo">
@@ -117,7 +117,7 @@ export default function Home() {
                         <div className="insight-card">
                             <div className="insight-number">Invest with certainty</div>
                             <div className="insight-text">For Angels, VCs and Institutional Investors</div>
-                            <div className="insight-action">→ Verified data on 200+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
+                            <div className="insight-action">→ Verified data on 30+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
                         </div>
                         <div className="insight-card">
                             <div className="insight-number">Connect & Scale</div>
@@ -131,13 +131,13 @@ export default function Home() {
                     <div className="section-label">What's available now</div>
                     <h2 className="section-title">Comprehensive Startup Intelligence Reports + Financial Models</h2>
                     <p className="section-description">Your team spends 100+ hours per deal building financial models and researching markets. 
-            We've done it for 200+ companies. Use our analysis to close deals faster and invest smarter.</p>
+            We've done it for 30+ companies. Use our analysis to close deals faster and invest smarter.</p>
                     
                     <div className="product-grid">
                         <div className="product-card">
                             <div className="product-problem">Problem: Blind spots in due diligence</div>
-                            <div className="product-name">We tracked all 200+ Nigerian startups so you see the complete landscape</div>
-                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 200+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
+                            <div className="product-name">We tracked all 30+ Nigerian startups so you see the complete landscape</div>
+                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 30+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
                         </div>
                         <div className="product-card">
                             <div className="product-problem">Problem: Can't assess capital efficiency</div>
@@ -184,7 +184,7 @@ export default function Home() {
                 <section className="product-section" style={{paddingTop: '80px', paddingBottom: '80px'}}>
                     <div className="section-label">See our analysis in action</div>
                     <h2 className="section-title">Free Sample Intelligence Report</h2>
-                    <p className="section-description">We analyzed 4 emerging Nigerian startup companies with investment-grade financial analysis. Here's what we found.</p>
+                    <p className="section-description">We analyzed 3 emerging Nigerian startup companies with investment-grade financial analysis. Here's what we found.</p>
                     
                     <div style={{maxWidth: '900px', margin: '0 auto'}}>
                         {/* Sample Report Preview Image */}
@@ -245,7 +245,7 @@ export default function Home() {
                                 View Full Sample Report
                             </a>
                             <div style={{marginTop: '16px', fontSize: '14px', color: '#A0A0A0'}}>
-                                This sample = 4 companies. The full report = 200+ companies with comprehensive data.
+                                This sample = 4 companies. The full report = 30+ companies with comprehensive data.
                             </div>
                         </div>
                     </div>
