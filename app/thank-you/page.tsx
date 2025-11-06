@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const [companyName, setCompanyName] = useState('Your company')
   const searchParams = useSearchParams()
 
@@ -62,5 +62,13 @@ export default function ThankYouPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ThankYouContent />
+    </Suspense>
   )
 }
