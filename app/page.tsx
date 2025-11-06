@@ -202,7 +202,7 @@ export default function Home() {
                                         <div style={{width: '8px', height: '8px', background: '#10B981', borderRadius: '50%'}}></div>
                                     </div>
                                     <div>
-                                        <div style={{fontWeight: '600', color: '#FAFAFA', marginBottom: '4px'}}>4 Emerging Companies Analyzed</div>
+                                        <div style={{fontWeight: '600', color: '#FAFAFA', marginBottom: '4px'}}>3 Emerging Companies Analyzed</div>
                                         <div style={{color: '#A0A0A0', fontSize: '14px', lineHeight: '1.5'}}>Companies the market isn't tracking yet.</div>
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@ export default function Home() {
                                 View Full Sample Report
                             </a>
                             <div style={{marginTop: '16px', fontSize: '14px', color: '#A0A0A0'}}>
-                                This sample = 4 companies. The full report = 30+ companies with comprehensive data.
+                                This sample = 3 companies. The full report = 30+ companies with comprehensive data.
                             </div>
                         </div>
                     </div>
