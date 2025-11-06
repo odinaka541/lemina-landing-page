@@ -22,22 +22,22 @@ export default function Home() {
                 { label: "Team Size", value: "4" },
                 { label: "Why Promising", value: "First player on the scene solving a multi-billion dollar industry need" }
             ]
-        }
-        // {
-        //     name: "Xara",
-        //     stage: "Pre-Seed",
-        //     metrics: [
-        //         { label: "Focus", value: "WhatsApp-first payment system" },
-        //         { label: "Total Funding", value: "Bootstrapped" },
-        //         { label: "Last Round", value: "F&F (Q1 2025)" },
-        //         { label: "Valuation", value: "Less than $100k" },
-        //         { label: "Transactions", value: "₦1B monthly" },
-        //         { label: "Monthly Revenue", value: "Less than $40K" },
-        //         { label: "Runway", value: "24 months" },
-        //         { label: "Team Size", value: "10" },
-        //         { label: "Why Promising", value: "Enables seamless payment solutions on Africa's most used app" }
-        //     ]
-        // },
+        },
+        {
+            name: "Xara",
+            stage: "Pre-Seed",
+            metrics: [
+                { label: "Focus", value: "WhatsApp-first payment system" },
+                { label: "Total Funding", value: "Bootstrapped" },
+                { label: "Last Round", value: "F&F (Q1 2025)" },
+                { label: "Valuation", value: "Less than $100k" },
+                { label: "Transactions", value: "₦1B monthly" },
+                { label: "Monthly Revenue", value: "Less than $40K" },
+                { label: "Runway", value: "24 months" },
+                { label: "Team Size", value: "10" },
+                { label: "Why Promising", value: "Enables seamless payment solutions on Africa's most used app" }
+            ]
+        },
         // {
         //     name: "Rivy",
         //     stage: "Seed",
