@@ -22,7 +22,7 @@ export default function LoginPage() {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `https://lemina.co/auth/callback`
+          emailRedirectTo: `https://lemina.co/auth/confirm`
         }
       })
 
