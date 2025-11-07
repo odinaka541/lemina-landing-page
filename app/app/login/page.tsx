@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function LoginPage() {
@@ -10,47 +9,95 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
-  const router = useRouter()
-  const supabase = createClient()
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError('')
     setMessage('')
 
     try {
+      const supabase = createClient()
+
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/app/companies`
+          emailRedirectTo: `${window.location.origin}/auth/callback`
         }
       })
 
-      if (error) throw error
-
-      setMessage('check your email for the login link!')
-    } catch (error: any) {
-      setError(error.message)
+      if (error) {
+        setError(error.message)
+      } else {
+        setMessage('Check your email for the magic link!')
+      }
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <div className="login-header">
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2rem',
+      position: 'relative',
+      zIndex: 2
+    }}>
+      <div style={{
+        background: 'rgba(16, 185, 129, 0.03)',
+        border: '1px solid rgba(16, 185, 129, 0.1)',
+        borderRadius: '16px',
+        padding: '3rem',
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+        width: '100%',
+        maxWidth: '400px'
+      }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Link href="/">
-            <img src="/assets/lemina.svg" alt="Lemina" className="logo" />
+            <img 
+              src="/assets/lemina.svg" 
+              alt="Lemina" 
+              style={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '12px',
+                marginBottom: '1rem'
+              }}
+            />
           </Link>
-          <h1>investor dashboard</h1>
-          <p>access detailed company data and intelligence reports</p>
+          <h1 style={{
+            fontSize: '24px',
+            fontWeight: 700,
+            marginBottom: '0.5rem',
+            color: '#10B981'
+          }}>
+            investor dashboard
+          </h1>
+          <p style={{ color: '#D0D0D0', fontSize: '14px' }}>
+            access detailed company data and intelligence reports
+          </p>
         </div>
 
-        <form onSubmit={handleLogin} className="login-form">
-          <div className="form-group">
-            <label htmlFor="email">email address</label>
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label 
+              htmlFor="email"
+              style={{
+                display: 'block',
+                marginBottom: '0.5rem',
+                fontWeight: 600,
+                color: '#FAFAFA',
+                fontSize: '14px'
+              }}
+            >
+              email address
+            </label>
             <input
               id="email"
               type="email"
@@ -59,186 +106,79 @@ export default function LoginPage() {
               placeholder="investor@firm.com"
               required
               disabled={loading}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(16, 185, 129, 0.2)',
+                borderRadius: '8px',
+                fontSize: '15px',
+                color: '#FAFAFA'
+              }}
             />
           </div>
 
           {error && (
-            <div className="error-message">
+            <div style={{
+              background: 'rgba(239, 68, 68, 0.1)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              color: '#FCA5A5',
+              padding: '12px',
+              borderRadius: '6px',
+              marginBottom: '1rem',
+              fontSize: '14px'
+            }}>
               {error}
             </div>
           )}
 
           {message && (
-            <div className="success-message">
+            <div style={{
+              background: 'rgba(16, 185, 129, 0.1)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              color: '#10B981',
+              padding: '12px',
+              borderRadius: '6px',
+              marginBottom: '1rem',
+              fontSize: '14px'
+            }}>
               {message}
             </div>
           )}
 
-          <button 
-            type="submit" 
-            className="login-btn"
+          <button
+            type="submit"
             disabled={loading || !email}
+            style={{
+              width: '100%',
+              padding: '14px',
+              background: loading ? '#374151' : 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+              color: '#FAFAFA',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '16px',
+              fontWeight: 600,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              marginBottom: '1.5rem'
+            }}
           >
             {loading ? 'sending link...' : 'send magic link'}
           </button>
         </form>
 
-        <div className="login-footer">
-          <p>
-            <Link href="/">← back to homepage</Link>
-          </p>
+        <div style={{ textAlign: 'center' }}>
+          <Link 
+            href="/"
+            style={{
+              color: '#10B981',
+              textDecoration: 'none',
+              fontSize: '14px'
+            }}
+          >
+            ← back to homepage
+          </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        .login-container {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 2rem;
-          position: relative;
-          z-index: 2;
-        }
-
-        .login-card {
-          background: rgba(16, 185, 129, 0.03);
-          border: 1px solid rgba(16, 185, 129, 0.1);
-          border-radius: 16px;
-          padding: 3rem;
-          backdrop-filter: blur(10px);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-          width: 100%;
-          max-width: 400px;
-        }
-
-        .login-header {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-
-        .logo {
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
-          margin-bottom: 1rem;
-        }
-
-        .login-header h1 {
-          font-size: 24px;
-          font-weight: 700;
-          margin-bottom: 0.5rem;
-          color: #10B981;
-        }
-
-        .login-header p {
-          color: #D0D0D0;
-          font-size: 14px;
-        }
-
-        .form-group {
-          margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 600;
-          color: #FAFAFA;
-          font-size: 14px;
-        }
-
-        .form-group input {
-          width: 100%;
-          padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(16, 185, 129, 0.2);
-          border-radius: 8px;
-          font-size: 15px;
-          color: #FAFAFA;
-          transition: all 0.3s;
-        }
-
-        .form-group input:focus {
-          outline: none;
-          border-color: #10B981;
-          background: rgba(16, 185, 129, 0.05);
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-        }
-
-        .form-group input:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-
-        .login-btn {
-          width: 100%;
-          padding: 14px;
-          background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-          color: #FAFAFA;
-          border: none;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          margin-bottom: 1.5rem;
-        }
-
-        .login-btn:hover:not(:disabled) {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .login-btn:disabled {
-          background: #374151;
-          cursor: not-allowed;
-          transform: none;
-          box-shadow: none;
-        }
-
-        .error-message {
-          background: rgba(239, 68, 68, 0.1);
-          border: 1px solid rgba(239, 68, 68, 0.3);
-          color: #FCA5A5;
-          padding: 12px;
-          border-radius: 6px;
-          margin-bottom: 1rem;
-          font-size: 14px;
-        }
-
-        .success-message {
-          background: rgba(16, 185, 129, 0.1);
-          border: 1px solid rgba(16, 185, 129, 0.3);
-          color: #10B981;
-          padding: 12px;
-          border-radius: 6px;
-          margin-bottom: 1rem;
-          font-size: 14px;
-        }
-
-        .login-footer {
-          text-align: center;
-        }
-
-        .login-footer a {
-          color: #10B981;
-          text-decoration: none;
-          font-size: 14px;
-          transition: color 0.3s;
-        }
-
-        .login-footer a:hover {
-          color: #FCD34D;
-        }
-
-        @media (max-width: 768px) {
-          .login-card {
-            padding: 2rem;
-            margin: 1rem;
-          }
-        }
-      `}</style>
     </div>
   )
 }
