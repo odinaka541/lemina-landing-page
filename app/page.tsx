@@ -1,11 +1,31 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 
 export default function Home() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const code = searchParams?.get('code');
+
+    // Handle auth callback if there's a code in the URL
+    useEffect(() => {
+        if (code) {
+            const supabase = createClient();
+            
+            supabase.auth.exchangeCodeForSession(code).then(({ data, error }) => {
+                if (!error && data.session) {
+                    // Successfully authenticated, redirect to dashboard
+                    router.push('/app/companies');
+                } else {
+                    console.error('Auth error:', error);
+                }
+            });
+        }
+    }, [code, router]);
     
     const companies = [
         {
@@ -37,22 +57,7 @@ export default function Home() {
                 { label: "Team Size", value: "10" },
                 { label: "Why Promising", value: "Enables seamless payment solutions on Africa's most used app" }
             ]
-        },
-        // {
-        //     name: "Rivy",
-        //     stage: "Seed",
-        //     metrics: [
-        //         { label: "Focus", value: "Clean energy financing platform" },
-        //         { label: "Total Funding", value: "$4M" },
-        //         { label: "Last Round", value: "Seed (Q2 2025)" },
-        //         { label: "Valuation", value: "$20M" },
-        //         { label: "Active Loans", value: "2K+ solar kits financed" },
-        //         { label: "Monthly Revenue", value: "$60K" },
-        //         { label: "Runway", value: "24 months" },
-        //         { label: "Team Size", value: "20" },
-        //         { label: "Why Promising", value: "Addresses Nigeria's energy access crisis" }
-        //     ]
-        // }
+        }
     ];
 
     const nextSlide = () => {
@@ -68,6 +73,7 @@ export default function Home() {
             <div className="gradient-bg"></div>
             <div className="grid-overlay"></div>
             <div className="container">
+                {/* All your existing JSX stays exactly the same */}
                 <nav>
                     <div className="logo">
                         <img src="/assets/lemina.svg" alt="Lemina" style={{width: '40px', height: '40px', borderRadius: '10px'}} />
@@ -76,12 +82,14 @@ export default function Home() {
                     <a href="mailto:admin@lemina.co">Get Sample Report</a>
                 </nav>
                 
+                {/* Rest of your existing code stays the same */}
                 <section className="hero">
                     <div className="tagline">Building the investment bank for African tech</div>
                     <h1>Starting with<br/>intelligence</h1>
                     <p className="subtitle">We're the bridge between capital and opportunity. Giving investors certainty. Giving founders access. Building the infrastructure African tech deserves.</p>
                 </section>
                 
+                {/* ... rest of your existing sections ... */}
                 <section className="data-section">
                     <div className="carousel-container">
                         <div className="carousel-header">
@@ -126,6 +134,7 @@ export default function Home() {
                     </div>
                 </section>
                 
+                {/* Keep all your other sections exactly as they are */}
                 <section className="product-section">
                     <div className="section-label">What's available now</div>
                     <h2 className="section-title">Comprehensive Startup Intelligence Reports + Financial Models</h2>
@@ -179,19 +188,17 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* SAMPLE REPORT SECTION */}
+                {/* All remaining sections stay the same */}
                 <section className="product-section" style={{paddingTop: '80px', paddingBottom: '80px'}}>
                     <div className="section-label">See our analysis in action</div>
                     <h2 className="section-title">Free Sample Intelligence Report</h2>
                     <p className="section-description">We analyzed 3 emerging Nigerian startup companies with investment-grade financial analysis. Here's what we found.</p>
                     
                     <div style={{maxWidth: '900px', margin: '0 auto'}}>
-                        {/* Sample Report Preview Image */}
                         <div style={{background: 'rgba(16, 185, 129, 0.03)', border: '1px solid rgba(16, 185, 129, 0.1)', borderRadius: '16px', padding: '40px', backdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)', marginBottom: '32px'}}>
                             <img src="/assets/sample-report-preview.png" alt="Sample Report Preview" style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 24px rgba(16, 185, 129, 0.2)'}} />
                         </div>
                         
-                        {/* Sample Report Description */}
                         <div style={{background: 'rgba(16, 185, 129, 0.03)', border: '1px solid rgba(16, 185, 129, 0.1)', borderRadius: '16px', padding: '40px', backdropFilter: 'blur(10px)', marginBottom: '32px'}}>
                             <h3 style={{fontSize: '24px', fontWeight: '600', marginBottom: '20px', color: '#FAFAFA'}}>What's Inside This Sample</h3>
                             
@@ -238,7 +245,6 @@ export default function Home() {
                             </div>
                         </div>
                         
-                        {/* CTA to Download/View */}
                         <div style={{textAlign: 'center'}}>
                             <a href="mailto:admin@lemina.co,3odinaka@gmail.com?subject=Sample Report Request&body=Hi, I'd like to view the full sample intelligence report.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0ARole:" className="chart-cta" style={{fontSize: '16px', padding: '16px 40px'}}>
                                 View Full Sample Report
@@ -249,7 +255,6 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                {/* END SAMPLE REPORT SECTION */}
                 
                 <section className="cta-section">
                     <div className="cta-box">
@@ -260,7 +265,6 @@ export default function Home() {
                     </div>
                 </section>
                 
-                {/* pay attention */}
                 <section className="product-section" style={{background: 'rgba(16, 185, 129, 0.03)', borderTop: '1px solid rgba(16, 185, 129, 0.1)', padding: '100px 0'}}>
                     <div className="container" style={{textAlign: 'center'}}>
                         <h2 className="section-title">Are you building the future?</h2>
