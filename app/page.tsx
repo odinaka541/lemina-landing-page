@@ -67,7 +67,6 @@ export default function Home() {
         <>
             <div className="gradient-bg"></div>
             <div className="grid-overlay"></div>
-            fo
             <div className="container">
                 <nav>
                     <div className="logo">
