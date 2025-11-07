@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-export default function Home() {
+function HomeContent() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -305,5 +305,13 @@ export default function Home() {
                 </footer>
             </div>
         </>
+    );
+}
+
+export default function Home() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <HomeContent />
+        </Suspense>
     );
 }
