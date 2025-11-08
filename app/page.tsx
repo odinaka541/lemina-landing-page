@@ -150,7 +150,7 @@ function HomeContent() {
                         <div className="product-card">
                             <div className="product-problem">Problem: One missing license buys you a legal case, and not an investment</div>
                             <div className="product-name">We verified and ensured companies comply with local regulations</div>
-                            <div className="product-description">Know which portfolio companies are building what and . Know which companies are capital efficient vs. burning unsustainably. All the due diligence you'd build yourself, already done - with verified data.</div>
+                            <div className="product-description">See license status, expiry countdown,  regulatory compliance score, and red-flag alerts — all verified</div>
                         </div>
                         <div className="product-card">
                             <div className="product-problem">Problem: Valuation uncertainty</div>
@@ -250,7 +250,7 @@ function HomeContent() {
                                 View Full Sample Report
                             </a>
                             <div style={{marginTop: '16px', fontSize: '14px', color: '#A0A0A0'}}>
-                                This sample = 3 companies. The full report = 30+ companies with comprehensive data.
+                                This sample = 3 companies. The full report = 50+ companies with comprehensive data.
                             </div>
                         </div>
                     </div>
