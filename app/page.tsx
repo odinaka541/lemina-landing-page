@@ -85,7 +85,7 @@ function HomeContent() {
                 {/* Rest of your existing code stays the same */}
                 <section className="hero">
                     <div className="tagline">Building the investment bank for African tech</div>
-                    <h1>Starting with<br/>intelligence</h1>
+                    <h1>...starting with<br/><em>intelligence</em></h1>
                     <p className="subtitle">We're the bridge between capital and opportunity. Giving investors certainty. Giving founders access. Building the infrastructure African tech deserves.</p>
                 </section>
                 
