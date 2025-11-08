@@ -124,7 +124,7 @@ function HomeContent() {
                         <div className="insight-card">
                             <div className="insight-number">Invest with certainty</div>
                             <div className="insight-text">For Angels, VCs and Institutional Investors</div>
-                            <div className="insight-action">→ Verified data on 30+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
+                            <div className="insight-action">→ Verified data on 50+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
                         </div>
                         <div className="insight-card">
                             <div className="insight-number">Connect & Scale</div>
@@ -138,19 +138,19 @@ function HomeContent() {
                 <section className="product-section">
                     <div className="section-label">What's available now</div>
                     <h2 className="section-title">Comprehensive Startup Intelligence Reports + Financial Models</h2>
-                    <p className="section-description">Your team spends 100+ hours per deal building financial models and researching markets. 
+                    <p className="section-description">Your team spends weeks per deal building financial models and researching markets. 
             We've done it for 30+ companies. Use our analysis to close deals faster and invest smarter.</p>
                     
                     <div className="product-grid">
                         <div className="product-card">
                             <div className="product-problem">Problem: Blind spots in due diligence</div>
-                            <div className="product-name">We tracked all 30+ Nigerian startups so you see the complete landscape</div>
-                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 30+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
+                            <div className="product-name">We tracked all 50+ Nigerian startups so you see the complete landscape</div>
+                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 50+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
                         </div>
                         <div className="product-card">
-                            <div className="product-problem">Problem: Can't assess capital efficiency</div>
-                            <div className="product-name">We built financial models with burn multiples and runway for every company</div>
-                            <div className="product-description">Know which portfolio companies will run out of cash in 6 months. Know which companies are capital efficient vs. burning unsustainably. All the due diligence you'd build yourself, already done - with verified data.</div>
+                            <div className="product-problem">Problem: One missing license buys you a legal case, and not an investment</div>
+                            <div className="product-name">We verified and ensured companies comply with local regulations</div>
+                            <div className="product-description">Know which portfolio companies are building what and . Know which companies are capital efficient vs. burning unsustainably. All the due diligence you'd build yourself, already done - with verified data.</div>
                         </div>
                         <div className="product-card">
                             <div className="product-problem">Problem: Valuation uncertainty</div>
