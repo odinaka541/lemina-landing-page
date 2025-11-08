@@ -77,10 +77,10 @@ export default function LoginPage() {
             marginBottom: '0.5rem',
             color: '#10B981'
           }}>
-            investor dashboard
+            Investor Dashboard
           </h1>
           <p style={{ color: '#D0D0D0', fontSize: '14px' }}>
-            access detailed company data and intelligence reports
+            Access detailed company data and intelligence reports
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function LoginPage() {
                 fontSize: '14px'
               }}
             >
-              email address
+              Please, enter your email address
             </label>
             <input
               id="email"
@@ -162,7 +162,7 @@ export default function LoginPage() {
               marginBottom: '1.5rem'
             }}
           >
-            {loading ? 'sending link...' : 'send magic link'}
+            {loading ? 'sending link...' : 'Send Magic Link'}
           </button>
         </form>
 
@@ -175,7 +175,7 @@ export default function LoginPage() {
               fontSize: '14px'
             }}
           >
-            ← back to homepage
+            ← Back to homepage
           </Link>
         </div>
       </div>
