@@ -81,7 +81,7 @@ function HomeContent() {
                 <section className="hero">
                     <div className="tagline">Building the investment bank for African tech</div>
                     <h1>...starting with<br /><em>intelligence</em></h1>
-                    <p className="subtitle">We're the bridge between capital and opportunity. Giving investors certainty. Giving founders access. Building the infrastructure African tech deserves.</p>
+                    <p className="subtitle">We're the bridge between capital and opportunity. Giving investors certainty. Giving founders access. Building the intelligence infrastructure African tech deserves.</p>
                 </section>
 
                 <section className="data-section">
@@ -118,7 +118,7 @@ function HomeContent() {
                         <div className="insight-card">
                             <div className="insight-number">Invest with certainty</div>
                             <div className="insight-text">For Angels, VCs and Institutional Investors</div>
-                            <div className="insight-action">→ Verified data on 50+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
+                            <div className="insight-action">→ Verified data on 80+ Nigerian startups. See who's building what and the data backing them, confidentially</div>
                         </div>
                         <div className="insight-card">
                             <div className="insight-number">Connect & Scale</div>
@@ -131,13 +131,13 @@ function HomeContent() {
                 <section className="product-section">
                     <div className="section-label">What's available now</div>
                     <h2 className="section-title">Comprehensive Startup Intelligence Reports + Financial Models</h2>
-                    <p className="section-description">Your team spends weeks per deal building financial models and researching markets. We've done it for 30+ companies. Use our analysis to close deals faster and invest smarter.</p>
+                    <p className="section-description">Your team spends weeks per deal researching markets and building models off your thesis. We've done it for 80+ companies. Use Lemina to close deals faster and invest smarter.</p>
 
                     <div className="product-grid">
                         <div className="product-card">
                             <div className="product-problem">Problem: Blind spots in due diligence</div>
-                            <div className="product-name">We tracked all 50+ Nigerian startups so you see the complete landscape</div>
-                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 50+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
+                            <div className="product-name">We tracked all 80+ Nigerian startups so you see the complete landscape</div>
+                            <div className="product-description">A Google search gets you 10-20 simple company profiles. We found, verified, and built financial models for 80+. Complete market coverage with investment-grade analysis—burn rates, runway projections, unit economics, and valuation benchmarks across all sectors.</div>
                         </div>
                         <div className="product-card">
                             <div className="product-problem">Problem: One missing license buys you a legal case, and not an investment</div>
@@ -298,14 +298,12 @@ function HomeContent() {
                             <img src="/assets/sample-report-preview.png" alt="Sample Report Preview" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 24px rgba(16, 185, 129, 0.2)' }} />
                         </div>
 
-                        <div style={{ background: 'rgba(16, 185, 129, 0.03)', border: '1px solid rgba(16, 185, 129, 0.1)', borderRadius: '16px', padding: '40px', backdropFilter: 'blur(10px)', marginBottom: '32px' }}>
+                        {/* <div style={{ background: 'rgba(16, 185, 129, 0.03)', border: '1px solid rgba(16, 185, 129, 0.1)', borderRadius: '16px', padding: '40px', backdropFilter: 'blur(10px)', marginBottom: '32px' }}>
                             <h3 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px', color: '#FAFAFA' }}>What's Inside This Sample</h3>
 
                             <div className="sample-features-list">
                                 <div className="sample-feature-item">
-                                    <div className="feature-bullet">
-                                        <div className="bullet-inner"></div>
-                                    </div>
+                                    <div className="feature-bullet"></div>
                                     <div className="feature-content">
                                         <div className="feature-title">3 Emerging Companies Analyzed</div>
                                         <div className="feature-description">Companies the market isn't tracking yet.</div>
@@ -313,9 +311,7 @@ function HomeContent() {
                                 </div>
 
                                 <div className="sample-feature-item">
-                                    <div className="feature-bullet">
-                                        <div className="bullet-inner"></div>
-                                    </div>
+                                    <div className="feature-bullet"></div>
                                     <div className="feature-content">
                                         <div className="feature-title">Investment-Grade Financial Analysis</div>
                                         <div className="feature-description">Traction metrics and investment implications for each company.</div>
@@ -323,9 +319,7 @@ function HomeContent() {
                                 </div>
 
                                 <div className="sample-feature-item">
-                                    <div className="feature-bullet">
-                                        <div className="bullet-inner"></div>
-                                    </div>
+                                    <div className="feature-bullet"></div>
                                     <div className="feature-content">
                                         <div className="feature-title">Key Market Insights</div>
                                         <div className="feature-description">WhatsApp is emerging as Nigeria's startup OS. AI is no longer experimental in Nigeria.</div>
@@ -333,23 +327,21 @@ function HomeContent() {
                                 </div>
 
                                 <div className="sample-feature-item">
-                                    <div className="feature-bullet">
-                                        <div className="bullet-inner"></div>
-                                    </div>
+                                    <div className="feature-bullet"></div>
                                     <div className="feature-content">
                                         <div className="feature-title">Our Analytical Framework</div>
                                         <div className="feature-description">Demonstrates how we analyze companies, calculate metrics, and identify investment opportunities you're missing.</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div style={{ textAlign: 'center' }}>
                             <a href="mailto:admin@lemina.co,3odinaka@gmail.com?subject=Sample Report Request&body=Hi, I'd like to view the full sample intelligence report.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0ARole:" className="chart-cta" style={{ fontSize: '16px', padding: '16px 40px' }}>
                                 View Full Sample Report
                             </a>
                             <div style={{ marginTop: '16px', fontSize: '14px', color: '#A0A0A0' }}>
-                                This sample = 3 companies. The full report = 50+ companies with comprehensive data.
+                                This sample = 3 companies. The full report = 80+ companies with comprehensive data.
                             </div>
                         </div>
                     </div>
@@ -359,7 +351,7 @@ function HomeContent() {
                     <div className="cta-box">
                         <div className="cta-title">Early Adopter Access</div>
                         <div className="cta-price">$149</div>
-                        <div className="cta-note">Limited to 10 early adopters • Full year of quarterly updates • Lifetime early adopter fee</div>
+                        <div className="cta-note">Limited to 9 early adopters • Full year of quarterly updates • Lifetime early adopter fee</div>
                         <a href="mailto:admin@lemina.co,3odinaka@gmail.com?subject=Intelligence Report Request" className="cta-button">Request access</a>
                     </div>
                 </section>
