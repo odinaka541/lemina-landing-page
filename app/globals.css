@@ -29,14 +29,25 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 50% 50%, 
-        rgba(16, 185, 129, 0.18) 0%, 
-        rgba(252, 211, 77, 0.12) 15%,
-        rgba(16, 185, 129, 0.10) 30%,
-        rgba(252, 211, 77, 0.08) 50%,
-        rgba(139, 92, 246, 0.06) 70%,
-        rgba(99, 102, 241, 0.04) 80%,
-        transparent 90%);
+    background: 
+        /* Dark vignette overlay (this creates the dark edges) */
+        radial-gradient(ellipse at center, 
+            transparent 0%,
+            transparent 30%,
+            rgba(10, 10, 10, 0.4) 60%,
+            rgba(10, 10, 10, 0.8) 80%,
+            rgba(10, 10, 10, 0.95) 100%
+        ),
+        /* Your existing green/orange gradient */
+        radial-gradient(circle at 50% 50%, 
+            rgba(16, 185, 129, 0.18) 0%,      /* Green center */
+            rgba(252, 211, 77, 0.12) 15%,     /* Orange */
+            rgba(16, 185, 129, 0.10) 30%,     /* Green */
+            rgba(252, 211, 77, 0.08) 50%,     /* Orange */
+            rgba(139, 92, 246, 0.06) 70%,     /* Purple */
+            rgba(99, 102, 241, 0.04) 80%,     /* Indigo */
+            transparent 90%
+        );
     animation: rotate 20s linear infinite;
     pointer-events: none;
     z-index: 0;
@@ -46,7 +57,6 @@ body {
     from {
         transform: rotate(0deg);
     }
-
     to {
         transform: rotate(360deg);
     }
