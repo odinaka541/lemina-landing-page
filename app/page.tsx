@@ -75,7 +75,7 @@ function HomeContent() {
                         <img src="/assets/lemina.svg" alt="Lemina" style={{ width: '40px', height: '40px', borderRadius: '10px' }} />
                         <div className="logo-text">Lemina</div>
                     </div>
-                    <a href="mailto:admin@lemina.co">Get Sample Report</a>
+                    <a href="mailto:admin@lemina.co">Request Demo</a>
                 </nav>
 
                 <section className="hero">
