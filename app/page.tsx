@@ -206,6 +206,110 @@ function HomeContent() {
             </section>
 
             <section style={{ padding: '100px 0', textAlign: 'center' }}>
+                <div style={{ marginBottom: '60px' }}>
+                    <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Lemina's Core Pillars</h2>
+                    <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-text-secondary)' }}>We've built a comprehensive framework that addresses every aspect of African startup intelligence.</p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                    {[
+                        { title: "Company Profiling", desc: "Deep-dive analysis of every African startup worth tracking. From stealth-mode to series A." },
+                        { title: "Market Sizing", desc: "Comprehensive sector analysis and competitive mapping. Identify white spaces and emerging opportunities." },
+                        { title: "Data Verification", desc: "Rigorous fact-checking. Every data point verified, every license tracked for investor confidence." },
+                        { title: "Real-time Updates", desc: "Live tracking of funding rounds, traction metrics, and market movements." }
+                    ].map((item, i) => (
+                        <div key={i} className="glass-panel" style={{ padding: '32px', textAlign: 'left' }}>
+                            <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', color: 'var(--color-accent-primary)' }}>{item.title}</h3>
+                            <p style={{ fontSize: '0.875rem' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section style={{ padding: '100px 0' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+                    <div>
+                        <div style={{ color: 'var(--color-accent-primary)', fontWeight: 600, marginBottom: '16px' }}>COMING SOON</div>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Real-time Investor Dashboard</h2>
+                        <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-secondary)' }}>
+                            The complete command center for African startup intelligence. Track, analyze, and act on opportunities as they emerge.
+                        </p>
+                        <div style={{ display: 'flex', gap: '16px' }}>
+                            <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>127</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Companies Tracked</div>
+                            </div>
+                            <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>₦2.4B</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Total Funding</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="glass-panel" style={{ padding: '40px', position: 'relative' }}>
+                        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '16px', zIndex: 10 }}>
+                            <div style={{ textAlign: 'center' }}>
+                                <div style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '8px' }}>Almost Ready</div>
+                                <button className="btn btn-primary">Get Notified</button>
+                            </div>
+                        </div>
+                        {/* Mock UI Background */}
+                        <div style={{ opacity: 0.3 }}>
+                            <div style={{ display: 'flex', gap: '20px', marginBottom: '24px' }}>
+                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
+                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
+                            </div>
+                            <div style={{ height: '200px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style={{ padding: '100px 0', textAlign: 'center' }}>
+                <h2 style={{ fontSize: '2.5rem', marginBottom: '60px' }}>Built for decision-makers</h2>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
+                    {[
+                        { title: "VCs & Angels", desc: "Deal sourcing, due diligence, portfolio monitoring" },
+                        { title: "Founders", desc: "Exposure to investors actively deploying capital" },
+                        { title: "Banks", desc: "Partnership evaluation, market entry strategy" },
+                        { title: "Corporate Dev", desc: "M&A target identification, competitive intelligence" }
+                    ].map((item, i) => (
+                        <div key={i} className="glass-panel" style={{ padding: '32px' }}>
+                            <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{item.title}</h3>
+                            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section style={{ padding: '100px 0' }}>
+                <div className="glass-panel" style={{ padding: '60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+                    <div>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Free Sample Intelligence Report</h2>
+                        <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-secondary)' }}>
+                            We analyzed 3 emerging Nigerian startup companies with investment-grade financial analysis. See exactly what our platform delivers.
+                        </p>
+                        <a href="mailto:admin@lemina.co" className="btn btn-secondary">View Full Sample Report</a>
+                    </div>
+                    <div style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '12px', padding: '20px', border: '1px solid var(--color-border)' }}>
+                        <img src="/assets/sample-report-preview.png" alt="Report Preview" style={{ width: '100%', borderRadius: '8px', opacity: 0.8 }} />
+                    </div>
+                </div>
+            </section>
+
+            <section style={{ padding: '100px 0', textAlign: 'center' }}>
+                <div className="glass-panel" style={{ padding: '60px', maxWidth: '800px', margin: '0 auto', background: 'linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(3, 7, 18, 0) 100%)' }}>
+                    <h2 style={{ marginBottom: '24px' }}>Are you building the future?</h2>
+                    <p style={{ marginBottom: '40px', fontSize: '1.125rem', color: 'var(--color-text-secondary)' }}>
+                        Get discovered by investors actively deploying capital. Featured in our intelligence reports. Connected to VCs looking for you.
+                    </p>
+                    <Link href="/founders" className="btn btn-primary" style={{ padding: '16px 48px', fontSize: '1.125rem' }}>
+                        Add Your Company (5 min) →
+                    </Link>
+                    <p style={{ marginTop: '16px', fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>100% free • No obligations</p>
+                </div>
+            </section>
+
+            <section style={{ padding: '100px 0', textAlign: 'center' }}>
                 <div className="glass-panel" style={{ padding: '60px', maxWidth: '800px', margin: '0 auto' }}>
                     <h2 style={{ marginBottom: '24px' }}>Early Adopter Access</h2>
                     <div style={{ fontSize: '3.5rem', fontWeight: 700, color: 'var(--color-accent-primary)', marginBottom: '16px' }}>$149</div>
