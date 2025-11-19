@@ -215,7 +215,7 @@ function HomeContent() {
                     {[
                         { title: "Company Profiling", desc: "Deep-dive analysis of every African startup worth tracking. From stealth-mode to series A." },
                         { title: "Market Sizing", desc: "Comprehensive sector analysis and competitive mapping. Identify white spaces and emerging opportunities." },
-                        { title: "Data Verification", desc: "Rigorous fact-checking. Every data point verified, every license tracked for investor confidence." },
+                        { title: "Data & Regulatory Verification", desc: "Rigorous fact-checking. Every data point verified, every license tracked for investor confidence." },
                         { title: "Real-time Updates", desc: "Live tracking of funding rounds, traction metrics, and market movements." }
                     ].map((item, i) => (
                         <div key={i} className="glass-panel" style={{ padding: '32px', textAlign: 'left' }}>
@@ -269,7 +269,7 @@ function HomeContent() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
                     {[
                         { title: "Venture Capitalists & Angel Investors", desc: "Deal sourcing, due diligence, portfolio monitoring" },
-                        { title: "Founders $ Startups", desc: "Exposure to investors actively deploying capital" },
+                        { title: "Founders & Startups", desc: "Exposure to investors actively deploying capital" },
                         { title: "Banks & Financial Institutions", desc: "Partnership evaluation, market entry strategy" },
                         { title: "Corporate Development", desc: "M&A target identification, competitive intelligence" }
                     ].map((item, i) => (
