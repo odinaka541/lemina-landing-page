@@ -255,3 +255,96 @@ p {
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    :root {
+        --container-width: 100%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.875rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .glass-panel {
+        padding: 24px !important;
+    }
+
+    /* Hide grid overlay on mobile for performance */
+    .grid-overlay {
+        display: none;
+    }
+
+    /* Reduce core effect size on mobile */
+    .gradient-bg::after {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8125rem;
+    }
+
+    .glass-panel {
+        padding: 20px !important;
+    }
+
+    /* Further reduce core effect on small mobile */
+    .gradient-bg::after {
+        width: 400px;
+        height: 400px;
+    }
+}
