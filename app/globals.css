@@ -279,6 +279,11 @@ p {
     section>div[style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
     }
+
+    /* Hide logo text on non-laptop screens */
+    .logo-text {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -307,6 +312,7 @@ p {
     nav .btn {
         padding: 6px 12px !important;
         font-size: 0.75rem !important;
+        width: auto !important;
     }
 
     /* Regular buttons */
@@ -358,11 +364,6 @@ p {
     div {
         word-wrap: break-word;
         overflow-wrap: break-word;
-    }
-
-    /* Hide grid overlay on mobile for performance */
-    .grid-overlay {
-        display: none;
     }
 
     /* Reduce core effect size on mobile */
