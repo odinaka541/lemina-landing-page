@@ -33,7 +33,7 @@ function HomeContent() {
                 { label: "Total Funding", value: "F&F, Less than $5K" },
                 { label: "Last Round", value: "None (Q4, 2025)" },
                 { label: "Valuation", value: "NA" },
-                { label: "Active Users", value: "Less than 100" },
+                { label: "Active Users", value: "400+" },
                 { label: "Monthly Revenue", value: "Less than $1k" },
                 { label: "Runway", value: "12 months" },
                 { label: "Team Size", value: "4" },
@@ -124,7 +124,7 @@ function HomeContent() {
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
                         <div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                                <div style={{ width: '48px', height: '48px', background: 'var(--color-bg-secondary)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>🚀</div>
+                                <div style={{ width: '48px', height: '48px', background: 'var(--color-bg-secondary)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>🟠</div>
                                 <div>
                                     <h2 style={{ fontSize: '2rem', margin: 0 }}>{companies[currentSlide].name}</h2>
                                     <span style={{
@@ -183,7 +183,7 @@ function HomeContent() {
                         {
                             title: "Blind spots in due diligence",
                             solution: "Complete Landscape",
-                            desc: "A Google search gets you 10-20 simple profiles. We found, verified, and built financial models for 80+."
+                            desc: "A Google search gets you 10-20 simple profiles. We found, verified, and built company profiles for 80+."
                         },
                         {
                             title: "Regulatory Risk",
@@ -232,16 +232,16 @@ function HomeContent() {
                         <div style={{ color: 'var(--color-accent-primary)', fontWeight: 600, marginBottom: '16px' }}>COMING SOON</div>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Real-time Investor Dashboard</h2>
                         <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-secondary)' }}>
-                            The complete command center for African startup intelligence. Track, analyze, and act on opportunities as they emerge.
+                            The complete command centre for African startup intelligence. Track, analyze, and act on opportunities as they emerge. Step into our dealrooms, make deals or track portfolio companies Solo or with your Network, from announcement, to funding, to exits.
                         </p>
                         <div style={{ display: 'flex', gap: '16px' }}>
                             <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
-                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>127</div>
-                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Companies Tracked</div>
+                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>1</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Platform</div>
                             </div>
                             <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
-                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>₦2.4B</div>
-                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Total Funding</div>
+                                <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>Everything</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For your Investment Career</div>
                             </div>
                         </div>
                     </div>
@@ -268,10 +268,10 @@ function HomeContent() {
                 <h2 style={{ fontSize: '2.5rem', marginBottom: '60px' }}>Built for decision-makers</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
                     {[
-                        { title: "VCs & Angels", desc: "Deal sourcing, due diligence, portfolio monitoring" },
-                        { title: "Founders", desc: "Exposure to investors actively deploying capital" },
-                        { title: "Banks", desc: "Partnership evaluation, market entry strategy" },
-                        { title: "Corporate Dev", desc: "M&A target identification, competitive intelligence" }
+                        { title: "Venture Capitalists & Angel Investors", desc: "Deal sourcing, due diligence, portfolio monitoring" },
+                        { title: "Founders $ Startups", desc: "Exposure to investors actively deploying capital" },
+                        { title: "Banks & Financial Institutions", desc: "Partnership evaluation, market entry strategy" },
+                        { title: "Corporate Development", desc: "M&A target identification, competitive intelligence" }
                     ].map((item, i) => (
                         <div key={i} className="glass-panel" style={{ padding: '32px' }}>
                             <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{item.title}</h3>
@@ -300,7 +300,7 @@ function HomeContent() {
                 <div className="glass-panel" style={{ padding: '60px', maxWidth: '800px', margin: '0 auto', background: 'linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(3, 7, 18, 0) 100%)' }}>
                     <h2 style={{ marginBottom: '24px' }}>Are you building the future?</h2>
                     <p style={{ marginBottom: '40px', fontSize: '1.125rem', color: 'var(--color-text-secondary)' }}>
-                        Get discovered by investors actively deploying capital. Featured in our intelligence reports. Connected to VCs looking for you.
+                        Get discovered by investors actively deploying capital; featured in our intelligence reports; connected to VCs looking for exactly what you're building.
                     </p>
                     <Link href="/founders" className="btn btn-primary" style={{ padding: '16px 48px', fontSize: '1.125rem' }}>
                         Add Your Company (5 min) →
