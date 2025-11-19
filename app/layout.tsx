@@ -22,7 +22,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/assets/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
       </head>
       <body>
         <div className="gradient-bg"></div>
