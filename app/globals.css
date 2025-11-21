@@ -155,88 +155,73 @@ body {
         opacity: 0.95;
     }
 
-    100% {
-        transform: translate(-50%, -50%) scale(0.95);
-        opacity: 0.8;
-    }
 }
 
-.grid-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--color-text-primary);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-}
-
-h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    color: var(--color-text-secondary);
-    font-size: 1.125rem;
-}
-
-/* Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: var(--color-accent-primary);
-    color: #fff;
-    border: 1px solid var(--color-accent-primary);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--color-text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-secondary:hover {
+/* Form Elements */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 16px;
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+/* Custom Checkbox & Radio */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-accent-primary);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+
+.radio-label:hover {
+    color: var(--color-text-primary);
 }
 
 /* Animations */

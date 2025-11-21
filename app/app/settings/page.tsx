@@ -14,7 +14,7 @@ export default function SettingsPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
-  
+
   const supabase = createClient()
 
   useEffect(() => {
@@ -25,10 +25,10 @@ export default function SettingsPage() {
     try {
       setLoading(true)
       const { data: { session } } = await supabase.auth.getSession()
-      
+
       if (session?.user) {
         setUser(session.user)
-        
+
         // try to get existing profile from investor_users table
         const { data } = await supabase
           .from('investor_users')
@@ -75,246 +75,137 @@ export default function SettingsPage() {
 
       if (error) throw error
 
-      setMessage('profile updated successfully!')
+      setMessage('Profile updated successfully!')
     } catch (error: any) {
-      setMessage(`error: ${error.message}`)
+      setMessage(`Error: ${error.message}`)
     } finally {
       setSaving(false)
     }
   }
 
   if (loading) {
-    return <div className="loading">loading profile...</div>
+    return <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--color-text-secondary)' }}>Loading profile...</div>
   }
 
   return (
-    <div className="settings-page">
-      <div className="page-header">
-        <h1>account settings</h1>
-        <p>manage your investor profile and preferences</p>
+    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div style={{ marginBottom: '2rem' }}>
+        <h1 style={{
+          fontSize: '2.5rem',
+          fontWeight: 700,
+          color: 'var(--color-accent-primary)',
+          marginBottom: '0.5rem'
+        }}>
+          Account Settings
+        </h1>
+        <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.125rem' }}>
+          Manage your investor profile and preferences
+        </p>
       </div>
 
-      <div className="settings-card">
+      <div className="glass-panel" style={{ padding: '2rem' }}>
         <form onSubmit={updateProfile}>
-          <div className="form-section">
-            <h3>profile information</h3>
-            
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{
+              fontSize: '1.25rem',
+              fontWeight: 600,
+              color: 'var(--color-accent-primary)',
+              marginBottom: '1.5rem',
+              paddingBottom: '0.5rem',
+              borderBottom: '1px solid rgba(16, 185, 129, 0.2)'
+            }}>
+              Profile Information
+            </h3>
+
             <div className="form-group">
-              <label htmlFor="email">email address</label>
+              <label htmlFor="email">Email Address</label>
               <input
                 id="email"
                 type="email"
                 value={user?.email || ''}
                 disabled
+                style={{ opacity: 0.6, cursor: 'not-allowed' }}
               />
-              <span className="helper-text">email cannot be changed</span>
+              <span style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem', display: 'block' }}>
+                Email cannot be changed
+              </span>
             </div>
 
             <div className="form-group">
-              <label htmlFor="full_name">full name</label>
+              <label htmlFor="full_name">Full Name</label>
               <input
                 id="full_name"
                 type="text"
                 value={profile.full_name}
-                onChange={(e) => setProfile({...profile, full_name: e.target.value})}
-                placeholder="john doe"
+                onChange={(e) => setProfile({ ...profile, full_name: e.target.value })}
+                placeholder="John Doe"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="organization">organization</label>
+              <label htmlFor="organization">Organization</label>
               <input
                 id="organization"
                 type="text"
                 value={profile.organization}
-                onChange={(e) => setProfile({...profile, organization: e.target.value})}
-                placeholder="venture capital firm"
+                onChange={(e) => setProfile({ ...profile, organization: e.target.value })}
+                placeholder="Venture Capital Firm"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="role">role</label>
+              <label htmlFor="role">Role</label>
               <input
                 id="role"
                 type="text"
                 value={profile.role}
-                onChange={(e) => setProfile({...profile, role: e.target.value})}
-                placeholder="partner, analyst, etc."
+                onChange={(e) => setProfile({ ...profile, role: e.target.value })}
+                placeholder="Partner, Analyst, etc."
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="investment_focus">investment focus</label>
+              <label htmlFor="investment_focus">Investment Focus</label>
               <input
                 id="investment_focus"
                 type="text"
                 value={profile.investment_focus}
-                onChange={(e) => setProfile({...profile, investment_focus: e.target.value})}
-                placeholder="fintech, healthtech, etc."
+                onChange={(e) => setProfile({ ...profile, investment_focus: e.target.value })}
+                placeholder="Fintech, Healthtech, etc."
               />
             </div>
           </div>
 
           {message && (
-            <div className={`message ${message.includes('error') ? 'error' : 'success'}`}>
+            <div style={{
+              padding: '1rem',
+              borderRadius: '8px',
+              marginBottom: '1.5rem',
+              fontSize: '0.875rem',
+              background: message.includes('Error') ? 'rgba(239, 68, 68, 0.1)' : 'rgba(16, 185, 129, 0.1)',
+              border: `1px solid ${message.includes('Error') ? 'rgba(239, 68, 68, 0.3)' : 'rgba(16, 185, 129, 0.3)'}`,
+              color: message.includes('Error') ? '#FCA5A5' : '#10B981'
+            }}>
               {message}
             </div>
           )}
 
-          <button 
-            type="submit" 
-            className="save-btn"
+          <button
+            type="submit"
+            className="btn btn-primary"
             disabled={saving}
+            style={{
+              width: '100%',
+              padding: '14px',
+              fontSize: '1rem',
+              opacity: saving ? 0.7 : 1,
+              cursor: saving ? 'not-allowed' : 'pointer'
+            }}
           >
-            {saving ? 'saving...' : 'save profile'}
+            {saving ? 'Saving...' : 'Save Profile'}
           </button>
         </form>
       </div>
-
-      <style jsx>{`
-        .settings-page {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        .page-header {
-          margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-          font-size: 2.5rem;
-          font-weight: 800;
-          color: #10B981;
-          margin-bottom: 0.5rem;
-        }
-
-        .page-header p {
-          color: #D0D0D0;
-          font-size: 1.1rem;
-        }
-
-        .settings-card {
-          background: rgba(16, 185, 129, 0.03);
-          border: 1px solid rgba(16, 185, 129, 0.1);
-          border-radius: 16px;
-          padding: 2rem;
-          backdrop-filter: blur(10px);
-        }
-
-        .form-section {
-          margin-bottom: 2rem;
-        }
-
-        .form-section h3 {
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #10B981;
-          margin-bottom: 1.5rem;
-          text-transform: lowercase;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .form-group {
-          margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 600;
-          color: #FAFAFA;
-          font-size: 0.9rem;
-          text-transform: lowercase;
-        }
-
-        .form-group input {
-          width: 100%;
-          padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(16, 185, 129, 0.2);
-          border-radius: 8px;
-          font-size: 15px;
-          color: #FAFAFA;
-          transition: all 0.3s;
-        }
-
-        .form-group input:focus {
-          outline: none;
-          border-color: #10B981;
-          background: rgba(16, 185, 129, 0.05);
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-        }
-
-        .form-group input:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-
-        .helper-text {
-          font-size: 0.8rem;
-          color: #64748B;
-          margin-top: 0.25rem;
-          display: block;
-        }
-
-        .message {
-          padding: 1rem;
-          border-radius: 8px;
-          margin-bottom: 1.5rem;
-          font-size: 0.9rem;
-        }
-
-        .message.success {
-          background: rgba(16, 185, 129, 0.1);
-          border: 1px solid rgba(16, 185, 129, 0.3);
-          color: #10B981;
-        }
-
-        .message.error {
-          background: rgba(239, 68, 68, 0.1);
-          border: 1px solid rgba(239, 68, 68, 0.3);
-          color: #FCA5A5;
-        }
-
-        .save-btn {
-          width: 100%;
-          padding: 14px;
-          background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-          color: #FAFAFA;
-          border: none;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .save-btn:hover:not(:disabled) {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .save-btn:disabled {
-          background: #374151;
-          cursor: not-allowed;
-          transform: none;
-          box-shadow: none;
-        }
-
-        .loading {
-          text-align: center;
-          padding: 3rem;
-          color: #D0D0D0;
-        }
-
-        @media (max-width: 768px) {
-          .settings-card {
-            padding: 1.5rem;
-            margin: 1rem;
-          }
-        }
-      `}</style>
     </div>
   )
 }

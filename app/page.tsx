@@ -66,7 +66,7 @@ function HomeContent() {
                     <img src="/assets/lemina.svg" alt="Lemina" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
                     <div className="logo-text" style={{ fontWeight: 600, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>Lemina</div>
                 </div>
-                <a href="mailto:admin@lemina.co" className="btn btn-secondary" style={{ fontSize: '0.875rem' }}>Request Demo</a>
+                <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ fontSize: '0.875rem' }}>Request Demo</a>
             </nav>
 
             <section style={{
@@ -96,7 +96,7 @@ function HomeContent() {
                     We're the bridge between capital and opportunity. Giving investors certainty. Giving founders access. Building the intelligence infrastructure African tech deserves.
                 </p>
                 <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                    <a href="mailto:admin@lemina.co" className="btn btn-primary">Get Early Access</a>
+                    <a href="mailto:odinaka@lemina.co" className="btn btn-primary">Get Early Access</a>
                     <a href="#how-it-works" className="btn btn-secondary">How it works</a>
                 </div>
             </section>
@@ -139,7 +139,7 @@ function HomeContent() {
                             <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-primary)' }}>
                                 {companies[currentSlide].metrics.find(m => m.label === "Focus")?.value}
                             </p>
-                            <a href="mailto:admin@lemina.co" className="btn btn-secondary" style={{ width: '100%' }}>Request Full Profile</a>
+                            <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ width: '100%' }}>Request Full Profile</a>
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -288,7 +288,7 @@ function HomeContent() {
                         <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-secondary)' }}>
                             We analyzed 3 emerging Nigerian startup companies with investment-grade financial analysis. See exactly what our platform delivers.
                         </p>
-                        <a href="mailto:admin@lemina.co" className="btn btn-secondary">View Full Sample Report</a>
+                        <a href="mailto:odinaka@lemina.co" className="btn btn-secondary">View Full Sample Report</a>
                     </div>
                     <div style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '12px', padding: '20px', border: '1px solid var(--color-border)' }}>
                         <img src="/assets/sample-report-preview.png" alt="Report Preview" style={{ width: '100%', borderRadius: '8px', opacity: 0.8 }} />
@@ -314,13 +314,13 @@ function HomeContent() {
                     <h2 style={{ marginBottom: '24px' }}>Early Adopter Access</h2>
                     <div style={{ fontSize: '3.5rem', fontWeight: 700, color: 'var(--color-accent-primary)', marginBottom: '16px' }}>$149</div>
                     <p style={{ marginBottom: '32px' }}>Limited to 9 early adopters • Full year of quarterly updates • Lifetime early adopter fee</p>
-                    <a href="mailto:admin@lemina.co" className="btn btn-primary" style={{ padding: '16px 48px', fontSize: '1.125rem' }}>Request Access</a>
+                    <a href="mailto:odinaka@lemina.co" className="btn btn-primary" style={{ padding: '16px 48px', fontSize: '1.125rem' }}>Request Access</a>
                 </div>
             </section>
 
             <footer style={{ padding: '60px 0', borderTop: '1px solid var(--color-border)', textAlign: 'center', color: 'var(--color-text-secondary)' }}>
                 <div style={{ marginBottom: '24px' }}>
-                    <a href="mailto:admin@lemina.co" style={{ color: 'inherit', textDecoration: 'none', marginRight: '24px' }}>Contact</a>
+                    <a href="mailto:odinaka@lemina.co" style={{ color: 'inherit', textDecoration: 'none', marginRight: '24px' }}>Contact</a>
                     <a href="https://x.com/uselemina" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Twitter</a>
                 </div>
                 <p>© 2025 Lemina • Powering the investment bank for African tech</p>

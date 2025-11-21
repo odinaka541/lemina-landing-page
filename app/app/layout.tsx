@@ -34,35 +34,75 @@ export default function AppLayout({
   }
 
   return (
-    <div className="dashboard-layout">
-      <nav className="dashboard-nav">
-        <div className="nav-brand">
-          <Link href="/app/companies">
-            <img src="/assets/lemina.svg" alt="Lemina" className="nav-logo" />
-            <span>Lemina Dashboard</span>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <nav style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '1rem 2rem',
+        background: 'rgba(3, 7, 18, 0.8)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 50
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Link href="/app/companies" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+            <img src="/assets/lemina.svg" alt="Lemina" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
+            <span style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: '1.125rem' }}>Lemina Dashboard</span>
           </Link>
         </div>
-        
-        <div className="nav-links">
-          <Link 
-            href="/app/companies" 
-            className={pathname === '/app/companies' ? 'active' : ''}
+
+        <div className="nav-links" style={{ display: 'flex', gap: '2rem' }}>
+          <Link
+            href="/app/companies"
+            style={{
+              color: pathname === '/app/companies' ? 'var(--color-accent-primary)' : 'var(--color-text-secondary)',
+              textDecoration: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              transition: 'all 0.2s',
+              background: pathname === '/app/companies' ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
+              fontWeight: 500
+            }}
           >
             Companies
           </Link>
-          <Link 
-            href="/app/settings" 
-            className={pathname === '/app/settings' ? 'active' : ''}
+          <Link
+            href="/app/settings"
+            style={{
+              color: pathname === '/app/settings' ? 'var(--color-accent-primary)' : 'var(--color-text-secondary)',
+              textDecoration: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              transition: 'all 0.2s',
+              background: pathname === '/app/settings' ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
+              fontWeight: 500
+            }}
           >
             Settings
           </Link>
         </div>
 
-        <div className="nav-user">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           {user && (
-            <div className="user-info">
-              <span>{user.email}</span>
-              <button onClick={handleLogout} className="logout-btn">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <span style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem' }}>{user.email}</span>
+              <button
+                onClick={handleLogout}
+                style={{
+                  background: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.2)',
+                  color: '#FCA5A5',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  fontSize: '0.875rem',
+                  fontWeight: 500
+                }}
+              >
                 Logout
               </button>
             </div>
@@ -70,107 +110,26 @@ export default function AppLayout({
         </div>
       </nav>
 
-      <main className="dashboard-main">
+      <main style={{ flex: 1, padding: '2rem', position: 'relative', zIndex: 1 }}>
         {children}
       </main>
 
-      <style jsx>{`
-        .dashboard-layout {
-          min-height: 100vh;
-          background: #0A0A0A;
-        }
-
-        .dashboard-nav {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1rem 2rem;
-          background: rgba(16, 185, 129, 0.03);
-          border-bottom: 1px solid rgba(16, 185, 129, 0.1);
-          backdrop-filter: blur(10px);
-        }
-
-        .nav-brand {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-
-        .nav-brand a {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          text-decoration: none;
-          color: #FAFAFA;
-          font-weight: 600;
-          font-size: 1.2rem;
-        }
-
-        .nav-logo {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-        }
-
-        .nav-links {
-          display: flex;
-          gap: 2rem;
-        }
-
-        .nav-links a {
-          color: #D0D0D0;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          transition: all 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-          color: #10B981;
-          background: rgba(16, 185, 129, 0.1);
-        }
-
-        .user-info {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          color: #D0D0D0;
-        }
-
-        .logout-btn {
-          background: rgba(239, 68, 68, 0.1);
-          border: 1px solid rgba(239, 68, 68, 0.3);
-          color: #FCA5A5;
-          padding: 0.5rem 1rem;
-          border-radius: 6px;
-          cursor: pointer;
-          transition: all 0.3s;
-        }
-
-        .logout-btn:hover {
-          background: rgba(239, 68, 68, 0.2);
-        }
-
-        .dashboard-main {
-          padding: 2rem;
-          position: relative;
-          z-index: 2;
-        }
-
+      <style jsx global>{`
         @media (max-width: 768px) {
-          .dashboard-nav {
+          nav {
             flex-direction: column;
             gap: 1rem;
-            padding: 1rem;
+            padding: 1rem !important;
           }
-
+          
           .nav-links {
-            gap: 1rem;
+            width: 100%;
+            justify-content: center;
+            gap: 0.5rem !important;
           }
 
-          .dashboard-main {
-            padding: 1rem;
+          main {
+            padding: 1rem !important;
           }
         }
       `}</style>

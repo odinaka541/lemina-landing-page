@@ -40,7 +40,7 @@ export default function LoginPage() {
 
   return (
     <div style={{
-      minHeight: '100vh',
+      minHeight: '80vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -48,56 +48,41 @@ export default function LoginPage() {
       position: 'relative',
       zIndex: 2
     }}>
-      <div style={{
-        background: 'rgba(16, 185, 129, 0.03)',
-        border: '1px solid rgba(16, 185, 129, 0.1)',
-        borderRadius: '16px',
+      <div className="glass-panel" style={{
         padding: '3rem',
-        backdropFilter: 'blur(10px)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
         width: '100%',
-        maxWidth: '400px'
+        maxWidth: '450px'
       }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Link href="/">
-            <img 
-              src="/assets/lemina.svg" 
-              alt="Lemina" 
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <img
+              src="/assets/lemina.svg"
+              alt="Lemina"
               style={{
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                marginBottom: '1rem'
+                marginBottom: '1rem',
+                display: 'inline-block'
               }}
             />
+            <h1 style={{
+              fontSize: '1.75rem',
+              fontWeight: 700,
+              marginBottom: '0.5rem',
+              color: 'var(--color-accent-primary)'
+            }}>
+              Investor Dashboard
+            </h1>
           </Link>
-          <h1 style={{
-            fontSize: '24px',
-            fontWeight: 700,
-            marginBottom: '0.5rem',
-            color: '#10B981'
-          }}>
-            Investor Dashboard
-          </h1>
-          <p style={{ color: '#D0D0D0', fontSize: '14px' }}>
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: '1rem' }}>
             Access detailed company data and intelligence reports
           </p>
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1.5rem' }}>
-            <label 
-              htmlFor="email"
-              style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                fontWeight: 600,
-                color: '#FAFAFA',
-                fontSize: '14px'
-              }}
-            >
-              Please, enter your email address
-            </label>
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
             <input
               id="email"
               type="email"
@@ -106,15 +91,6 @@ export default function LoginPage() {
               placeholder="investor@firm.com"
               required
               disabled={loading}
-              style={{
-                width: '100%',
-                padding: '12px 16px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                borderRadius: '8px',
-                fontSize: '15px',
-                color: '#FAFAFA'
-              }}
             />
           </div>
 
@@ -125,8 +101,8 @@ export default function LoginPage() {
               color: '#FCA5A5',
               padding: '12px',
               borderRadius: '6px',
-              marginBottom: '1rem',
-              fontSize: '14px'
+              marginBottom: '1.5rem',
+              fontSize: '0.875rem'
             }}>
               {error}
             </div>
@@ -139,8 +115,8 @@ export default function LoginPage() {
               color: '#10B981',
               padding: '12px',
               borderRadius: '6px',
-              marginBottom: '1rem',
-              fontSize: '14px'
+              marginBottom: '1.5rem',
+              fontSize: '0.875rem'
             }}>
               {message}
             </div>
@@ -148,31 +124,29 @@ export default function LoginPage() {
 
           <button
             type="submit"
+            className="btn btn-primary"
             disabled={loading || !email}
             style={{
               width: '100%',
               padding: '14px',
-              background: loading ? '#374151' : 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-              color: '#FAFAFA',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: 600,
-              cursor: loading ? 'not-allowed' : 'pointer',
-              marginBottom: '1.5rem'
+              fontSize: '1rem',
+              marginBottom: '1.5rem',
+              opacity: loading ? 0.7 : 1,
+              cursor: loading ? 'not-allowed' : 'pointer'
             }}
           >
-            {loading ? 'sending link...' : 'Send Magic Link'}
+            {loading ? 'Sending Link...' : 'Send Magic Link'}
           </button>
         </form>
 
         <div style={{ textAlign: 'center' }}>
-          <Link 
+          <Link
             href="/"
+            className="btn btn-secondary"
             style={{
-              color: '#10B981',
-              textDecoration: 'none',
-              fontSize: '14px'
+              fontSize: '0.875rem',
+              padding: '8px 16px',
+              border: 'none'
             }}
           >
             ← Back to homepage
