@@ -241,22 +241,6 @@ function HomeContent() {
                             </div>
                             <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
                                 <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>Everything</div>
-                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For your Investment Career</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="glass-panel" style={{ padding: '40px', position: 'relative' }}>
-                        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '16px', zIndex: 10 }}>
-                            <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '8px' }}>Almost Ready</div>
-                                <button className="btn btn-primary">Get Notified</button>
-                            </div>
-                        </div>
-                        {/* Mock UI Background */}
-                        <div style={{ opacity: 0.3 }}>
-                            <div style={{ display: 'flex', gap: '20px', marginBottom: '24px' }}>
-                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
-                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
                             </div>
                             <div style={{ height: '200px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}></div>
                         </div>
