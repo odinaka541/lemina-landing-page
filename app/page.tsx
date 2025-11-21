@@ -241,27 +241,27 @@ function HomeContent() {
                             </div>
                             <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
                                 <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>Everything</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For your Investment Career</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="glass-panel" style={{ padding: '40px', position: 'relative', minHeight: '400px' }}>
+                        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '16px', zIndex: 10 }}>
+                            <div style={{ textAlign: 'center', padding: '20px' }}>
+                                <div style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>Almost Ready</div>
+                                <p style={{ marginBottom: '24px', color: 'rgba(255,255,255,0.8)' }}>We're putting the finishing touches on the dashboard.</p>
+                                <a href="mailto:odinaka@lemina.co?subject=Notify me when dashboard is ready" className="btn btn-primary">Get Notified</a>
+                            </div>
+                        </div>
+                        {/* Mock UI Background */}
+                        <div style={{ opacity: 0.3 }}>
+                            <div style={{ display: 'flex', gap: '20px', marginBottom: '24px' }}>
+                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
+                                <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
                             </div>
                             <div style={{ height: '200px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}></div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section style={{ padding: '100px 0', textAlign: 'center' }}>
-                <h2 style={{ fontSize: '2.5rem', marginBottom: '60px' }}>Built for decision-makers</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-                    {[
-                        { title: "Venture Capitalists & Angel Investors", desc: "Deal sourcing, due diligence, portfolio monitoring" },
-                        { title: "Founders & Startups", desc: "Exposure to investors actively deploying capital" },
-                        { title: "Banks & Financial Institutions", desc: "Partnership evaluation, market entry strategy" },
-                        { title: "Corporate Development", desc: "M&A target identification, competitive intelligence" }
-                    ].map((item, i) => (
-                        <div key={i} className="glass-panel" style={{ padding: '32px' }}>
-                            <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{item.title}</h3>
-                            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>{item.desc}</p>
-                        </div>
-                    ))}
                 </div>
             </section>
 
