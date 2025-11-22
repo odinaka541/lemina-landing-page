@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 
 :root {
     /* Brand Colors - Emerald & Midnight */
@@ -16,25 +16,13 @@
     --color-border: rgba(255, 255, 255, 0.1);
 
     /* Glassmorphism */
-    --glass-bg: rgba(3, 7, 18, 0.7);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-    /* Spacing */
-    --container-width: 1200px;
-    --header-height: 80px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
     padding: 0;
 }
 
 body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -434,6 +422,7 @@ input[type="radio"] {
     nav .btn {
         padding: 4px 10px !important;
         font-size: 0.7rem !important;
+        width: auto !important;
     }
 
     .btn {
