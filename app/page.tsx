@@ -39,6 +39,21 @@ function HomeContent() {
                 { label: "Team Size", value: "4" },
                 { label: "Why Promising", value: "First player on the scene solving a multi-billion dollar industry need" }
             ]
+        },
+        {
+            name: "TikiAnaly",
+            stage: "Pre-seed",
+            metrics: [
+                { label: "Focus", value: "Social sports platform connecting fans, athletes, analysts, and clubs via banter, data, and community engagement" },
+                { label: "Total Funding", value: "F&F, Pre-seed | $500k (Seed Ask)" },
+                { label: "Last Round", value: "None (Bootstrapped)" },
+                { label: "Valuation", value: "NA" },
+                { label: "Active Users", value: "1001+ (Waitlist)" },
+                { label: "Monthly Revenue", value: "Pre-revenue" },
+                { label: "Runway", value: "18 months" },
+                { label: "Team Size", value: "15" },
+                { label: "Why Promising", value: "Monopolist in its niche: Sports-only, healthy banter space, no noise, no distractions" }
+            ]
         }
     ];
 
@@ -102,56 +117,56 @@ function HomeContent() {
             </section>
 
             <section style={{ padding: '80px 0' }}>
-                <div className="glass-panel" style={{ padding: '40px', position: 'relative', overflow: 'hidden' }}>
+                <div className="glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', maxWidth: '900px', margin: '0 auto' }}>
                     <div style={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'flex-end',
-                        marginBottom: '40px',
+                        marginBottom: '20px',
                         borderBottom: '1px solid var(--color-border)',
-                        paddingBottom: '24px'
+                        paddingBottom: '16px'
                     }}>
                         <div>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '8px' }}>Highlights on Who to Watch</h3>
-                            <p style={{ fontSize: '0.875rem' }}>Early-stage innovators driving change, verified traction, and market potential.</p>
+                            <h3 style={{ fontSize: '1.25rem', marginBottom: '4px' }}>Highlights on Who to Watch</h3>
+                            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Early-stage innovators driving change.</p>
                         </div>
-                        <div style={{ display: 'flex', gap: '12px' }}>
-                            <button onClick={prevSlide} className="btn btn-secondary" style={{ padding: '8px 16px' }}>←</button>
-                            <button onClick={nextSlide} className="btn btn-secondary" style={{ padding: '8px 16px' }}>→</button>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                            <button onClick={prevSlide} className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '0.875rem' }}>←</button>
+                            <button onClick={nextSlide} className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '0.875rem' }}>→</button>
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '32px' }}>
                         <div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                                <div style={{ width: '48px', height: '48px', background: 'var(--color-bg-secondary)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>🟠</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                                <div style={{ width: '40px', height: '40px', background: 'var(--color-bg-secondary)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem' }}>🟠</div>
                                 <div>
-                                    <h2 style={{ fontSize: '2rem', margin: 0 }}>{companies[currentSlide].name}</h2>
+                                    <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{companies[currentSlide].name}</h2>
                                     <span style={{
-                                        fontSize: '0.875rem',
+                                        fontSize: '0.75rem',
                                         color: 'var(--color-accent-primary)',
                                         background: 'rgba(16, 185, 129, 0.1)',
-                                        padding: '4px 12px',
+                                        padding: '2px 10px',
                                         borderRadius: '100px'
                                     }}>{companies[currentSlide].stage}</span>
                                 </div>
                             </div>
-                            <p style={{ fontSize: '1.125rem', marginBottom: '32px', color: 'var(--color-text-primary)' }}>
+                            <p style={{ fontSize: '0.9375rem', marginBottom: '20px', color: 'var(--color-text-primary)', lineHeight: '1.5' }}>
                                 {companies[currentSlide].metrics.find(m => m.label === "Focus")?.value}
                             </p>
-                            <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ width: '100%' }}>Request Full Profile</a>
+                            <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ width: '100%', padding: '10px', fontSize: '0.875rem' }}>Request Full Profile</a>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                             {companies[currentSlide].metrics.filter(m => m.label !== "Focus").map((metric, index) => (
                                 <div key={index} style={{
                                     background: 'rgba(255, 255, 255, 0.02)',
-                                    padding: '16px',
-                                    borderRadius: '12px',
+                                    padding: '12px',
+                                    borderRadius: '8px',
                                     border: '1px solid rgba(255, 255, 255, 0.05)'
                                 }}>
-                                    <div style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
-                                    <div style={{ fontSize: '1rem', fontWeight: 500 }}>{metric.value}</div>
+                                    <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
+                                    <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2' }}>{metric.value}</div>
                                 </div>
                             ))}
                         </div>

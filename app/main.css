@@ -15,7 +15,24 @@
     /* Gray 400 */
     --color-border: rgba(255, 255, 255, 0.1);
 
+    /* Data Quality Tiers */
+    --color-tier-5: #10b981;
+    /* Emerald 500 */
+    --color-tier-4: #34d399;
+    /* Emerald 400 */
+    --color-tier-3: #84cc16;
+    /* Lime 500 */
+    --color-tier-2: #f59e0b;
+    /* Amber 500 */
+    --color-tier-1: #f97316;
+    /* Orange 500 */
+    --color-tier-0: #ef4444;
+    /* Red 500 */
+
     /* Glassmorphism */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --container-width: 1280px;
+
     padding: 0;
 }
 
@@ -453,5 +470,56 @@ input[type="radio"] {
 
     * {
         max-width: 100%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background-color: white !important;
+        color: black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Hide non-printable elements */
+    .no-print,
+    .gradient-bg,
+    nav,
+    footer,
+    button {
+        display: none !important;
+    }
+
+    /* Ensure pages break correctly */
+    .break-after-page {
+        page-break-after: always !important;
+        break-after: page !important;
+        margin-bottom: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        min-height: 297mm !important;
+        height: 297mm !important;
+        width: 210mm !important;
+        padding: 15mm !important;
+    }
+
+    /* Reset text colors for print */
+    .text-slate-900,
+    .text-slate-700,
+    .text-slate-500 {
+        color: black !important;
+    }
+
+    /* Ensure backgrounds print */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
