@@ -1,265 +1,280 @@
 'use client';
 
 import { useState } from 'react';
+import { MapPin, Globe, Calendar, Users, ShieldCheck, ArrowUpRight, Copy, Share2, Bookmark, BarChart2, Briefcase, FileText, Newspaper } from 'lucide-react';
 import Link from 'next/link';
-import { ArrowLeft, Star, MoreHorizontal, Wallet, Users, MapPin, Building2, Calendar, Clock, ExternalLink } from 'lucide-react';
 import ConfidenceBadge, { ConfidenceTier } from '@/components/company/ConfidenceBadge';
+import MetricsChart from '@/components/company/MetricsChart';
+import TeamSection from '@/components/company/TeamSection';
 
-export default function CompanyProfilePage({ params }: { params: { id: string } }) {
-    const [activeTab, setActiveTab] = useState('Overview');
-    // Mock Data (would normally fetch based on params.id)
-    const company = {
-        name: 'Paystack',
-        description: 'Payments infrastructure for African businesses',
-        qualityScore: 92,
-        about: 'Paystack is a payments infrastructure company that enables businesses in Africa to accept payments from anyone, anywhere in the world. They build technology to help Africa\'s best businesses grow - from new startups, to market leaders launching new business models.',
-        quickFacts: [
-            { icon: Wallet, label: 'Funding', value: '$200M' },
-            { icon: Users, label: 'Team', value: '450 people' },
-            { icon: MapPin, label: 'HQ', value: 'Lagos, Nigeria' },
-            { icon: Building2, label: 'Status', value: 'CBN Licensed' },
-            { icon: Calendar, label: 'Founded', value: '2015' },
-            { icon: Clock, label: 'Updated', value: '3 days ago' },
+// Mock Data
+const COMPANY_DATA = {
+    id: '1',
+    name: 'Paystack',
+    description: 'Modern online and offline payments for Africa.',
+    longDescription: 'Paystack helps businesses in Africa get paid by anyone, anywhere in the world. They provide a seamless payment experience for customers and a powerful dashboard for merchants to manage their business. Acquired by Stripe in 2020 for $200M+, Paystack continues to expand across the continent.',
+    logo: 'https://api.dicebear.com/7.x/initials/svg?seed=Paystack',
+    location: 'Lagos, Nigeria',
+    website: 'paystack.com',
+    founded: '2015',
+    employees: 250,
+    stage: 'Acquired',
+    verificationTier: ConfidenceTier.CACVerified,
+    verificationScore: 98,
+    sectors: ['Fintech', 'Payments', 'SaaS'],
+    metrics: {
+        revenue: [
+            { name: 'Jan', value: 4000 },
+            { name: 'Feb', value: 3000 },
+            { name: 'Mar', value: 2000 },
+            { name: 'Apr', value: 2780 },
+            { name: 'May', value: 1890 },
+            { name: 'Jun', value: 2390 },
+            { name: 'Jul', value: 3490 },
         ],
-        metrics: [
-            { label: 'Monthly Revenue', value: '$8.5M', tier: 4, score: 92, source: 'Verified' },
-            { label: 'Total Users', value: '60,000', tier: 4, score: 90, source: 'Verified' },
-            { label: 'Transactions/Month', value: '2.5M', tier: 3, score: 75, source: '3rd-party' },
-            { label: 'Payment Vol/Month', value: '$1.2B', tier: 4, score: 92, source: 'Verified' },
-            { label: 'GMV (Annual)', value: '$15B', tier: 2, score: 60, source: 'News' },
-            { label: 'Valuation', value: '$2B', tier: 5, score: 100, source: 'Public Filing' },
-        ],
-        funding: [
-            { date: 'Oct 2020', stage: 'Series C', amount: '$200M', investor: 'Stripe', verification: { tier: 5, score: 100, label: 'Public Filing' } },
-            { date: 'Sep 2018', stage: 'Series B', amount: '$8M', investor: 'Stripe', verification: { tier: 4, score: 92, label: 'Press Release' } },
-            { date: 'May 2016', stage: 'Series A', amount: '$1.3M', investor: 'Tencent', verification: { tier: 4, score: 90, label: 'Verified' } },
+        users: [
+            { name: 'Jan', value: 2400 },
+            { name: 'Feb', value: 1398 },
+            { name: 'Mar', value: 9800 },
+            { name: 'Apr', value: 3908 },
+            { name: 'May', value: 4800 },
+            { name: 'Jun', value: 3800 },
+            { name: 'Jul', value: 4300 },
         ]
-    };
+    },
+    team: [
+        {
+            name: 'Shola Akinlade',
+            role: 'Co-founder & CEO',
+            bio: 'Software engineer turned entrepreneur. Previously worked at Heineken and banks in Nigeria. Y Combinator alumni.',
+            image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shola',
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com'
+        },
+        {
+            name: 'Ezra Olubi',
+            role: 'Co-founder & CTO',
+            bio: 'Experienced software architect. Passionate about building scalable systems and solving complex problems.',
+            image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ezra',
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com'
+        }
+    ],
+    funding: [
+        { round: 'Acquisition', date: 'Oct 2020', amount: '$200M+', investors: ['Stripe'] },
+        { round: 'Series A', date: 'Aug 2018', amount: '$8M', investors: ['Stripe', 'Visa', 'Tencent'] },
+        { round: 'Seed', date: 'Dec 2016', amount: '$1.3M', investors: ['Y Combinator', 'Ventures Platform'] }
+    ]
+};
+
+export default function CompanyProfilePage() {
+    const [activeTab, setActiveTab] = useState('overview');
+
+    const tabs = [
+        { id: 'overview', label: 'Overview', icon: FileText },
+        { id: 'metrics', label: 'Metrics', icon: BarChart2 },
+        { id: 'team', label: 'Team', icon: Users },
+        { id: 'funding', label: 'Funding', icon: Briefcase },
+        { id: 'news', label: 'News', icon: Newspaper },
+    ];
 
     return (
-        <div className="min-h-screen pb-20">
-            {/* Sticky Header */}
-            <div className="sticky top-0 z-30 bg-[var(--color-bg-primary)]/80 backdrop-blur-md border-b border-[var(--color-border)] px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                    <Link href="/dashboard" className="p-2 hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-white">
-                        <ArrowLeft size={20} />
-                    </Link>
-                    <div>
-                        <h1 className="text-xl font-bold text-white leading-tight">{company.name}</h1>
-                        <p className="text-xs text-[var(--color-text-secondary)]">Payments infrastructure</p>
-                    </div>
+        <div className="container mx-auto px-4 py-8">
+            {/* Header */}
+            <div className="glass-panel p-8 mb-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 flex gap-2">
+                    <button className="p-2 text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors">
+                        <Share2 size={20} />
+                    </button>
+                    <button className="p-2 text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors">
+                        <Bookmark size={20} />
+                    </button>
                 </div>
-                <div className="flex items-center gap-3">
-                    <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.2)]">
-                        <span className="text-xs text-[var(--color-text-secondary)]">Quality Score:</span>
-                        <span className="text-sm font-bold text-[var(--color-accent-primary)]">{company.qualityScore}/100</span>
+
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                    <div className="w-24 h-24 rounded-2xl bg-white p-2 flex items-center justify-center shadow-lg shadow-emerald-900/20">
+                        <img src={COMPANY_DATA.logo} alt={COMPANY_DATA.name} className="w-full h-full object-contain" />
                     </div>
-                    <button className="btn btn-secondary text-sm py-2 px-4 gap-2">
-                        <Star size={16} /> <span className="hidden sm:inline">Save</span>
-                    </button>
-                    <button className="btn btn-primary text-sm py-2 px-4">
-                        Add to Pipeline
-                    </button>
-                    <button className="p-2 hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-white">
-                        <MoreHorizontal size={20} />
-                    </button>
+                    <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                            <h1 className="text-3xl font-bold text-white">{COMPANY_DATA.name}</h1>
+                            <ConfidenceBadge tier={COMPANY_DATA.verificationTier} score={COMPANY_DATA.verificationScore} />
+                        </div>
+                        <p className="text-lg text-[var(--color-text-secondary)] mb-4 max-w-2xl">
+                            {COMPANY_DATA.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-4 text-sm text-[var(--color-text-secondary)] mb-6">
+                            <div className="flex items-center gap-1.5">
+                                <MapPin size={16} />
+                                {COMPANY_DATA.location}
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <Globe size={16} />
+                                <a href={`https://${COMPANY_DATA.website}`} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent-primary)] transition-colors">
+                                    {COMPANY_DATA.website}
+                                </a>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <Calendar size={16} />
+                                Founded {COMPANY_DATA.founded}
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <Users size={16} />
+                                {COMPANY_DATA.employees} Employees
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            {COMPANY_DATA.sectors.map(sector => (
+                                <span key={sector} className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[var(--color-border)] text-xs font-medium text-white">
+                                    {sector}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex gap-4">
+                            <button className="btn btn-primary px-6">
+                                Add to Pipeline
+                            </button>
+                            <Link href="/dashboard/companies/compare" className="btn btn-secondary px-6">
+                                Compare
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="container max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Left Column: Quick Facts */}
-                <div className="space-y-6">
-                    <div className="glass-panel p-5">
-                        <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider opacity-70">Quick Facts</h3>
-                        <div className="space-y-4">
-                            {company.quickFacts.map((fact, i) => (
-                                <div key={i} className="flex items-start gap-3">
-                                    <fact.icon size={18} className="text-[var(--color-accent-primary)] mt-0.5" />
-                                    <div>
-                                        <div className="text-xs text-[var(--color-text-secondary)]">{fact.label}</div>
-                                        <div className="text-sm font-medium text-white">{fact.value}</div>
+            {/* Tabs */}
+            <div className="flex border-b border-[var(--color-border)] mb-8 overflow-x-auto">
+                {tabs.map(tab => (
+                    <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`flex items-center gap-2 px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
+                                ? 'border-[var(--color-accent-primary)] text-[var(--color-accent-primary)]'
+                                : 'border-transparent text-[var(--color-text-secondary)] hover:text-white hover:border-[rgba(255,255,255,0.1)]'
+                            }`}
+                    >
+                        <tab.icon size={16} />
+                        {tab.label}
+                    </button>
+                ))}
+            </div>
+
+            {/* Content */}
+            <div className="animate-fade-in">
+                {activeTab === 'overview' && (
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="lg:col-span-2 space-y-8">
+                            <section>
+                                <h2 className="text-xl font-bold text-white mb-4">About</h2>
+                                <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                                    {COMPANY_DATA.longDescription}
+                                </p>
+                            </section>
+
+                            <section>
+                                <h2 className="text-xl font-bold text-white mb-4">Key Highlights</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="p-4 rounded-xl bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.2)]">
+                                        <h3 className="font-semibold text-white mb-1">Market Leader</h3>
+                                        <p className="text-sm text-[var(--color-text-secondary)]">Dominant market share in Nigeria and expanding rapidly in Ghana and South Africa.</p>
+                                    </div>
+                                    <div className="p-4 rounded-xl bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.2)]">
+                                        <h3 className="font-semibold text-white mb-1">Strong Unit Economics</h3>
+                                        <p className="text-sm text-[var(--color-text-secondary)]">Profitable on a per-transaction basis with high retention rates.</p>
                                     </div>
                                 </div>
-                            ))}
+                            </section>
                         </div>
-                        <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
-                            <a href="#" className="flex items-center gap-2 text-sm text-[var(--color-accent-primary)] hover:underline">
-                                Visit Website <ExternalLink size={14} />
-                            </a>
+                        <div className="space-y-6">
+                            <div className="glass-panel p-5">
+                                <h3 className="font-bold text-white mb-4">Quick Facts</h3>
+                                <div className="space-y-3">
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-[var(--color-text-secondary)]">Stage</span>
+                                        <span className="text-white font-medium">{COMPANY_DATA.stage}</span>
+                                    </div>
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-[var(--color-text-secondary)]">Total Funding</span>
+                                        <span className="text-white font-medium">$210M+</span>
+                                    </div>
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-[var(--color-text-secondary)]">Last Round</span>
+                                        <span className="text-white font-medium">Acquisition</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
 
-                {/* Right Column: Main Content */}
-                <div className="lg:col-span-2 space-y-8">
-                    {/* Tabs */}
-                    <div className="flex border-b border-[var(--color-border)] mb-6">
-                        {['Overview', 'Financials', 'Network', 'Documents'].map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === tab
-                                    ? 'border-[var(--color-accent-primary)] text-white'
-                                    : 'border-transparent text-[var(--color-text-secondary)] hover:text-white'
-                                    }`}
-                            >
-                                {tab}
-                            </button>
-                        ))}
+                {activeTab === 'metrics' && (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div className="glass-panel p-6">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="font-bold text-white">Monthly Revenue</h3>
+                                <div className="text-sm text-emerald-500 font-medium">+12% MoM</div>
+                            </div>
+                            <MetricsChart
+                                data={COMPANY_DATA.metrics.revenue}
+                                dataKey="value"
+                                color="#10b981"
+                                label="Revenue"
+                            />
+                        </div>
+                        <div className="glass-panel p-6">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="font-bold text-white">Active Users</h3>
+                                <div className="text-sm text-blue-500 font-medium">+8% MoM</div>
+                            </div>
+                            <MetricsChart
+                                data={COMPANY_DATA.metrics.users}
+                                dataKey="value"
+                                color="#3b82f6"
+                                label="Users"
+                            />
+                        </div>
                     </div>
+                )}
 
-                    {activeTab === 'Overview' && (
-                        <>
-                            {/* Key Metrics */}
-                            <section>
-                                <h2 className="text-lg font-semibold text-white mb-4">Key Metrics</h2>
-                                <div className="glass-panel overflow-hidden">
-                                    <table className="w-full text-left border-collapse">
-                                        <tbody>
-                                            {company.metrics.map((metric, i) => (
-                                                <tr key={i} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                                                    <td className="p-4 text-sm font-medium text-[var(--color-text-secondary)] w-1/3">{metric.label}</td>
-                                                    <td className="p-4 text-base font-mono font-semibold text-white">{metric.value}</td>
-                                                    <td className="p-4 text-right">
-                                                        <ConfidenceBadge
-                                                            tier={metric.tier as ConfidenceTier}
-                                                            score={metric.score}
-                                                            source={metric.source}
-                                                        />
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
+                {activeTab === 'team' && (
+                    <TeamSection members={COMPANY_DATA.team} />
+                )}
 
-                            {/* About */}
-                            <section>
-                                <h2 className="text-lg font-semibold text-white mb-4">About</h2>
-                                <div className="glass-panel p-6">
-                                    <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                                        {company.about}
-                                    </p>
-                                </div>
-                            </section>
+                {activeTab === 'funding' && (
+                    <div className="glass-panel overflow-hidden">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[var(--color-border)]">
+                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Round</th>
+                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Date</th>
+                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Amount</th>
+                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Investors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {COMPANY_DATA.funding.map((round, i) => (
+                                    <tr key={i} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                                        <td className="p-4 font-medium text-white">{round.round}</td>
+                                        <td className="p-4 text-sm text-[var(--color-text-secondary)]">{round.date}</td>
+                                        <td className="p-4 text-sm text-white font-mono">{round.amount}</td>
+                                        <td className="p-4 text-sm text-[var(--color-text-secondary)]">
+                                            {round.investors.join(', ')}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
 
-                            {/* Funding History */}
-                            <section>
-                                <h2 className="text-lg font-semibold text-white mb-4">Funding History</h2>
-                                <div className="glass-panel overflow-hidden">
-                                    <div className="overflow-x-auto">
-                                        <table className="w-full text-left border-collapse min-w-[600px]">
-                                            <thead>
-                                                <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[var(--color-border)]">
-                                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Date</th>
-                                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Stage</th>
-                                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Amount</th>
-                                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Lead Investor</th>
-                                                    <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase text-right">Verification</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {company.funding.map((round, i) => (
-                                                    <tr key={i} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                                                        <td className="p-4 text-sm text-white">{round.date}</td>
-                                                        <td className="p-4 text-sm text-white">{round.stage}</td>
-                                                        <td className="p-4 text-sm font-mono text-white">{round.amount}</td>
-                                                        <td className="p-4 text-sm text-[var(--color-text-secondary)]">{round.investor}</td>
-                                                        <td className="p-4 text-right">
-                                                            <ConfidenceBadge
-                                                                tier={round.verification.tier as ConfidenceTier}
-                                                                score={round.verification.score}
-                                                                source={round.verification.label}
-                                                                showLabel={true}
-                                                            />
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </section>
-                        </>
-                    )}
-
-                    {activeTab === 'Network' && (
-                        <div className="space-y-8">
-                            {/* Syndicate Interest */}
-                            <section>
-                                <h2 className="text-lg font-semibold text-white mb-4">Syndicate Interest</h2>
-                                <div className="glass-panel p-6">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="flex -space-x-3">
-                                            {[1, 2, 3, 4].map((i) => (
-                                                <div key={i} className="w-10 h-10 rounded-full bg-[var(--color-bg-secondary)] border-2 border-[var(--color-bg-primary)] flex items-center justify-center overflow-hidden">
-                                                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`} alt="User" />
-                                                </div>
-                                            ))}
-                                            <div className="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.1)] border-2 border-[var(--color-bg-primary)] flex items-center justify-center text-xs font-bold text-white">
-                                                +3
-                                            </div>
-                                        </div>
-                                        <div className="text-sm text-[var(--color-text-secondary)]">
-                                            <span className="text-white font-medium">7 members</span> are tracking this deal
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-4">
-                                        <div className="flex items-start gap-3 p-4 bg-[rgba(255,255,255,0.03)] rounded-lg">
-                                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-8 h-8 rounded-full" alt="User" />
-                                            <div>
-                                                <div className="text-sm font-medium text-white">Felix (Lead)</div>
-                                                <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-                                                    "Strong unit economics. I'm scheduling a call with the founder next Tuesday. Anyone want to join?"
-                                                </p>
-                                                <div className="flex gap-4 mt-2 text-xs text-[var(--color-text-secondary)]">
-                                                    <button className="hover:text-white">Reply</button>
-                                                    <span>2h ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-start gap-3 p-4 bg-[rgba(255,255,255,0.03)] rounded-lg">
-                                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah" className="w-8 h-8 rounded-full" alt="User" />
-                                            <div>
-                                                <div className="text-sm font-medium text-white">Sarah</div>
-                                                <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-                                                    "I'm concerned about the regulatory headwinds mentioned in the report. Has legal reviewed this?"
-                                                </p>
-                                                <div className="flex gap-4 mt-2 text-xs text-[var(--color-text-secondary)]">
-                                                    <button className="hover:text-white">Reply</button>
-                                                    <span>5h ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
-                                        <textarea
-                                            placeholder="Add a comment for the syndicate..."
-                                            className="w-full bg-[rgba(0,0,0,0.2)] border border-[var(--color-border)] rounded-lg p-3 text-sm text-white placeholder-[var(--color-text-secondary)] focus:border-[var(--color-accent-primary)] outline-none min-h-[100px]"
-                                        ></textarea>
-                                        <div className="flex justify-end mt-2">
-                                            <button className="btn btn-primary text-sm">Post Comment</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    )}
-
-                    {(activeTab === 'Financials' || activeTab === 'Documents') && (
-                        <div className="glass-panel p-12 text-center">
-                            <div className="text-4xl mb-4 opacity-20">🔒</div>
-                            <h3 className="text-lg font-semibold text-white mb-2">Access Restricted</h3>
-                            <p className="text-[var(--color-text-secondary)] mb-6">
-                                Please request full access to view detailed {activeTab.toLowerCase()}.
-                            </p>
-                            <button className="btn btn-secondary">Request Access</button>
-                        </div>
-                    )}
-                </div>
+                {activeTab === 'news' && (
+                    <div className="text-center py-12 text-[var(--color-text-secondary)]">
+                        News feed integration coming soon.
+                    </div>
+                )}
             </div>
         </div>
     );

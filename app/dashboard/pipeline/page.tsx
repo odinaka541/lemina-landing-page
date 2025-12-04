@@ -1,141 +1,195 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
-import { MoreHorizontal, ArrowRight, Plus } from 'lucide-react';
-import ConfidenceBadge, { ConfidenceTier } from '@/components/company/ConfidenceBadge';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
+import PipelineColumn from '@/components/crm/PipelineColumn';
+import { ConfidenceTier } from '@/components/company/ConfidenceBadge';
+import { Plus, Filter, Search } from 'lucide-react';
 
 // Mock Data
-const pipeline = [
-    {
-        id: '1',
-        name: 'Paystack',
-        sector: 'Fintech',
-        stage: 'Interested',
-        funding: '$200M',
-        lastActivity: 'Added 2 days ago',
-        metrics: { revenue: '$8.5M', tier: 4, score: 92 }
+const INITIAL_DATA = {
+    columns: {
+        'inbox': {
+            id: 'inbox',
+            title: 'Inbox',
+            dealIds: ['deal-1', 'deal-4']
+        },
+        'diligence': {
+            id: 'diligence',
+            title: 'Due Diligence',
+            dealIds: ['deal-2']
+        },
+        'negotiation': {
+            id: 'negotiation',
+            title: 'Negotiation',
+            dealIds: ['deal-3']
+        },
+        'committed': {
+            id: 'committed',
+            title: 'Committed',
+            dealIds: []
+        },
+        'passed': {
+            id: 'passed',
+            title: 'Passed',
+            dealIds: []
+        }
     },
-    {
-        id: '2',
-        name: 'Flutterwave',
-        sector: 'Fintech',
-        stage: 'Researching',
-        funding: '$475M',
-        lastActivity: 'Viewed yesterday',
-        metrics: { revenue: '$12M', tier: 3, score: 75 }
+    deals: {
+        'deal-1': {
+            id: 'deal-1',
+            companyName: 'Paystack',
+            amount: '$200k',
+            stage: 'Inbox',
+            probability: 20,
+            closeDate: 'Dec 2025',
+            logo: 'https://api.dicebear.com/7.x/initials/svg?seed=Paystack',
+            tier: ConfidenceTier.CACVerified,
+            score: 98
+        },
+        'deal-2': {
+            id: 'deal-2',
+            companyName: 'Flutterwave',
+            amount: '$500k',
+            stage: 'Due Diligence',
+            probability: 60,
+            closeDate: 'Jan 2026',
+            logo: 'https://api.dicebear.com/7.x/initials/svg?seed=Flutterwave',
+            tier: ConfidenceTier.DirectVerified,
+            score: 92
+        },
+        'deal-3': {
+            id: 'deal-3',
+            companyName: 'Chipper Cash',
+            amount: '$1M',
+            stage: 'Negotiation',
+            probability: 85,
+            closeDate: 'Feb 2026',
+            logo: 'https://api.dicebear.com/7.x/initials/svg?seed=Chipper',
+            tier: ConfidenceTier.ThirdParty,
+            score: 75
+        },
+        'deal-4': {
+            id: 'deal-4',
+            companyName: 'M-KOPA',
+            amount: '$150k',
+            stage: 'Inbox',
+            probability: 10,
+            closeDate: 'Mar 2026',
+            logo: 'https://api.dicebear.com/7.x/initials/svg?seed=MKOPA',
+            tier: ConfidenceTier.NewsSource,
+            score: 65
+        }
     },
-    {
-        id: '3',
-        name: 'Kuda',
-        sector: 'Neobank',
-        stage: 'Evaluating',
-        funding: '$91M',
-        lastActivity: 'Note added 5 days ago',
-        metrics: { revenue: '$4.2M', tier: 2, score: 60 }
-    },
-    {
-        id: '4',
-        name: 'OPay',
-        sector: 'Fintech',
-        stage: 'Due Diligence',
-        funding: '$570M',
-        lastActivity: 'Report generated 1 week ago',
-        metrics: { revenue: '$35M', tier: 4, score: 90 }
-    },
-];
-
-const stages = ['Interested', 'Researching', 'Evaluating', 'Due Diligence', 'Invested'];
+    columnOrder: ['inbox', 'diligence', 'negotiation', 'committed', 'passed']
+};
 
 export default function PipelinePage() {
-    const [mode, setMode] = useState<'personal' | 'syndicate'>('personal');
+    const [data, setData] = useState(INITIAL_DATA);
+
+    const onDragEnd = (result: any) => {
+        const { destination, source, draggableId } = result;
+
+        if (!destination) return;
+
+        if (
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const start = data.columns[source.droppableId as keyof typeof data.columns];
+        const finish = data.columns[destination.droppableId as keyof typeof data.columns];
+
+        if (start === finish) {
+            const newDealIds = Array.from(start.dealIds);
+            newDealIds.splice(source.index, 1);
+            newDealIds.splice(destination.index, 0, draggableId);
+
+            const newColumn = {
+                ...start,
+                dealIds: newDealIds,
+            };
+
+            const newState = {
+                ...data,
+                columns: {
+                    ...data.columns,
+                    [newColumn.id]: newColumn,
+                },
+            };
+
+            setData(newState);
+            return;
+        }
+
+        // Moving from one list to another
+        const startDealIds = Array.from(start.dealIds);
+        startDealIds.splice(source.index, 1);
+        const newStart = {
+            ...start,
+            dealIds: startDealIds,
+        };
+
+        const finishDealIds = Array.from(finish.dealIds);
+        finishDealIds.splice(destination.index, 0, draggableId);
+        const newFinish = {
+            ...finish,
+            dealIds: finishDealIds,
+        };
+
+        const newState = {
+            ...data,
+            columns: {
+                ...data.columns,
+                [newStart.id]: newStart,
+                [newFinish.id]: newFinish,
+            },
+        };
+
+        setData(newState);
+    };
 
     return (
-        <div className="p-6 space-y-6">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                    <h1 className="text-2xl font-bold text-white">Pipeline</h1>
-                    <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg border border-[var(--color-border)]">
-                        <button
-                            onClick={() => setMode('personal')}
-                            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all ${mode === 'personal' ? 'bg-[var(--color-accent-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-white'}`}
-                        >
-                            My Pipeline
-                        </button>
-                        <button
-                            onClick={() => setMode('syndicate')}
-                            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all ${mode === 'syndicate' ? 'bg-[var(--color-accent-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-white'}`}
-                        >
-                            Syndicate Pipeline
-                        </button>
+        <div className="h-[calc(100vh-64px)] flex flex-col">
+            {/* Header */}
+            <div className="p-6 border-b border-[var(--color-border)] flex justify-between items-center bg-[var(--color-bg-primary)]">
+                <div>
+                    <h1 className="text-2xl font-bold text-white">Deal Pipeline</h1>
+                    <p className="text-sm text-[var(--color-text-secondary)]">Manage your deal flow and track progress.</p>
+                </div>
+                <div className="flex gap-3">
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
+                        <input
+                            type="text"
+                            placeholder="Search deals..."
+                            className="bg-[rgba(255,255,255,0.05)] border border-[var(--color-border)] rounded-lg py-2 pl-9 pr-4 text-sm text-white focus:border-[var(--color-accent-primary)] outline-none"
+                        />
+                    </div>
+                    <button className="btn btn-secondary gap-2 py-2 text-sm">
+                        <Filter size={16} /> Filter
+                    </button>
+                    <button className="btn btn-primary gap-2 py-2 text-sm">
+                        <Plus size={16} /> New Deal
+                    </button>
+                </div>
+            </div>
+
+            {/* Kanban Board */}
+            <DragDropContext onDragEnd={onDragEnd}>
+                <div className="flex-1 overflow-x-auto overflow-y-hidden p-6">
+                    <div className="flex gap-6 h-full min-w-max">
+                        {data.columnOrder.map((columnId) => {
+                            const column = data.columns[columnId as keyof typeof data.columns];
+                            const deals = column.dealIds.map((dealId) => data.deals[dealId as keyof typeof data.deals]);
+
+                            return <PipelineColumn key={column.id} column={{ ...column, deals }} />;
+                        })}
                     </div>
                 </div>
-                <button className="btn btn-primary gap-2">
-                    <Plus size={18} /> Add Company
-                </button>
-            </div>
-
-            {/* Pipeline Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {stages.map((stage) => (
-                    <div key={stage} className="glass-panel p-4 text-center">
-                        <div className="text-2xl font-bold text-white mb-1">
-                            {pipeline.filter(c => c.stage === stage).length}
-                        </div>
-                        <div className="text-xs text-[var(--color-text-secondary)] uppercase tracking-wider">{stage}</div>
-                    </div>
-                ))}
-            </div>
-
-            {/* List View */}
-            <div className="glass-panel overflow-hidden">
-                <table className="w-full text-left border-collapse">
-                    <thead>
-                        <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[var(--color-border)]">
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Company</th>
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Stage</th>
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Funding</th>
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Revenue</th>
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase">Last Activity</th>
-                            <th className="p-4 text-xs font-medium text-[var(--color-text-secondary)] uppercase text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {pipeline.map((company) => (
-                            <tr key={company.id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors group">
-                                <td className="p-4">
-                                    <Link href={`/dashboard/companies/${company.id}`} className="font-medium text-white hover:text-[var(--color-accent-primary)] transition-colors">
-                                        {company.name}
-                                    </Link>
-                                    <div className="text-xs text-[var(--color-text-secondary)]">{company.sector}</div>
-                                </td>
-                                <td className="p-4">
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(255,255,255,0.1)] text-white border border-[rgba(255,255,255,0.1)]">
-                                        {company.stage}
-                                    </span>
-                                </td>
-                                <td className="p-4 text-sm text-[var(--color-text-secondary)]">{company.funding}</td>
-                                <td className="p-4">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-sm font-mono text-white">{company.metrics.revenue}</span>
-                                        <ConfidenceBadge
-                                            tier={company.metrics.tier as ConfidenceTier}
-                                            score={company.metrics.score}
-                                            showLabel={false}
-                                        />
-                                    </div>
-                                </td>
-                                <td className="p-4 text-sm text-[var(--color-text-secondary)]">{company.lastActivity}</td>
-                                <td className="p-4 text-right">
-                                    <button className="p-2 text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors">
-                                        <MoreHorizontal size={18} />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            </DragDropContext>
         </div>
     );
 }

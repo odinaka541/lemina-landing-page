@@ -2,7 +2,18 @@
 
 import { Shield, ShieldCheck, ShieldAlert, Info } from 'lucide-react';
 
-export type ConfidenceTier = 0 | 1 | 2 | 3 | 4 | 5;
+export enum ConfidenceTier {
+    Unknown = 0,
+    SelfReported = 1,
+    NewsSource = 2,
+    ThirdParty = 3,
+    DirectVerified = 4,
+    CACVerified = 5,
+    // Aliases for easier usage
+    Low = 1,
+    Medium = 3,
+    High = 5
+}
 
 interface ConfidenceBadgeProps {
     tier: ConfidenceTier;
@@ -12,7 +23,7 @@ interface ConfidenceBadgeProps {
     className?: string;
 }
 
-const tierConfig = {
+const tierConfig: Record<number, { color: string; label: string; icon: any }> = {
     5: { color: 'var(--color-tier-5)', label: 'CAC Verified', icon: ShieldCheck },
     4: { color: 'var(--color-tier-4)', label: 'Direct Verified', icon: ShieldCheck },
     3: { color: 'var(--color-tier-3)', label: '3rd Party', icon: Shield },
