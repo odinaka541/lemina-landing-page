@@ -1,4 +1,3 @@
-// client-side supabase client (for browser)
 import { createBrowserClient } from '@supabase/ssr'
 
 export function createClient() {

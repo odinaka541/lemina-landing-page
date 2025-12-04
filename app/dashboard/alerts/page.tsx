@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Bell, Plus, Trash2, CheckCircle } from 'lucide-react';
+import { Bell, Settings, Plus, Search, Filter, Trash2, CheckCircle2, AlertTriangle, Clock, ChevronRight, Users } from 'lucide-react';
 
 export default function AlertsPage() {
     const [alerts, setAlerts] = useState([
