@@ -113,7 +113,7 @@ export default function CompanyCard({
             </div>
 
             {/* Footer */}
-            <div className="mt-auto pt-2">
+            <div className="mt-auto pt-2 flex items-center justify-between">
                 <Link
                     href={`/dashboard/companies/${id}`}
                     className="inline-flex items-center text-sm font-medium text-[var(--color-accent-primary)] hover:text-white transition-colors group/link"
@@ -121,6 +121,18 @@ export default function CompanyCard({
                     View Full Profile
                     <ArrowRight size={16} className="ml-1 transition-transform group-hover/link:translate-x-1" />
                 </Link>
+
+                {/* Network Interest */}
+                <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                        <div key={i} className="w-6 h-6 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border)] flex items-center justify-center text-[10px] text-[var(--color-text-secondary)] overflow-hidden">
+                            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${id}${i}`} alt="User" />
+                        </div>
+                    ))}
+                    <div className="w-6 h-6 rounded-full bg-[rgba(255,255,255,0.1)] border border-[var(--color-border)] flex items-center justify-center text-[10px] text-white">
+                        +2
+                    </div>
+                </div>
             </div>
         </div>
     );

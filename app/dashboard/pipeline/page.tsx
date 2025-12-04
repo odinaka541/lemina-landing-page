@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { MoreHorizontal, ArrowRight, Plus } from 'lucide-react';
 import ConfidenceBadge, { ConfidenceTier } from '@/components/company/ConfidenceBadge';
 
@@ -47,10 +48,28 @@ const pipeline = [
 const stages = ['Interested', 'Researching', 'Evaluating', 'Due Diligence', 'Invested'];
 
 export default function PipelinePage() {
+    const [mode, setMode] = useState<'personal' | 'syndicate'>('personal');
+
     return (
         <div className="p-6 space-y-6">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-white">My Pipeline</h1>
+                <div className="flex items-center gap-4">
+                    <h1 className="text-2xl font-bold text-white">Pipeline</h1>
+                    <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg border border-[var(--color-border)]">
+                        <button
+                            onClick={() => setMode('personal')}
+                            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all ${mode === 'personal' ? 'bg-[var(--color-accent-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-white'}`}
+                        >
+                            My Pipeline
+                        </button>
+                        <button
+                            onClick={() => setMode('syndicate')}
+                            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all ${mode === 'syndicate' ? 'bg-[var(--color-accent-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-white'}`}
+                        >
+                            Syndicate Pipeline
+                        </button>
+                    </div>
+                </div>
                 <button className="btn btn-primary gap-2">
                     <Plus size={18} /> Add Company
                 </button>

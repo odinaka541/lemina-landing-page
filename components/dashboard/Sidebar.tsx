@@ -9,7 +9,8 @@ import {
     Bell,
     Settings,
     Search,
-    ShieldCheck
+    ShieldCheck,
+    Users
 } from 'lucide-react';
 
 const navItems = [
@@ -18,6 +19,11 @@ const navItems = [
     { name: 'Portfolio', href: '/dashboard/portfolio', icon: LineChart },
     { name: 'Alerts', href: '/dashboard/alerts', icon: Bell },
     { name: 'Settings', href: '/dashboard/settings', icon: Settings },
+];
+
+const networkItems = [
+    { name: 'My Syndicate', href: '/dashboard/syndicate', icon: Users },
+    { name: 'Deal Flow', href: '/dashboard/syndicate/deals', icon: Target },
 ];
 
 interface SidebarProps {
@@ -65,6 +71,29 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
                 <nav className="flex-1 px-3 py-2 space-y-1">
                     {navItems.map((item) => {
                         const isActive = pathname === item.href || (item.href !== '/dashboard' && pathname?.startsWith(item.href));
+                        const Icon = item.icon;
+
+                        return (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${isActive
+                                    ? 'bg-[rgba(16,185,129,0.1)] text-[var(--color-accent-primary)]'
+                                    : 'text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)]'
+                                    }`}
+                                onClick={() => onClose?.()}
+                            >
+                                <Icon size={18} />
+                                {item.name}
+                            </Link>
+                        );
+                    })}
+
+                    <div className="mt-6 mb-2 px-3 text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider">
+                        Network
+                    </div>
+                    {networkItems.map((item) => {
+                        const isActive = pathname === item.href || pathname?.startsWith(item.href);
                         const Icon = item.icon;
 
                         return (

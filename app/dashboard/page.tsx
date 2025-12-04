@@ -104,6 +104,28 @@ export default function DashboardPage() {
             <FilterBar />
 
             <div className="p-6 space-y-6">
+                {/* Network Activity Ticker */}
+                <div className="flex items-center gap-4 p-3 bg-[rgba(16,185,129,0.05)] border border-[rgba(16,185,129,0.2)] rounded-lg overflow-hidden">
+                    <div className="flex items-center gap-2 text-xs font-medium text-[var(--color-accent-primary)] whitespace-nowrap">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent-primary)] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent-primary)]"></span>
+                        </span>
+                        Network Activity
+                    </div>
+                    <div className="h-4 w-px bg-[var(--color-border)]"></div>
+                    <div className="flex items-center gap-6 overflow-hidden">
+                        <div className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] animate-slide-left">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-5 h-5 rounded-full" alt="User" />
+                            <span><span className="text-white font-medium">Felix</span> viewed <span className="text-white font-medium">Paystack</span></span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah" className="w-5 h-5 rounded-full" alt="User" />
+                            <span><span className="text-white font-medium">Sarah</span> added <span className="text-white font-medium">Kuda</span> to pipeline</span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Results Header */}
                 <div className="flex items-center justify-between">
                     <h1 className="text-xl font-semibold text-white">
