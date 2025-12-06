@@ -40,6 +40,8 @@
     --input-bg: rgba(255, 255, 255, 0.05);
     --card-bg: rgba(255, 255, 255, 0.02);
     --nav-bg: rgba(0, 0, 0, 0.2);
+    --text-gradient-start: #ffffff;
+    --text-gradient-end: #94a3b8;
 
     padding: 0;
 }
@@ -62,6 +64,8 @@
     --input-bg: rgba(0, 0, 0, 0.05);
     --card-bg: rgba(255, 255, 255, 0.5);
     --nav-bg: rgba(255, 255, 255, 0.8);
+    --text-gradient-start: #0f172a;
+    --text-gradient-end: #64748b;
 
     --glass-border: 1px solid var(--glass-border-color);
 }
@@ -99,7 +103,7 @@ body {
 }
 
 .text-gradient {
-    background: linear-gradient(to right, #fff, #94a3b8);
+    background: linear-gradient(to right, var(--text-gradient-start), var(--text-gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

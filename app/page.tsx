@@ -170,7 +170,7 @@ function HomeContent() {
                     fontWeight: 500,
                     marginBottom: '24px'
                 }}>
-                    Building the investment bank for African tech
+                    Building the investment infrastructure for African tech
                 </div>
                 <h1 style={{ marginBottom: '24px', fontSize: '3.5rem', lineHeight: '1.1', letterSpacing: '-0.02em' }}>
                     ...starting with <br />
