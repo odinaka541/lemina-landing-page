@@ -8,15 +8,16 @@ import {
     LineChart,
     Bell,
     Settings,
-    Search,
     ShieldCheck,
-    Users
+    Users,
+    Globe
 } from 'lucide-react';
 
 const navItems = [
     { name: 'Companies', href: '/dashboard', icon: LayoutGrid },
     { name: 'My Pipeline', href: '/dashboard/pipeline', icon: Target },
     { name: 'Portfolio', href: '/dashboard/portfolio', icon: LineChart },
+    { name: 'Market Intel', href: '/dashboard/market', icon: Globe },
     { name: 'Alerts', href: '/dashboard/alerts', icon: Bell },
     { name: 'Settings', href: '/dashboard/settings', icon: Settings },
 ];
@@ -45,27 +46,18 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 bottom-0 left-0 w-64 bg-[var(--color-bg-secondary)] border-r border-[var(--color-border)] flex flex-col z-50 transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 bottom-0 left-0 w-64 bg-[var(--color-bg-primary)]/80 backdrop-blur-xl border-r border-[var(--color-border)] flex flex-col z-50 transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 {/* Logo */}
-                <div className="h-20 flex items-center px-6 border-b border-[var(--color-border)]">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-[var(--color-accent-primary)] flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">L</span>
-                        </div>
-                        <span className="text-xl font-bold text-white tracking-tight">LEMINA</span>
-                    </div>
+                <div className="h-16 flex items-center px-6 border-b border-[var(--color-border)]">
+                    <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                        <img src="/assets/lemina.svg" alt="Lemina" className="w-8 h-8 rounded-lg" />
+                        <span className="text-xl font-bold text-white tracking-tight font-sans">Lemina</span>
+                    </Link>
                 </div>
 
-                {/* Search Trigger */}
-                <div className="p-4">
-                    <button className="w-full flex items-center gap-2 px-4 py-2.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] text-sm transition-all group">
-                        <Search size={16} className="group-hover:text-white" />
-                        <span>Search...</span>
-                        <kbd className="ml-auto text-xs bg-[rgba(255,255,255,0.1)] px-1.5 py-0.5 rounded text-[var(--color-text-secondary)]">⌘K</kbd>
-                    </button>
-                </div>
+
 
                 {/* Navigation */}
                 <nav className="flex-1 px-3 py-2 space-y-1">

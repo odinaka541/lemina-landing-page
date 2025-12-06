@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { Menu, X } from 'lucide-react';
 
 function HomeContent() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const router = useRouter();
     const searchParams = useSearchParams();
     const code = searchParams?.get('code');
@@ -67,21 +69,88 @@ function HomeContent() {
 
     return (
         <div className="container">
-            <nav style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                height: 'var(--header-height)',
-                position: 'sticky',
-                top: 0,
-                zIndex: 50,
-                backdropFilter: 'blur(10px)'
-            }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <img src="/assets/lemina.svg" alt="Lemina" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
-                    <div className="logo-text" style={{ fontWeight: 600, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>Lemina</div>
+            <nav className="flex justify-between items-center h-16 sticky top-4 z-50 backdrop-blur-xl border border-[var(--glass-border-color)] px-6 mx-4 rounded-2xl bg-[var(--nav-bg)] shadow-lg relative">
+                <div className="flex items-center gap-3">
+                    <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                        <img src="/assets/lemina.svg" alt="Lemina" className="w-8 h-8 rounded-lg" />
+                        <div className="font-semibold text-xl tracking-tight text-[var(--color-text-primary)]">Lemina</div>
+                    </Link>
                 </div>
-                <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ fontSize: '0.875rem' }}>Request Demo</a>
+
+                {/* Desktop Nav */}
+                <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                    <Link href="/founders" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+                        For Founders
+                    </Link>
+                    <a href="#how-it-works" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+                        How it Works
+                    </a>
+                    <Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+                        Investors
+                    </Link>
+                </div>
+
+                {/* Desktop Actions */}
+                <div className="hidden md:flex items-center gap-4">
+                    <button
+                        onClick={() => {
+                            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                            document.documentElement.setAttribute('data-theme', newTheme);
+                        }}
+                        className="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="hidden [html[data-theme='light']_&]:block">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="block [html[data-theme='light']_&]:hidden">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                    </button>
+                    <Link href="#" className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent-primary)] transition-colors">
+                        Log In
+                    </Link>
+                    <a href="mailto:odinaka@lemina.co" className="text-xs font-medium py-2 px-4 bg-[var(--glass-bg)] hover:bg-[var(--glass-border-color)] border border-[var(--glass-border-color)] backdrop-blur-md text-[var(--color-text-primary)] rounded-full transition-all shadow-sm">
+                        Request Demo
+                    </a>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                    className="md:hidden text-[var(--color-text-primary)] p-2"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                {/* Mobile Menu Dropdown */}
+                {isMobileMenuOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-2 p-4 bg-[var(--color-bg-secondary)] border border-[var(--glass-border-color)] rounded-2xl shadow-xl flex flex-col gap-4 md:hidden animate-in fade-in slide-in-from-top-2">
+                        <Link href="/founders" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                            For Founders
+                        </Link>
+                        <a href="#how-it-works" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                            How it Works
+                        </a>
+                        <Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                            Investors
+                        </Link>
+                        <div className="h-px bg-[var(--glass-border-color)] my-1" />
+                        <Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                            Log In
+                        </Link>
+                        <a href="mailto:odinaka@lemina.co" className="text-center text-sm font-medium py-3 px-4 bg-[var(--glass-bg)] hover:bg-[var(--glass-border-color)] border border-[var(--glass-border-color)] rounded-xl text-[var(--color-text-primary)] transition-all">
+                            Request Demo
+                        </a>
+                    </div>
+                )}
             </nav>
 
             <section style={{
@@ -103,7 +172,7 @@ function HomeContent() {
                 }}>
                     Building the investment bank for African tech
                 </div>
-                <h1 style={{ marginBottom: '24px' }}>
+                <h1 style={{ marginBottom: '24px', fontSize: '3.5rem', lineHeight: '1.1', letterSpacing: '-0.02em' }}>
                     ...starting with <br />
                     <span className="text-gradient">intelligence</span>
                 </h1>
@@ -160,10 +229,10 @@ function HomeContent() {
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                             {companies[currentSlide].metrics.filter(m => m.label !== "Focus").map((metric, index) => (
                                 <div key={index} style={{
-                                    background: 'rgba(255, 255, 255, 0.02)',
+                                    background: 'var(--card-bg)',
                                     padding: '12px',
                                     borderRadius: '8px',
-                                    border: '1px solid rgba(255, 255, 255, 0.05)'
+                                    border: '1px solid var(--glass-border-color)'
                                 }}>
                                     <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
                                     <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2' }}>{metric.value}</div>
@@ -250,11 +319,11 @@ function HomeContent() {
                             The complete command centre for African startup intelligence. Track, analyze, and act on opportunities as they emerge. Step into our dealrooms, make deals or track portfolio companies Solo or with your Network, from announcement, to funding, to exits.
                         </p>
                         <div style={{ display: 'flex', gap: '16px' }}>
-                            <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                            <div style={{ padding: '12px 24px', background: 'var(--input-bg)', borderRadius: '8px' }}>
                                 <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>1</div>
                                 <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Platform</div>
                             </div>
-                            <div style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                            <div style={{ padding: '12px 24px', background: 'var(--input-bg)', borderRadius: '8px' }}>
                                 <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>Everything</div>
                                 <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For your Investment Career</div>
                             </div>
@@ -274,7 +343,7 @@ function HomeContent() {
                                 <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
                                 <div style={{ width: '100px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
                             </div>
-                            <div style={{ height: '200px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}></div>
+                            <div style={{ height: '200px', background: 'var(--input-bg)', borderRadius: '8px' }}></div>
                         </div>
                     </div>
                 </div>

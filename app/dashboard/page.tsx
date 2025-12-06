@@ -92,7 +92,7 @@ export default function DashboardPage() {
             <div className="flex justify-between items-end">
                 <div>
                     <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-                    <p className="text-[var(--color-text-secondary)]">Welcome back, here's what's happening in your network.</p>
+                    <p className="text-[var(--color-text-secondary)]">Welcome back. Here's what's happening in the market.</p>
                 </div>
                 <div className="text-sm text-[var(--color-text-secondary)]">
                     Last updated: <span className="text-white font-mono">Just now</span>
@@ -146,7 +146,7 @@ export default function DashboardPage() {
                                 View all <ArrowRight size={14} />
                             </Link>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-6">
                             {RECOMMENDED_COMPANIES.map(company => (
                                 <CompanyCard key={company.id} {...company} />
                             ))}
@@ -161,7 +161,7 @@ export default function DashboardPage() {
                                 Trending in Network
                             </h2>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-6">
                             {TRENDING_COMPANIES.map(company => (
                                 <CompanyCard key={company.id} {...company} />
                             ))}
