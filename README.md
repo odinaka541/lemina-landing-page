@@ -1,4 +1,4 @@
-# Lemina.
+# Lemina
 
 Next.js app for African tech market intelligence.
 
