@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Sidebar from '@/components/dashboard/Sidebar';
 import { Menu, Search, X } from 'lucide-react';
@@ -14,12 +14,16 @@ export default function DashboardLayout({
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }, []);
+
     return (
         <div className="min-h-screen text-[var(--color-text-primary)] font-sans">
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
             {/* Mobile Header */}
-            <div className="lg:hidden sticky top-0 z-30 bg-[var(--color-bg-primary)]/80 backdrop-blur-md border-b border-[var(--color-border)] px-4 h-16 flex items-center justify-between">
+            <div className="lg:hidden sticky top-0 z-30 bg-[#030712]/80 backdrop-blur-md border-b border-[var(--color-border)] px-4 h-16 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     <button
                         onClick={() => setIsSidebarOpen(true)}
@@ -40,7 +44,7 @@ export default function DashboardLayout({
             {/* Main Content */}
             <main className="lg:pl-64 min-h-screen flex flex-col">
                 {/* Desktop Header */}
-                <header className="hidden lg:flex h-16 border-b border-[var(--color-border)] items-center justify-between px-8 sticky top-0 bg-[var(--color-bg-primary)]/80 backdrop-blur-md z-40">
+                <header className="hidden lg:flex h-16 border-b border-[var(--color-border)] items-center justify-between px-8 sticky top-0 bg-[#030712]/80 backdrop-blur-md z-40">
                     <div className="flex-1 max-w-xl">
                         <div className="relative group">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">

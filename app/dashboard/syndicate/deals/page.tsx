@@ -36,7 +36,7 @@ export default function SyndicateDealsPage() {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-white mb-2">Syndicate Deal Flow</h1>
+                <h1 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Syndicate Deal Flow</h1>
                 <p className="text-[var(--color-text-secondary)]">Review and commit to deals shared with your syndicate.</p>
             </div>
 
@@ -48,11 +48,11 @@ export default function SyndicateDealsPage() {
                         <div key={deal.id} className="glass-panel p-6 flex flex-col">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center">
+                                    <div className="w-12 h-12 rounded-xl bg-[var(--color-bg-secondary)] p-1 flex items-center justify-center">
                                         <img src={deal.logo} alt={deal.company} className="w-full h-full object-contain" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-white">{deal.company}</h3>
+                                        <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{deal.company}</h3>
                                         <ConfidenceBadge tier={deal.tier} score={deal.score} showLabel={false} className="mt-1 scale-90 origin-left" />
                                     </div>
                                 </div>
@@ -68,17 +68,17 @@ export default function SyndicateDealsPage() {
                             <div className="space-y-4 mb-6">
                                 <div className="flex justify-between text-sm">
                                     <span className="text-[var(--color-text-secondary)]">Allocation</span>
-                                    <span className="text-white font-mono">{deal.allocation}</span>
+                                    <span className="text-[var(--color-text-primary)] font-mono">{deal.allocation}</span>
                                 </div>
                                 <div className="flex justify-between text-sm">
                                     <span className="text-[var(--color-text-secondary)]">Min Ticket</span>
-                                    <span className="text-white font-mono">{deal.minTicket}</span>
+                                    <span className="text-[var(--color-text-primary)] font-mono">{deal.minTicket}</span>
                                 </div>
 
                                 <div>
                                     <div className="flex justify-between text-xs mb-1">
                                         <span className="text-[var(--color-text-secondary)]">Committed: {deal.committed}</span>
-                                        <span className="text-white">{Math.round(progress)}%</span>
+                                        <span className="text-[var(--color-text-primary)]">{Math.round(progress)}%</span>
                                     </div>
                                     <div className="w-full h-2 bg-[rgba(255,255,255,0.1)] rounded-full overflow-hidden">
                                         <div

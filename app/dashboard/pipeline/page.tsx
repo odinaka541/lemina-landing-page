@@ -156,7 +156,7 @@ export default function PipelinePage() {
             {/* Header */}
             <div className="p-6 border-b border-[var(--color-border)] flex justify-between items-center bg-[var(--color-bg-primary)]">
                 <div>
-                    <h1 className="text-2xl font-bold text-white">Deal Pipeline</h1>
+                    <h1 className="text-2xl font-bold text-[var(--color-text-primary)]">Deal Pipeline</h1>
                     <p className="text-sm text-[var(--color-text-secondary)]">Manage your deal flow and track progress.</p>
                 </div>
                 <div className="flex gap-3">
@@ -165,7 +165,7 @@ export default function PipelinePage() {
                         <input
                             type="text"
                             placeholder="Search deals..."
-                            className="bg-[rgba(255,255,255,0.05)] border border-[var(--color-border)] rounded-lg py-2 pl-9 pr-4 text-sm text-white focus:border-[var(--color-accent-primary)] outline-none"
+                            className="bg-[var(--input-bg)] border border-[var(--color-border)] rounded-lg py-2 pl-9 pr-4 text-sm text-[var(--color-text-primary)] focus:border-[var(--color-accent-primary)] outline-none"
                         />
                     </div>
                     <button className="btn btn-secondary gap-2 py-2 text-sm">

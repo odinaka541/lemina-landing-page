@@ -61,7 +61,7 @@ export default function ComparisonPage() {
                 <Link href="/dashboard" className="p-2 text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors">
                     <ArrowLeft size={20} />
                 </Link>
-                <h1 className="text-3xl font-bold text-white">Competitive Analysis</h1>
+                <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">Competitive Analysis</h1>
             </div>
 
             <div className="glass-panel overflow-x-auto">
@@ -80,10 +80,10 @@ export default function ComparisonPage() {
                                         <X size={16} />
                                     </button>
                                     <div className="flex flex-col items-center gap-3">
-                                        <div className="w-16 h-16 rounded-xl bg-white p-1 flex items-center justify-center shadow-lg">
+                                        <div className="w-16 h-16 rounded-xl bg-[var(--color-bg-secondary)] p-1 flex items-center justify-center shadow-lg">
                                             <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
                                         </div>
-                                        <h3 className="font-bold text-white text-lg">{company.name}</h3>
+                                        <h3 className="font-bold text-[var(--color-text-primary)] text-lg">{company.name}</h3>
                                     </div>
                                 </th>
                             ))}
@@ -112,7 +112,7 @@ export default function ComparisonPage() {
                                 </td>
                                 {selectedCompanies.map(company => (
                                     <td key={`${company.id}-${row.key}`} className="p-6 text-center">
-                                        <span className="text-lg font-semibold text-white">
+                                        <span className="text-lg font-semibold text-[var(--color-text-primary)]">
                                             {company.metrics[row.key as keyof typeof company.metrics]}
                                         </span>
                                     </td>

@@ -77,7 +77,7 @@ function StatWidget({ icon: Icon, label, value, trend, color }: any) {
             <div>
                 <p className="text-sm text-[var(--color-text-secondary)]">{label}</p>
                 <div className="flex items-baseline gap-2">
-                    <h3 className="text-2xl font-bold text-white">{value}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{value}</h3>
                     <span className="text-xs text-emerald-500 font-medium">{trend}</span>
                 </div>
             </div>
@@ -91,11 +91,11 @@ export default function DashboardPage() {
             {/* Header */}
             <div className="flex justify-between items-end">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
+                    <h1 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Dashboard</h1>
                     <p className="text-[var(--color-text-secondary)]">Welcome back. Here's what's happening in the market.</p>
                 </div>
                 <div className="text-sm text-[var(--color-text-secondary)]">
-                    Last updated: <span className="text-white font-mono">Just now</span>
+                    Last updated: <span className="text-[var(--color-text-primary)] font-mono">Just now</span>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@ export default function DashboardPage() {
                     {/* Recommended Section */}
                     <section>
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h2 className="text-xl font-bold text-[var(--color-text-primary)] flex items-center gap-2">
                                 <Zap size={20} className="text-amber-500" />
                                 Recommended for You
                             </h2>
@@ -146,7 +146,7 @@ export default function DashboardPage() {
                                 View all <ArrowRight size={14} />
                             </Link>
                         </div>
-                        <div className="grid grid-cols-1 gap-6">
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                             {RECOMMENDED_COMPANIES.map(company => (
                                 <CompanyCard key={company.id} {...company} />
                             ))}
@@ -156,12 +156,12 @@ export default function DashboardPage() {
                     {/* Trending Section */}
                     <section>
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h2 className="text-xl font-bold text-[var(--color-text-primary)] flex items-center gap-2">
                                 <TrendingUp size={20} className="text-emerald-500" />
                                 Trending in Network
                             </h2>
                         </div>
-                        <div className="grid grid-cols-1 gap-6">
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                             {TRENDING_COMPANIES.map(company => (
                                 <CompanyCard key={company.id} {...company} />
                             ))}
@@ -173,7 +173,7 @@ export default function DashboardPage() {
                 <div className="space-y-6">
                     {/* Recent Activity */}
                     <div className="glass-panel p-5">
-                        <h3 className="font-bold text-white mb-4">Recent Activity</h3>
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Recent Activity</h3>
                         <div className="space-y-4">
                             {[
                                 { text: "Paystack released 2024 report", time: "2h ago", type: "report" },
@@ -184,8 +184,8 @@ export default function DashboardPage() {
                                 <div key={i} className="flex gap-3 items-start pb-4 border-b border-[var(--color-border)] last:border-0 last:pb-0">
                                     <div className="w-2 h-2 rounded-full bg-[var(--color-accent-primary)] mt-2 flex-shrink-0" />
                                     <div>
-                                        <p className="text-sm text-gray-300">{item.text}</p>
-                                        <span className="text-xs text-gray-500">{item.time}</span>
+                                        <p className="text-sm text-[var(--color-text-secondary)]">{item.text}</p>
+                                        <span className="text-xs text-[var(--color-text-secondary)]">{item.time}</span>
                                     </div>
                                 </div>
                             ))}
@@ -197,7 +197,7 @@ export default function DashboardPage() {
 
                     {/* Quick Actions */}
                     <div className="glass-panel p-5">
-                        <h3 className="font-bold text-white mb-4">Quick Actions</h3>
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Quick Actions</h3>
                         <div className="space-y-2">
                             <Link href="/search" className="block w-full py-2 px-4 bg-[var(--color-accent-primary)] text-white text-center rounded-lg hover:bg-emerald-600 transition-colors font-medium">
                                 Find Companies

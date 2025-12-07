@@ -92,12 +92,12 @@ export default function CompanyProfilePage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-6 items-start">
-                    <div className="w-24 h-24 rounded-2xl bg-white p-2 flex items-center justify-center shadow-lg shadow-emerald-900/20">
+                    <div className="w-24 h-24 rounded-2xl bg-[var(--color-bg-secondary)] p-2 flex items-center justify-center shadow-lg shadow-emerald-900/20">
                         <img src={COMPANY_DATA.logo} alt={COMPANY_DATA.name} className="w-full h-full object-contain" />
                     </div>
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                            <h1 className="text-3xl font-bold text-white">{COMPANY_DATA.name}</h1>
+                            <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">{COMPANY_DATA.name}</h1>
                             <ConfidenceBadge tier={COMPANY_DATA.verificationTier} score={COMPANY_DATA.verificationScore} />
                         </div>
                         <p className="text-lg text-[var(--color-text-secondary)] mb-4 max-w-2xl">
@@ -127,7 +127,7 @@ export default function CompanyProfilePage() {
 
                         <div className="flex flex-wrap gap-2 mb-6">
                             {COMPANY_DATA.sectors.map(sector => (
-                                <span key={sector} className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[var(--color-border)] text-xs font-medium text-white">
+                                <span key={sector} className="px-3 py-1 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-xs font-medium text-[var(--color-text-primary)]">
                                     {sector}
                                 </span>
                             ))}
@@ -152,8 +152,8 @@ export default function CompanyProfilePage() {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={`flex items-center gap-2 px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
-                                ? 'border-[var(--color-accent-primary)] text-[var(--color-accent-primary)]'
-                                : 'border-transparent text-[var(--color-text-secondary)] hover:text-white hover:border-[rgba(255,255,255,0.1)]'
+                            ? 'border-[var(--color-accent-primary)] text-[var(--color-accent-primary)]'
+                            : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[rgba(255,255,255,0.1)]'
                             }`}
                     >
                         <tab.icon size={16} />
@@ -168,14 +168,14 @@ export default function CompanyProfilePage() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2 space-y-8">
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4">About</h2>
+                                <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">About</h2>
                                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
                                     {COMPANY_DATA.longDescription}
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4">Key Highlights</h2>
+                                <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Key Highlights</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="p-4 rounded-xl bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.2)]">
                                         <h3 className="font-semibold text-white mb-1">Market Leader</h3>
@@ -190,19 +190,19 @@ export default function CompanyProfilePage() {
                         </div>
                         <div className="space-y-6">
                             <div className="glass-panel p-5">
-                                <h3 className="font-bold text-white mb-4">Quick Facts</h3>
+                                <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Quick Facts</h3>
                                 <div className="space-y-3">
                                     <div className="flex justify-between text-sm">
                                         <span className="text-[var(--color-text-secondary)]">Stage</span>
-                                        <span className="text-white font-medium">{COMPANY_DATA.stage}</span>
+                                        <span className="text-[var(--color-text-primary)] font-medium">{COMPANY_DATA.stage}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-[var(--color-text-secondary)]">Total Funding</span>
-                                        <span className="text-white font-medium">$210M+</span>
+                                        <span className="text-[var(--color-text-primary)] font-medium">$210M+</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-[var(--color-text-secondary)]">Last Round</span>
-                                        <span className="text-white font-medium">Acquisition</span>
+                                        <span className="text-[var(--color-text-primary)] font-medium">Acquisition</span>
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +214,7 @@ export default function CompanyProfilePage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div className="glass-panel p-6">
                             <div className="flex justify-between items-center mb-6">
-                                <h3 className="font-bold text-white">Monthly Revenue</h3>
+                                <h3 className="font-bold text-[var(--color-text-primary)]">Monthly Revenue</h3>
                                 <div className="text-sm text-emerald-500 font-medium">+12% MoM</div>
                             </div>
                             <MetricsChart
@@ -226,7 +226,7 @@ export default function CompanyProfilePage() {
                         </div>
                         <div className="glass-panel p-6">
                             <div className="flex justify-between items-center mb-6">
-                                <h3 className="font-bold text-white">Active Users</h3>
+                                <h3 className="font-bold text-[var(--color-text-primary)]">Active Users</h3>
                                 <div className="text-sm text-blue-500 font-medium">+8% MoM</div>
                             </div>
                             <MetricsChart
@@ -257,9 +257,9 @@ export default function CompanyProfilePage() {
                             <tbody>
                                 {COMPANY_DATA.funding.map((round, i) => (
                                     <tr key={i} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                                        <td className="p-4 font-medium text-white">{round.round}</td>
+                                        <td className="p-4 font-medium text-[var(--color-text-primary)]">{round.round}</td>
                                         <td className="p-4 text-sm text-[var(--color-text-secondary)]">{round.date}</td>
-                                        <td className="p-4 text-sm text-white font-mono">{round.amount}</td>
+                                        <td className="p-4 text-sm text-[var(--color-text-primary)] font-mono">{round.amount}</td>
                                         <td className="p-4 text-sm text-[var(--color-text-secondary)]">
                                             {round.investors.join(', ')}
                                         </td>

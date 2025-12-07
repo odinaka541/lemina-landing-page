@@ -21,7 +21,7 @@ export default function AlertsPage() {
     return (
         <div className="p-6 space-y-6">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-white">Alerts Configuration</h1>
+                <h1 className="text-2xl font-bold text-[var(--color-text-primary)]">Alerts Configuration</h1>
                 <button className="btn btn-primary gap-2">
                     <Plus size={18} /> Create Alert
                 </button>
@@ -42,11 +42,11 @@ export default function AlertsPage() {
                         {alerts.map((alert) => (
                             <tr key={alert.id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
                                 <td className="p-4">
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(255,255,255,0.1)] text-white border border-[rgba(255,255,255,0.1)]">
+                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(255,255,255,0.1)] text-[var(--color-text-primary)] border border-[rgba(255,255,255,0.1)]">
                                         {alert.type}
                                     </span>
                                 </td>
-                                <td className="p-4 text-sm text-white font-medium">{alert.condition}</td>
+                                <td className="p-4 text-sm text-[var(--color-text-primary)] font-medium">{alert.condition}</td>
                                 <td className="p-4 text-sm text-[var(--color-text-secondary)]">{alert.channel}</td>
                                 <td className="p-4">
                                     <button
@@ -71,14 +71,14 @@ export default function AlertsPage() {
             </div>
 
             <div className="glass-panel p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">Recommended Alerts</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Recommended Alerts</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="p-4 border border-[var(--color-border)] rounded-lg bg-[rgba(255,255,255,0.02)] flex items-start gap-3 cursor-pointer hover:border-[var(--color-accent-primary)] transition-colors">
                         <div className="p-2 bg-[rgba(16,185,129,0.1)] rounded-lg text-[var(--color-accent-primary)]">
                             <Bell size={20} />
                         </div>
                         <div>
-                            <div className="font-medium text-white">New Unicorn Alert</div>
+                            <div className="font-medium text-[var(--color-text-primary)]">New Unicorn Alert</div>
                             <p className="text-sm text-[var(--color-text-secondary)] mt-1">Get notified when any company in your pipeline reaches $1B valuation.</p>
                         </div>
                         <Plus size={18} className="ml-auto text-[var(--color-text-secondary)]" />
@@ -88,7 +88,7 @@ export default function AlertsPage() {
                             <Users size={20} />
                         </div>
                         <div>
-                            <div className="font-medium text-white">Syndicate Activity</div>
+                            <div className="font-medium text-[var(--color-text-primary)]">Syndicate Activity</div>
                             <p className="text-sm text-[var(--color-text-secondary)] mt-1">Weekly digest of what your network is viewing and investing in.</p>
                         </div>
                         <Plus size={18} className="ml-auto text-[var(--color-text-secondary)]" />

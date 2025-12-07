@@ -34,7 +34,7 @@ export default function MarketPage() {
         <div className="container mx-auto px-4 py-8">
             <div className="flex justify-between items-end mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Market Intelligence</h1>
+                    <h1 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Market Intelligence</h1>
                     <p className="text-[var(--color-text-secondary)]">Macro-level insights into the African tech ecosystem.</p>
                 </div>
                 <div className="flex gap-3">
@@ -56,7 +56,7 @@ export default function MarketPage() {
                         </div>
                         <span className="text-sm text-[var(--color-text-secondary)]">Capital Deployed</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white">$1.2B</h3>
+                    <h3 className="text-3xl font-bold text-[var(--color-text-primary)]">$1.2B</h3>
                     <p className="text-xs text-emerald-500 mt-1 flex items-center">
                         <TrendingUp size={12} className="mr-1" /> +15% vs last period
                     </p>
@@ -68,7 +68,7 @@ export default function MarketPage() {
                         </div>
                         <span className="text-sm text-[var(--color-text-secondary)]">Deal Count</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white">342</h3>
+                    <h3 className="text-3xl font-bold text-[var(--color-text-primary)]">342</h3>
                     <p className="text-xs text-emerald-500 mt-1 flex items-center">
                         <TrendingUp size={12} className="mr-1" /> +8% vs last period
                     </p>
@@ -80,7 +80,7 @@ export default function MarketPage() {
                         </div>
                         <span className="text-sm text-[var(--color-text-secondary)]">Active Regions</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white">12</h3>
+                    <h3 className="text-3xl font-bold text-[var(--color-text-primary)]">12</h3>
                     <p className="text-xs text-[var(--color-text-secondary)] mt-1">
                         Top: Nigeria, Kenya, Egypt
                     </p>
@@ -90,7 +90,7 @@ export default function MarketPage() {
             {/* Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div className="glass-panel p-6">
-                    <h3 className="font-bold text-white mb-4">Funding Trend (Capital Deployed)</h3>
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Funding Trend (Capital Deployed)</h3>
                     <TrendChart
                         type="line"
                         data={FUNDING_TREND}
@@ -101,7 +101,7 @@ export default function MarketPage() {
                     />
                 </div>
                 <div className="glass-panel p-6">
-                    <h3 className="font-bold text-white mb-4">Regional Deal Share</h3>
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Regional Deal Share</h3>
                     <TrendChart
                         type="bar"
                         data={REGIONAL_SPLIT}
@@ -116,7 +116,7 @@ export default function MarketPage() {
             {/* Recent Reports */}
             <div className="glass-panel">
                 <div className="p-6 border-b border-[var(--color-border)] flex justify-between items-center">
-                    <h3 className="font-bold text-white">Recent Market Reports</h3>
+                    <h3 className="font-bold text-[var(--color-text-primary)]">Recent Market Reports</h3>
                     <button className="text-sm text-[var(--color-accent-primary)] hover:text-emerald-400">View All</button>
                 </div>
                 <div className="divide-y divide-[var(--color-border)]">
@@ -127,7 +127,7 @@ export default function MarketPage() {
                                     <Activity size={20} />
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-white">{report.title}</h4>
+                                    <h4 className="font-medium text-[var(--color-text-primary)]">{report.title}</h4>
                                     <p className="text-xs text-[var(--color-text-secondary)]">{report.date} • {report.size}</p>
                                 </div>
                             </div>

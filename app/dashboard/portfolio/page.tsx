@@ -73,7 +73,7 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4 py-8">
             <div className="flex justify-between items-end mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Portfolio Performance</h1>
+                    <h1 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Portfolio Performance</h1>
                     <p className="text-[var(--color-text-secondary)]">Track your investments and returns.</p>
                 </div>
                 <button className="btn btn-primary">
@@ -85,12 +85,12 @@ export default function PortfolioPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <div className="glass-panel p-5">
                     <p className="text-sm text-[var(--color-text-secondary)] mb-1">Total Invested</p>
-                    <h3 className="text-2xl font-bold text-white">{PORTFOLIO_STATS.totalInvested}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{PORTFOLIO_STATS.totalInvested}</h3>
                 </div>
                 <div className="glass-panel p-5">
                     <p className="text-sm text-[var(--color-text-secondary)] mb-1">Current Value</p>
                     <div className="flex items-baseline gap-2">
-                        <h3 className="text-2xl font-bold text-white">{PORTFOLIO_STATS.currentValue}</h3>
+                        <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{PORTFOLIO_STATS.currentValue}</h3>
                         <span className="text-xs text-emerald-500 font-medium flex items-center">
                             <TrendingUp size={12} className="mr-1" /> +191%
                         </span>
@@ -98,25 +98,25 @@ export default function PortfolioPage() {
                 </div>
                 <div className="glass-panel p-5">
                     <p className="text-sm text-[var(--color-text-secondary)] mb-1">MOIC</p>
-                    <h3 className="text-2xl font-bold text-white">{PORTFOLIO_STATS.moic}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{PORTFOLIO_STATS.moic}</h3>
                 </div>
                 <div className="glass-panel p-5">
                     <p className="text-sm text-[var(--color-text-secondary)] mb-1">IRR</p>
-                    <h3 className="text-2xl font-bold text-white">{PORTFOLIO_STATS.irr}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{PORTFOLIO_STATS.irr}</h3>
                 </div>
             </div>
 
             {/* Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div className="glass-panel p-6">
-                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
                         <PieChartIcon size={20} className="text-[var(--color-accent-primary)]" />
                         Sector Allocation
                     </h3>
                     <AllocationChart data={SECTOR_ALLOCATION} />
                 </div>
                 <div className="glass-panel p-6">
-                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
                         <PieChartIcon size={20} className="text-blue-500" />
                         Stage Allocation
                     </h3>
@@ -127,7 +127,7 @@ export default function PortfolioPage() {
             {/* Portfolio Table */}
             <div className="glass-panel overflow-hidden">
                 <div className="p-6 border-b border-[var(--color-border)]">
-                    <h3 className="font-bold text-white">Portfolio Companies</h3>
+                    <h3 className="font-bold text-[var(--color-text-primary)]">Portfolio Companies</h3>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
@@ -147,19 +147,19 @@ export default function PortfolioPage() {
                                 <tr key={company.id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
                                     <td className="p-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded bg-white p-1 flex items-center justify-center">
+                                            <div className="w-8 h-8 rounded bg-[var(--color-bg-secondary)] p-1 flex items-center justify-center">
                                                 <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
                                             </div>
                                             <div>
-                                                <div className="font-bold text-white text-sm">{company.name}</div>
+                                                <div className="font-bold text-[var(--color-text-primary)] text-sm">{company.name}</div>
                                                 <ConfidenceBadge tier={company.tier} score={company.score} showLabel={false} className="scale-75 origin-left" />
                                             </div>
                                         </div>
                                     </td>
                                     <td className="p-4 text-sm text-[var(--color-text-secondary)]">{company.investedDate}</td>
-                                    <td className="p-4 text-sm text-white font-mono">{company.amount}</td>
+                                    <td className="p-4 text-sm text-[var(--color-text-primary)] font-mono">{company.amount}</td>
                                     <td className="p-4 text-sm text-[var(--color-text-secondary)]">{company.ownership}</td>
-                                    <td className="p-4 text-sm text-white font-bold font-mono">{company.currentValue}</td>
+                                    <td className="p-4 text-sm text-[var(--color-text-primary)] font-bold font-mono">{company.currentValue}</td>
                                     <td className="p-4">
                                         <div className={`flex items-center gap-1 text-sm font-medium ${company.trend === 'up' ? 'text-emerald-500' : 'text-red-500'}`}>
                                             {company.trend === 'up' ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
                                         </div>
                                     </td>
                                     <td className="p-4">
-                                        <Link href={`/dashboard/companies/${company.id}`} className="p-2 text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] rounded-lg transition-colors inline-block">
+                                        <Link href={`/dashboard/companies/${company.id}`} className="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[rgba(255,255,255,0.1)] rounded-lg transition-colors inline-block">
                                             <ArrowUpRight size={18} />
                                         </Link>
                                     </td>
