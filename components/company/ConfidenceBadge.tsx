@@ -55,7 +55,7 @@ export default function ConfidenceBadge({
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: config.color }}
             />
-            <span className="font-mono">{score}</span>
+            <span className="font-mono">{score <= 1 ? Math.round(score * 100) : score}</span>
             {showLabel && (
                 <span className="opacity-90 hidden sm:inline-block">
                     {config.label}
@@ -68,7 +68,7 @@ export default function ConfidenceBadge({
                     Tier {tier}: {config.label}
                 </div>
                 <div className="text-[var(--color-text-secondary)]">
-                    Score: {score}/100
+                    Score: {score <= 1 ? Math.round(score * 100) : score}/100
                 </div>
                 {source && (
                     <div className="text-[var(--color-text-secondary)] mt-1 border-t border-[var(--color-border)] pt-1">

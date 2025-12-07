@@ -47,6 +47,8 @@ export default function CompanyCard({
         { label: metrics.revenue.label, value: metrics.revenue.value, tier: metrics.revenue.tier, score: metrics.revenue.score },
         { label: metrics.users.label, value: metrics.users.value, tier: metrics.users.tier, score: metrics.users.score },
         ...(metrics.valuation ? [{ label: metrics.valuation.label, value: metrics.valuation.value, tier: metrics.valuation.tier, score: metrics.valuation.score }] : []),
+        ...((metrics as any).growth ? [{ label: (metrics as any).growth.label, value: (metrics as any).growth.value, tier: (metrics as any).growth.tier, score: (metrics as any).growth.score }] : []),
+        ...((metrics as any).burn ? [{ label: (metrics as any).burn.label, value: (metrics as any).burn.value, tier: (metrics as any).burn.tier, score: (metrics as any).burn.score }] : []),
         { label: "Last Updated", value: lastUpdated },
     ];
 

@@ -73,7 +73,7 @@ function HomeContent() {
                 <div className="flex items-center gap-3">
                     <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                         <img src="/assets/lemina.svg" alt="Lemina" className="w-8 h-8 rounded-lg" />
-                        <div className="font-semibold text-xl tracking-tight text-[var(--color-text-primary)]">Lemina</div>
+                        <div className="font-semibold text-xl tracking-tight text-[var(--color-text-primary)] hidden md:block">Lemina</div>
                     </Link>
                 </div>
 
@@ -139,16 +139,10 @@ function HomeContent() {
                         <a href="#how-it-works" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             How it Works
                         </a>
-                        <Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
-                            Investors
-                        </Link>
                         <div className="h-px bg-[var(--glass-border-color)] my-1" />
                         <Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             Log In
                         </Link>
-                        <a href="mailto:odinaka@lemina.co" className="text-center text-sm font-medium py-3 px-4 bg-[var(--glass-bg)] hover:bg-[var(--glass-border-color)] border border-[var(--glass-border-color)] rounded-xl text-[var(--color-text-primary)] transition-all">
-                            Request Demo
-                        </a>
                     </div>
                 )}
             </nav>
@@ -390,6 +384,31 @@ function HomeContent() {
                 <div style={{ marginBottom: '24px' }}>
                     <a href="mailto:odinaka@lemina.co" style={{ color: 'inherit', textDecoration: 'none', marginRight: '24px' }}>Contact</a>
                     <a href="https://x.com/uselemina" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Twitter</a>
+                </div>
+                <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'center' }}>
+                    <button
+                        onClick={() => {
+                            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                            document.documentElement.setAttribute('data-theme', newTheme);
+                        }}
+                        className="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors flex items-center gap-2"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="hidden [html[data-theme='light']_&]:block">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="block [html[data-theme='light']_&]:hidden">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <span>Toggle Theme</span>
+                    </button>
                 </div>
                 <p>© 2025 Lemina • Powering the investment bank for African tech</p>
             </footer>

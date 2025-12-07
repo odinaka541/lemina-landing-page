@@ -18,7 +18,9 @@ const RECOMMENDED_COMPANIES = [
         metrics: {
             revenue: { label: 'ARR', value: '$100M+', tier: ConfidenceTier.High, score: 0.95 },
             users: { label: 'Merchants', value: '80,000+', tier: ConfidenceTier.High, score: 0.98 },
-            valuation: { label: 'Valuation', value: '$200M+', tier: ConfidenceTier.Medium, score: 0.75 }
+            valuation: { label: 'Valuation', value: '$200M+', tier: ConfidenceTier.Medium, score: 0.75 },
+            growth: { label: 'Growth', value: '120% YoY', tier: ConfidenceTier.High, score: 0.90 },
+            burn: { label: 'Burn', value: 'Profitable', tier: ConfidenceTier.High, score: 0.99 }
         }
     },
     {
@@ -32,7 +34,9 @@ const RECOMMENDED_COMPANIES = [
         metrics: {
             revenue: { label: 'ARR', value: '$150M+', tier: ConfidenceTier.High, score: 0.96 },
             users: { label: 'Customers', value: '3M+', tier: ConfidenceTier.High, score: 0.94 },
-            valuation: { label: 'Valuation', value: 'Undisclosed', tier: ConfidenceTier.Low, score: 0.40 }
+            valuation: { label: 'Valuation', value: 'Undisclosed', tier: ConfidenceTier.Low, score: 0.40 },
+            growth: { label: 'Growth', value: '45% YoY', tier: ConfidenceTier.Medium, score: 0.85 },
+            burn: { label: 'Burn', value: '$2M/mo', tier: ConfidenceTier.Medium, score: 0.80 }
         }
     }
 ];
@@ -49,7 +53,9 @@ const TRENDING_COMPANIES = [
         metrics: {
             revenue: { label: 'ARR', value: '$250M+', tier: ConfidenceTier.High, score: 0.92 },
             users: { label: 'Customers', value: '1M+', tier: ConfidenceTier.Medium, score: 0.65 },
-            valuation: { label: 'Valuation', value: '$3B+', tier: ConfidenceTier.High, score: 0.90 }
+            valuation: { label: 'Valuation', value: '$3B+', tier: ConfidenceTier.High, score: 0.90 },
+            growth: { label: 'Growth', value: '80% YoY', tier: ConfidenceTier.High, score: 0.88 },
+            burn: { label: 'Burn', value: '$5M/mo', tier: ConfidenceTier.Low, score: 0.50 }
         }
     },
     {
@@ -63,7 +69,9 @@ const TRENDING_COMPANIES = [
         metrics: {
             revenue: { label: 'GMV', value: '$300M+', tier: ConfidenceTier.High, score: 0.89 },
             users: { label: 'Merchants', value: '50,000+', tier: ConfidenceTier.Medium, score: 0.68 },
-            valuation: { label: 'Valuation', value: '$625M', tier: ConfidenceTier.Medium, score: 0.78 }
+            valuation: { label: 'Valuation', value: '$625M', tier: ConfidenceTier.Medium, score: 0.78 },
+            growth: { label: 'Growth', value: '150% YoY', tier: ConfidenceTier.High, score: 0.91 },
+            burn: { label: 'Burn', value: '$3M/mo', tier: ConfidenceTier.Medium, score: 0.70 }
         }
     }
 ];
@@ -172,25 +180,25 @@ export default function DashboardPage() {
                 {/* Right Column - Activity & Quick Actions */}
                 <div className="space-y-6">
                     {/* Recent Activity */}
-                    <div className="glass-panel p-5">
-                        <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Recent Activity</h3>
-                        <div className="space-y-4">
+                    <div className="glass-panel p-4">
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-3 text-sm">Recent Activity</h3>
+                        <div className="space-y-3">
                             {[
                                 { text: "Paystack released 2024 report", time: "2h ago", type: "report" },
                                 { text: "Flutterwave raised Series E", time: "5h ago", type: "funding" },
                                 { text: "New competitor for Chipper Cash", time: "1d ago", type: "alert" },
                                 { text: "M-KOPA expanded to Ghana", time: "2d ago", type: "news" }
                             ].map((item, i) => (
-                                <div key={i} className="flex gap-3 items-start pb-4 border-b border-[var(--color-border)] last:border-0 last:pb-0">
-                                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-primary)] mt-2 flex-shrink-0" />
+                                <div key={i} className="flex gap-2 items-start pb-3 border-b border-[var(--color-border)] last:border-0 last:pb-0">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-primary)] mt-1.5 flex-shrink-0" />
                                     <div>
-                                        <p className="text-sm text-[var(--color-text-secondary)]">{item.text}</p>
-                                        <span className="text-xs text-[var(--color-text-secondary)]">{item.time}</span>
+                                        <p className="text-xs text-[var(--color-text-secondary)] leading-tight">{item.text}</p>
+                                        <span className="text-[10px] text-[var(--color-text-secondary)] opacity-70">{item.time}</span>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <button className="w-full mt-4 py-2 text-sm text-[var(--color-text-secondary)] hover:text-white border border-[var(--color-border)] rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-all">
+                        <button className="w-full mt-3 py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-white border border-[var(--color-border)] rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-all">
                             View All Activity
                         </button>
                     </div>
@@ -202,10 +210,10 @@ export default function DashboardPage() {
                             <Link href="/search" className="block w-full py-2 px-4 bg-[var(--color-accent-primary)] text-white text-center rounded-lg hover:bg-emerald-600 transition-colors font-medium">
                                 Find Companies
                             </Link>
-                            <button className="block w-full py-2 px-4 bg-[rgba(255,255,255,0.05)] text-white text-center rounded-lg hover:bg-[rgba(255,255,255,0.1)] transition-colors border border-[var(--color-border)]">
+                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)]">
                                 Add Portfolio Company
                             </button>
-                            <button className="block w-full py-2 px-4 bg-[rgba(255,255,255,0.05)] text-white text-center rounded-lg hover:bg-[rgba(255,255,255,0.1)] transition-colors border border-[var(--color-border)]">
+                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)]">
                                 Create New Deal
                             </button>
                         </div>
