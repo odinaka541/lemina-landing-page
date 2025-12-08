@@ -11,6 +11,7 @@ interface Company {
     stage: string;
     location: string;
     logo: string | null;
+    lastUpdated: string;
     flags: string[];
     description: string;
     metrics: { label: string; value: string }[];
@@ -22,15 +23,15 @@ const companies: Company[] = [
         stage: "Pre-seed",
         location: "Lagos, Nigeria",
         logo: null,
-
+        lastUpdated: "2 days ago",
         flags: ["ng", "pt"],
         description: "AI that reads your uploaded books aloud and provides real-time answers to your questions using voice technology",
         metrics: [
             { label: "Funding Stage", value: "F&F, Less than $5K" },
-            { label: "Business Model Clarity", value: "B2C Subscription & B2B Licensing" },
-            { label: "Traction Signals/Proof", value: "400+ Active Users, growing 20% MoM" },
+            { label: "Business Model", value: "B2C Subscription & B2B Licensing" },
+            { label: "Traction Signals", value: "400+ Active Users, growing 20% MoM" },
             { label: "Market Opportunity", value: "Multi-billion dollar industry need for accessible knowledge" },
-            { label: "Why Promising (Moat)", value: "First-mover advantage in voice-first knowledge retrieval" },
+            { label: "Why Promising?", value: "First-mover advantage in voice-first knowledge retrieval" },
             { label: "Regulatory Status", value: "Compliant (Data Protection)" }
         ]
     },
@@ -39,7 +40,7 @@ const companies: Company[] = [
         stage: "Pre-seed",
         location: "Lagos, Nigeria",
         logo: null,
-
+        lastUpdated: "5h ago",
         flags: ["ng", "es"],
         description: "Social sports platform connecting fans, athletes, analysts, and clubs via banter, data, and community engagement",
         metrics: [
@@ -312,18 +313,38 @@ function HomeContent() {
                             </button>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                            {companies[currentSlide].metrics.map((metric, index) => (
-                                <div key={index} style={{
-                                    background: 'var(--card-bg)',
-                                    padding: '12px',
-                                    borderRadius: '8px',
-                                    border: '1px solid var(--glass-border-color)'
-                                }}>
-                                    <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
-                                    <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2', color: 'var(--color-text-primary)' }}>{metric.value}</div>
-                                </div>
-                            ))}
+                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                                {companies[currentSlide].metrics.map((metric, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--card-bg)',
+                                        padding: '12px',
+                                        borderRadius: '8px',
+                                        border: '1px solid var(--glass-border-color)'
+                                    }}>
+                                        <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
+                                        <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2', color: 'var(--color-text-primary)' }}>{metric.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                alignItems: 'center',
+                                marginTop: '16px',
+                                gap: '6px'
+                            }}>
+                                <div style={{
+                                    width: '6px',
+                                    height: '6px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'var(--color-accent-primary)',
+                                    boxShadow: '0 0 8px var(--color-accent-primary)'
+                                }}></div>
+                                <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontStyle: 'italic' }}>
+                                    Last updated {companies[currentSlide].lastUpdated}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

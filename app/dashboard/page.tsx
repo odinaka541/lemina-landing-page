@@ -12,32 +12,101 @@ const RECOMMENDED_COMPANIES = [
         name: 'Paystack',
         description: 'Modern online and offline payments for Africa.',
         location: 'Lagos, Nigeria',
+        logo: null,
         employees: 250,
+
         funding: 'Acquired',
+        flags: ['ng'],
         lastUpdated: '2h ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$100M+', tier: ConfidenceTier.High, score: 0.95 },
-            users: { label: 'Merchants', value: '80,000+', tier: ConfidenceTier.High, score: 0.98 },
-            valuation: { label: 'Valuation', value: '$200M+', tier: ConfidenceTier.Medium, score: 0.75 },
-            growth: { label: 'Growth', value: '120% YoY', tier: ConfidenceTier.High, score: 0.90 },
-            burn: { label: 'Burn', value: 'Profitable', tier: ConfidenceTier.High, score: 0.99 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Acquired" },
+            { label: "Business Model", value: "B2B Payment Gateway" },
+            { label: "Traction Signals", value: "Processes 50% of Nigeria's online payments" },
+            { label: "Market Opportunity", value: "Dominating African payment infrastructure" },
+            { label: "Why Promising?", value: "Deep local bank integration and reliability" },
+            { label: "Regulatory Status", value: "Fully Licensed (CBN)" }
+        ]
     },
     {
         id: '4',
         name: 'M-KOPA',
         description: 'Connected asset financing for underbanked customers.',
         location: 'Nairobi, Kenya',
+        logo: null,
         employees: 1000,
+
         funding: 'Debt Financing',
+        flags: ['ke'],
         lastUpdated: '3d ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$150M+', tier: ConfidenceTier.High, score: 0.96 },
-            users: { label: 'Customers', value: '3M+', tier: ConfidenceTier.High, score: 0.94 },
-            valuation: { label: 'Valuation', value: 'Undisclosed', tier: ConfidenceTier.Low, score: 0.40 },
-            growth: { label: 'Growth', value: '45% YoY', tier: ConfidenceTier.Medium, score: 0.85 },
-            burn: { label: 'Burn', value: '$2M/mo', tier: ConfidenceTier.Medium, score: 0.80 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Debt Financing" },
+            { label: "Business Model", value: "Asset Financing / PAYG" },
+            { label: "Traction Signals", value: "3M+ Customers, >$1B financing deployed" },
+            { label: "Market Opportunity", value: "Credit for the underbanked millions" },
+            { label: "Why Promising?", value: "Proprietary locking tech & repayment data" },
+            { label: "Regulatory Status", value: "Compliant" }
+        ]
+    },
+
+    {
+        id: '7',
+        name: 'Moniepoint',
+        description: 'All-in-one business banking solution for emerging markets.',
+        location: 'Lagos, Nigeria',
+        logo: null,
+        employees: 1200,
+
+        funding: 'Series C',
+        flags: ['ng'],
+        lastUpdated: '1d ago',
+        metrics: [
+            { label: "Funding Stage", value: "Series C" },
+            { label: "Business Model", value: "Business Banking & Payments" },
+            { label: "Traction Signals", value: "$12B+ Monthly TPV" },
+            { label: "Market Opportunity", value: "Banking for 40M+ MSMEs" },
+            { label: "Why Promising?", value: "Dominant offline distribution network" },
+            { label: "Regulatory Status", value: "Banking License" }
+        ]
+    },
+    {
+        id: '8',
+        name: 'Chowdeck',
+        description: 'Fastest food delivery service in Africa.',
+        location: 'Lagos, Nigeria',
+        logo: null,
+        employees: 150,
+
+        funding: 'Seed',
+        flags: ['ng'],
+        lastUpdated: '4h ago',
+        metrics: [
+            { label: "Funding Stage", value: "Seed" },
+            { label: "Business Model", value: "On-demand Delivery" },
+            { label: "Traction Signals", value: "300k+ Monthly Orders" },
+            { label: "Market Opportunity", value: "Hyper-local logistics" },
+            { label: "Why Promising?", value: "Best-in-class unit economics" },
+            { label: "Regulatory Status", value: "Operating" }
+        ]
+    },
+    {
+        id: '9',
+        name: 'Bamboo',
+        description: 'Real-time access to global investment opportunities.',
+        location: 'Lagos, Nigeria',
+        logo: null,
+        employees: 80,
+
+        funding: 'Series A',
+        flags: ['ng', 'gh'],
+        lastUpdated: '6h ago',
+        metrics: [
+            { label: "Funding Stage", value: "Series A" },
+            { label: "Business Model", value: "Wealth Tech / Brokerage" },
+            { label: "Traction Signals", value: "500k+ Registered Users" },
+            { label: "Market Opportunity", value: "Democratizing global access" },
+            { label: "Why Promising?", value: "Licensed in Nigeria & Ghana" },
+            { label: "Regulatory Status", value: "SEC Licensed" }
+        ]
     }
 ];
 
@@ -47,32 +116,40 @@ const TRENDING_COMPANIES = [
         name: 'Flutterwave',
         description: 'Simplifying payments for endless possibilities.',
         location: 'Lagos, Nigeria',
+        logo: null,
         employees: 500,
+
         funding: 'Series D',
+        flags: ['ng'],
         lastUpdated: '5h ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$250M+', tier: ConfidenceTier.High, score: 0.92 },
-            users: { label: 'Customers', value: '1M+', tier: ConfidenceTier.Medium, score: 0.65 },
-            valuation: { label: 'Valuation', value: '$3B+', tier: ConfidenceTier.High, score: 0.90 },
-            growth: { label: 'Growth', value: '80% YoY', tier: ConfidenceTier.High, score: 0.88 },
-            burn: { label: 'Burn', value: '$5M/mo', tier: ConfidenceTier.Low, score: 0.50 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series D" },
+            { label: "Business Model", value: "Payment Infrastructure" },
+            { label: "Traction Signals", value: "Unicorn status, broad Pan-African presence" },
+            { label: "Market Opportunity", value: "Connecting Africa to global economy" },
+            { label: "Why Promising?", value: "Extensive partnerships network" },
+            { label: "Regulatory Status", value: "Various Licenses" }
+        ]
     },
     {
         id: '6',
         name: 'Wasoko',
         description: 'Transforming informal retail supply chains in Africa.',
         location: 'Nairobi, Kenya',
+        logo: null,
         employees: 800,
+
         funding: 'Series B',
+        flags: ['ke'],
         lastUpdated: '2d ago',
-        metrics: {
-            revenue: { label: 'GMV', value: '$300M+', tier: ConfidenceTier.High, score: 0.89 },
-            users: { label: 'Merchants', value: '50,000+', tier: ConfidenceTier.Medium, score: 0.68 },
-            valuation: { label: 'Valuation', value: '$625M', tier: ConfidenceTier.Medium, score: 0.78 },
-            growth: { label: 'Growth', value: '150% YoY', tier: ConfidenceTier.High, score: 0.91 },
-            burn: { label: 'Burn', value: '$3M/mo', tier: ConfidenceTier.Medium, score: 0.70 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series B" },
+            { label: "Business Model", value: "B2B E-commerce" },
+            { label: "Traction Signals", value: "Huge network of informal retailers" },
+            { label: "Market Opportunity", value: "Digitizing the informal economy" },
+            { label: "Why Promising?", value: "Strong last-mile delivery infrastructure" },
+            { label: "Regulatory Status", value: "Active" }
+        ]
     }
 ];
 
@@ -95,7 +172,7 @@ function StatWidget({ icon: Icon, label, value, trend, color }: any) {
 
 export default function DashboardPage() {
     return (
-        <div className="container mx-auto px-4 py-8 space-y-8">
+        <div className="container mx-auto px-4 pt-8 pb-8 space-y-8">
             {/* Header */}
             <div className="flex justify-between items-end">
                 <div>
@@ -140,9 +217,9 @@ export default function DashboardPage() {
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
                 {/* Left Column - Feeds */}
-                <div className="lg:col-span-2 space-y-8">
+                <div className="xl:col-span-3 space-y-8">
                     {/* Recommended Section */}
                     <section>
                         <div className="flex justify-between items-center mb-4">
@@ -204,22 +281,24 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="glass-panel p-5">
-                        <h3 className="font-bold text-[var(--color-text-primary)] mb-4">Quick Actions</h3>
+                    <div className="glass-panel p-4">
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-4 text-sm">Quick Actions</h3>
                         <div className="space-y-2">
-                            <Link href="/search" className="block w-full py-2 px-4 bg-[var(--color-accent-primary)] text-white text-center rounded-lg hover:bg-emerald-600 transition-colors font-medium">
+                            <Link href="/search" className="block w-full py-2 px-4 bg-[var(--color-accent-primary)] text-white text-center rounded-lg hover:bg-emerald-600 transition-colors font-medium text-xs">
                                 Find Companies
                             </Link>
-                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)]">
+                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)] text-xs">
                                 Add Portfolio Company
                             </button>
-                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)]">
+                            <button className="block w-full py-2 px-4 bg-[var(--input-bg)] text-[var(--color-text-primary)] text-center rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border border-[var(--color-border)] text-xs">
                                 Create New Deal
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+            {/* Bottom Spacer */}
+            <div className="h-32 w-full" aria-hidden="true" />
         </div>
     );
 }

@@ -2,29 +2,25 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import ConfidenceBadge, { ConfidenceTier } from './ConfidenceBadge';
 
 interface CompanyMetric {
     label: string;
     value: string;
-    tier: ConfidenceTier;
-    score: number;
+    // tier: ConfidenceTier; // Removed for now based on user feedback
+    // score: number;
 }
 
 interface CompanyCardProps {
     id: string;
     name: string;
     description: string;
-    logo?: string;
+    logo?: string | null;
     location: string;
     employees: number;
     funding: string;
     lastUpdated: string;
-    metrics: {
-        revenue: CompanyMetric;
-        users: CompanyMetric;
-        valuation?: CompanyMetric;
-    };
+    flags?: string[];
+    metrics: CompanyMetric[];
     isSaved?: boolean;
 }
 
@@ -37,64 +33,70 @@ export default function CompanyCard({
     employees,
     funding,
     lastUpdated,
+    flags,
     metrics,
     isSaved = false
 }: CompanyCardProps) {
     // Map props to a list of metrics for the grid
-    const displayMetrics = [
-        { label: "Location", value: location },
-        { label: "Team Size", value: employees.toString() },
-        { label: metrics.revenue.label, value: metrics.revenue.value, tier: metrics.revenue.tier, score: metrics.revenue.score },
-        { label: metrics.users.label, value: metrics.users.value, tier: metrics.users.tier, score: metrics.users.score },
-        ...(metrics.valuation ? [{ label: metrics.valuation.label, value: metrics.valuation.value, tier: metrics.valuation.tier, score: metrics.valuation.score }] : []),
-        ...((metrics as any).growth ? [{ label: (metrics as any).growth.label, value: (metrics as any).growth.value, tier: (metrics as any).growth.tier, score: (metrics as any).growth.score }] : []),
-        ...((metrics as any).burn ? [{ label: (metrics as any).burn.label, value: (metrics as any).burn.value, tier: (metrics as any).burn.tier, score: (metrics as any).burn.score }] : []),
-        { label: "Last Updated", value: lastUpdated },
-    ];
+    // Use metrics prop directly as it is now an array
+    const displayMetrics = metrics;
 
     return (
-        <div className="glass-panel p-3 relative overflow-hidden group hover:border-[var(--color-accent-primary)]/30 transition-all duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-3">
-                {/* Left Column */}
-                <div className="flex flex-col justify-between">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            {/* Placeholder Logo if no logo prop, or use name initial */}
-                            <div className="w-7 h-7 bg-[var(--color-bg-secondary)] rounded-lg flex items-center justify-center text-base">
-                                {logo ? <img src={logo} alt={name} className="w-4 h-4" /> : "🟠"}
+        <div className="glass-panel p-5 relative overflow-hidden group hover:border-[var(--color-accent-primary)]/30 transition-all duration-300">
+            <div className="flex flex-col gap-4">
+                {/* Header Section */}
+                <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-center gap-3">
+                        {logo ? (
+                            <img
+                                src={logo}
+                                alt={name}
+                                className="w-10 h-10 rounded-full object-contain shrink-0 bg-white p-1"
+                            />
+                        ) : (
+                            <div className="w-10 h-10 rounded-full shrink-0 bg-[var(--color-bg-secondary)] flex items-center justify-center text-xl border border-[var(--glass-border-color)]">
+                                {name.includes('Seren') || name.includes('Pay') ? "🔵" : "🟠"}
                             </div>
-                            <div className="min-w-0">
-                                <h2 className="text-base font-bold text-[var(--color-text-primary)] leading-none mb-1 truncate">{name}</h2>
-                                <span className="inline-block text-[9px] font-medium text-[var(--color-accent-primary)] bg-[rgba(16,185,129,0.1)] px-1.5 py-0.5 rounded-full">
+                        )}
+                        <div>
+                            <h2 className="text-lg font-bold text-[var(--color-text-primary)] leading-tight">{name}</h2>
+                            <div className="flex items-center gap-2 mt-0.5">
+                                <span className="text-[10px] font-semibold text-[var(--color-accent-primary)] bg-[rgba(16,185,129,0.1)] px-2 py-0.5 rounded-full">
                                     {funding}
                                 </span>
+                                <span className="text-[10px] text-[var(--color-text-secondary)]">HQ: {location}</span>
                             </div>
                         </div>
-                        <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed mb-3 line-clamp-2">
-                            {description}
-                        </p>
                     </div>
-                    <Link href={`/dashboard/companies/${id}`} className="w-full py-1.5 px-3 bg-[var(--input-bg)] hover:bg-[var(--glass-border-color)] border border-[var(--color-border)] rounded-lg text-[11px] font-medium text-[var(--color-text-primary)] text-center transition-colors flex items-center justify-center gap-1.5 group/btn">
-                        Request Full Profile
-                        <ArrowRight size={12} className="transition-transform group-hover/btn:translate-x-1" />
-                    </Link>
                 </div>
 
-                {/* Right Column - Metrics Grid */}
-                <div className="grid grid-cols-2 gap-1.5">
+                {/* Description */}
+                <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed line-clamp-2">
+                    {description}
+                </p>
+
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-2 gap-2 bg-[var(--card-bg)]/50 p-2 rounded-lg border border-[var(--glass-border-color)]">
                     {displayMetrics.map((metric, index) => (
-                        <div key={index} className="bg-[rgba(255,255,255,0.02)] p-2 rounded-lg border border-[rgba(255,255,255,0.05)] flex flex-col justify-center min-h-[42px]">
-                            <div className="text-[8px] uppercase tracking-wider text-[var(--color-text-secondary)] mb-0.5 truncate">
-                                {metric.label}
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <span className="text-[11px] font-medium text-[var(--color-text-primary)] truncate">{metric.value}</span>
-                                {(metric as any).tier && (
-                                    <ConfidenceBadge tier={(metric as any).tier} score={(metric as any).score} showLabel={false} className="scale-75 origin-left" />
-                                )}
-                            </div>
+                        <div key={index} className="flex flex-col">
+                            <span className="text-[9px] uppercase tracking-wider text-[var(--color-text-secondary)] mb-0.5">{metric.label}</span>
+                            <span className="text-xs font-semibold text-[var(--color-text-primary)] leading-tight whitespace-normal break-words">{metric.value}</span>
                         </div>
                     ))}
+                </div>
+
+                {/* Footer Actions */}
+                <div className="flex items-center justify-between mt-1">
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-primary)] shadow-[0_0_8px_var(--color-accent-primary)]" />
+                        <span className="text-[9px] text-[var(--color-text-secondary)] italic">
+                            Updated {lastUpdated}
+                        </span>
+                    </div>
+
+                    <Link href={`/dashboard/companies/${id}`} className="py-1.5 px-4 rounded-full border border-[var(--glass-border-color)] bg-[var(--input-bg)] hover:bg-[var(--glass-border-color)] text-[var(--color-text-primary)] text-xs font-medium transition-all duration-300 flex items-center gap-1 hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]">
+                        View Profile <ArrowRight size={10} />
+                    </Link>
                 </div>
             </div>
         </div>

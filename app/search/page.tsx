@@ -16,11 +16,14 @@ const MOCK_COMPANIES = [
         employees: 250,
         funding: 'Acquired',
         lastUpdated: '2h ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$100M+', tier: ConfidenceTier.High, score: 0.95 },
-            users: { label: 'Merchants', value: '80,000+', tier: ConfidenceTier.High, score: 0.98 },
-            valuation: { label: 'Valuation', value: '$200M+', tier: ConfidenceTier.Medium, score: 0.75 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Acquired" },
+            { label: "Business Model", value: "B2B Payment Gateway" },
+            { label: "Traction Signals", value: "Processes 50% of Nigeria's online payments" },
+            { label: "Market Opportunity", value: "Dominating African payment infrastructure" },
+            { label: "Why Promising?", value: "Deep local bank integration and reliability" },
+            { label: "Regulatory Status", value: "Fully Licensed (CBN)" }
+        ]
     },
     {
         id: '2',
@@ -30,11 +33,14 @@ const MOCK_COMPANIES = [
         employees: 500,
         funding: 'Series D',
         lastUpdated: '5h ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$250M+', tier: ConfidenceTier.High, score: 0.92 },
-            users: { label: 'Customers', value: '1M+', tier: ConfidenceTier.Medium, score: 0.65 },
-            valuation: { label: 'Valuation', value: '$3B+', tier: ConfidenceTier.High, score: 0.90 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series D" },
+            { label: "Business Model", value: "Payment Infrastructure" },
+            { label: "Traction Signals", value: "Unicorn status, broad Pan-African presence" },
+            { label: "Market Opportunity", value: "Connecting Africa to global economy" },
+            { label: "Why Promising?", value: "Extensive partnerships network" },
+            { label: "Regulatory Status", value: "Various Licenses" }
+        ]
     },
     {
         id: '3',
@@ -44,11 +50,14 @@ const MOCK_COMPANIES = [
         employees: 300,
         funding: 'Series C',
         lastUpdated: '1d ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$75M+', tier: ConfidenceTier.Medium, score: 0.60 },
-            users: { label: 'Users', value: '5M+', tier: ConfidenceTier.High, score: 0.85 },
-            valuation: { label: 'Valuation', value: '$2B', tier: ConfidenceTier.Medium, score: 0.70 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series C" },
+            { label: "Business Model", value: "P2P & B2C Payments" },
+            { label: "Traction Signals", value: "5M+ Verified Users" },
+            { label: "Market Opportunity", value: "Cross-border African remittance" },
+            { label: "Why Promising?", value: "Strong brand and user growth" },
+            { label: "Regulatory Status", value: "Licensed in multiple markets" }
+        ]
     },
     {
         id: '4',
@@ -58,11 +67,14 @@ const MOCK_COMPANIES = [
         employees: 1000,
         funding: 'Debt Financing',
         lastUpdated: '3d ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$150M+', tier: ConfidenceTier.High, score: 0.96 },
-            users: { label: 'Customers', value: '3M+', tier: ConfidenceTier.High, score: 0.94 },
-            valuation: { label: 'Valuation', value: 'Undisclosed', tier: ConfidenceTier.Low, score: 0.40 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Debt Financing" },
+            { label: "Business Model", value: "Asset Financing / PAYG" },
+            { label: "Traction Signals", value: "3M+ Customers, >$1B financing deployed" },
+            { label: "Market Opportunity", value: "Credit for the underbanked millions" },
+            { label: "Why Promising?", value: "Proprietary locking tech & repayment data" },
+            { label: "Regulatory Status", value: "Compliant" }
+        ]
     },
     {
         id: '5',
@@ -72,11 +84,14 @@ const MOCK_COMPANIES = [
         employees: 1500,
         funding: 'Series E',
         lastUpdated: '1w ago',
-        metrics: {
-            revenue: { label: 'ARR', value: '$100M+', tier: ConfidenceTier.Medium, score: 0.72 },
-            users: { label: 'Engineers', value: '100,000+', tier: ConfidenceTier.High, score: 0.88 },
-            valuation: { label: 'Valuation', value: '$1.5B', tier: ConfidenceTier.High, score: 0.91 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series E" },
+            { label: "Business Model", value: "Talent Marketplace" },
+            { label: "Traction Signals", value: "100k+ Engineers, Global Clients" },
+            { label: "Market Opportunity", value: "Remote work and global talent shortage" },
+            { label: "Why Promising?", value: "High quality vetting process" },
+            { label: "Regulatory Status", value: "N/A" }
+        ]
     },
     {
         id: '6',
@@ -86,17 +101,20 @@ const MOCK_COMPANIES = [
         employees: 800,
         funding: 'Series B',
         lastUpdated: '2d ago',
-        metrics: {
-            revenue: { label: 'GMV', value: '$300M+', tier: ConfidenceTier.High, score: 0.89 },
-            users: { label: 'Merchants', value: '50,000+', tier: ConfidenceTier.Medium, score: 0.68 },
-            valuation: { label: 'Valuation', value: '$625M', tier: ConfidenceTier.Medium, score: 0.78 }
-        }
+        metrics: [
+            { label: "Funding Stage", value: "Series B" },
+            { label: "Business Model", value: "B2B E-commerce" },
+            { label: "Traction Signals", value: "Huge network of informal retailers" },
+            { label: "Market Opportunity", value: "Digitizing the informal economy" },
+            { label: "Why Promising?", value: "Strong last-mile delivery infrastructure" },
+            { label: "Regulatory Status", value: "Active" }
+        ]
     }
 ];
 
 export default function SearchPage() {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-8 pb-8">
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* Sidebar */}
                 <FilterSidebar />
@@ -129,6 +147,8 @@ export default function SearchPage() {
                     </div>
                 </div>
             </div>
+            {/* Bottom Spacer */}
+            <div className="h-32 w-full" aria-hidden="true" />
         </div>
     );
 }
