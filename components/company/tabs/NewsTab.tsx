@@ -32,18 +32,18 @@ const NEWS_ITEMS = [
 export default function NewsTab() {
     return (
         <div className="space-y-6">
-            <h2 className="text-lg font-bold text-white mb-4">Recent Coverage</h2>
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] mb-4">Recent Coverage</h2>
             <div className="grid grid-cols-1 gap-4">
                 {NEWS_ITEMS.map((item) => (
                     <a
                         key={item.id}
                         href={item.url}
-                        className="block bg-[rgba(255,255,255,0.02)] border border-[var(--color-border)] rounded-2xl p-6 hover:border-[var(--color-accent-primary)] hover:bg-[rgba(255,255,255,0.04)] transition-all group"
+                        className="block glass-panel p-6 hover:border-[var(--color-accent-primary)] hover:bg-[var(--input-bg)] transition-all group"
                     >
                         <div className="flex justify-between items-start">
                             <div className="flex-1 pr-8">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[rgba(255,255,255,0.1)] text-[var(--color-text-secondary)] uppercase tracking-wide">
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] uppercase tracking-wide">
                                         {item.source}
                                     </span>
                                     <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)]">
@@ -51,7 +51,7 @@ export default function NewsTab() {
                                         {item.date}
                                     </div>
                                 </div>
-                                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[var(--color-accent-primary)] transition-colors">
+                                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent-primary)] transition-colors">
                                     {item.title}
                                 </h3>
                                 <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2">
