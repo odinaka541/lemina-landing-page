@@ -44,10 +44,10 @@ const companies: Company[] = [
         description: "Social sports platform connecting fans, athletes, analysts, and clubs via banter, data, and community engagement",
         metrics: [
             { label: "Funding Stage", value: "Pre-seed | $500k (Seed Ask)" },
-            { label: "Business Model Clarity", value: "Freemium + Ad Revenue" },
-            { label: "Traction Signals/Proof", value: "1001+ Waitlist, High Engagement" },
+            { label: "Business Model", value: "Freemium + Ad Revenue" },
+            { label: "Traction Signals", value: "1001+ Waitlist, High Engagement" },
             { label: "Market Opportunity", value: "Untapped niche in social sports engagement" },
-            { label: "Why Promising (Moat)", value: "Monopolist in its niche: Sports-only, healthy banter space" },
+            { label: "Why Promising?", value: "Monopolist in its niche: Sports-only, healthy banter space" },
             { label: "Regulatory Status", value: "N/A" }
         ]
     }
