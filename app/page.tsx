@@ -6,6 +6,53 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { Menu, X } from 'lucide-react';
 
+interface Company {
+    name: string;
+    stage: string;
+    location: string;
+    logo: string | null;
+    flags: string[];
+    description: string;
+    metrics: { label: string; value: string }[];
+}
+
+const companies: Company[] = [
+    {
+        name: "SerenDPT AI",
+        stage: "Pre-seed",
+        location: "Lagos, Nigeria",
+        logo: null,
+
+        flags: ["ng", "pt"],
+        description: "AI that reads your uploaded books aloud and provides real-time answers to your questions using voice technology",
+        metrics: [
+            { label: "Funding Stage", value: "F&F, Less than $5K" },
+            { label: "Business Model Clarity", value: "B2C Subscription & B2B Licensing" },
+            { label: "Traction Signals/Proof", value: "400+ Active Users, growing 20% MoM" },
+            { label: "Market Opportunity", value: "Multi-billion dollar industry need for accessible knowledge" },
+            { label: "Why Promising (Moat)", value: "First-mover advantage in voice-first knowledge retrieval" },
+            { label: "Regulatory Status", value: "Compliant (Data Protection)" }
+        ]
+    },
+    {
+        name: "TikiAnaly",
+        stage: "Pre-seed",
+        location: "Lagos, Nigeria",
+        logo: null,
+
+        flags: ["ng", "es"],
+        description: "Social sports platform connecting fans, athletes, analysts, and clubs via banter, data, and community engagement",
+        metrics: [
+            { label: "Funding Stage", value: "Pre-seed | $500k (Seed Ask)" },
+            { label: "Business Model Clarity", value: "Freemium + Ad Revenue" },
+            { label: "Traction Signals/Proof", value: "1001+ Waitlist, High Engagement" },
+            { label: "Market Opportunity", value: "Untapped niche in social sports engagement" },
+            { label: "Why Promising (Moat)", value: "Monopolist in its niche: Sports-only, healthy banter space" },
+            { label: "Regulatory Status", value: "N/A" }
+        ]
+    }
+];
+
 function HomeContent() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,45 +73,12 @@ function HomeContent() {
         }
     }, [code, router]);
 
-    const companies = [
-        {
-            name: "SerenDPT AI",
-            stage: "Pre-seed",
-            metrics: [
-                { label: "Focus", value: "AI that reads your uploaded books aloud and provides real-time answers to your questions using voice technology" },
-                { label: "Total Funding", value: "F&F, Less than $5K" },
-                { label: "Last Round", value: "None (Q4, 2025)" },
-                { label: "Valuation", value: "NA" },
-                { label: "Active Users", value: "400+" },
-                { label: "Monthly Revenue", value: "Less than $1k" },
-                { label: "Runway", value: "12 months" },
-                { label: "Team Size", value: "4" },
-                { label: "Why Promising", value: "First player on the scene solving a multi-billion dollar industry need" }
-            ]
-        },
-        {
-            name: "TikiAnaly",
-            stage: "Pre-seed",
-            metrics: [
-                { label: "Focus", value: "Social sports platform connecting fans, athletes, analysts, and clubs via banter, data, and community engagement" },
-                { label: "Total Funding", value: "F&F, Pre-seed | $500k (Seed Ask)" },
-                { label: "Last Round", value: "None (Bootstrapped)" },
-                { label: "Valuation", value: "NA" },
-                { label: "Active Users", value: "1001+ (Waitlist)" },
-                { label: "Monthly Revenue", value: "Pre-revenue" },
-                { label: "Runway", value: "18 months" },
-                { label: "Team Size", value: "15" },
-                { label: "Why Promising", value: "Monopolist in its niche: Sports-only, healthy banter space, no noise, no distractions" }
-            ]
-        }
-    ];
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + companies.length) % companies.length);
+    };
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % companies.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + companies.length) % companies.length);
     };
 
     return (
@@ -193,35 +207,113 @@ function HomeContent() {
                             <h3 style={{ fontSize: '1.25rem', marginBottom: '4px' }}>Highlights on Who to Watch</h3>
                             <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Early-stage innovators driving change.</p>
                         </div>
-                        <div style={{ display: 'flex', gap: '8px' }}>
-                            <button onClick={prevSlide} className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '0.875rem' }}>←</button>
-                            <button onClick={nextSlide} className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '0.875rem' }}>→</button>
+                        <div style={{ display: 'flex', gap: '12px' }}>
+                            <button
+                                onClick={prevSlide}
+                                className="p-2 rounded-full border border-[var(--glass-border-color)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)] transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24.00" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M37 12H3" />
+                                    <path d="M9 18L3 12L9 6" />
+                                </svg>
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                className="p-2 rounded-full border border-[var(--glass-border-color)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)] transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24.00" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M3 12h34" />
+                                    <path d="m31 18 6-6-6-6" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '32px' }}>
-                        <div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                                <div style={{ width: '40px', height: '40px', background: 'var(--color-bg-secondary)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem' }}>🟠</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '32px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+                                {companies[currentSlide].logo ? (
+                                    <img
+                                        src={companies[currentSlide].logo}
+                                        alt={companies[currentSlide].name}
+                                        style={{
+                                            width: '48px',
+                                            height: '48px',
+                                            borderRadius: '50%',
+                                            objectFit: 'contain',
+                                            flexShrink: 0,
+                                            backgroundColor: 'white',
+                                            padding: '4px'
+                                        }}
+                                    />
+                                ) : (
+                                    <div style={{
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '50%',
+                                        flexShrink: 0,
+                                        backgroundColor: 'var(--color-bg-secondary)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '24px',
+                                        border: '1px solid var(--glass-border-color)'
+                                    }}>
+                                        {companies[currentSlide].name.includes('Seren') ? "🔵" : "🟠"}
+                                    </div>
+                                )}
                                 <div>
-                                    <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{companies[currentSlide].name}</h2>
-                                    <span style={{
-                                        fontSize: '0.75rem',
-                                        color: 'var(--color-accent-primary)',
+                                    <h4 style={{ fontSize: '2rem', fontWeight: 300, lineHeight: '1.2', marginBottom: '8px' }}>{companies[currentSlide].name}</h4>
+                                    <div style={{
+                                        display: 'inline-block',
+                                        padding: '4px 12px',
+                                        borderRadius: '100px',
                                         background: 'rgba(16, 185, 129, 0.1)',
-                                        padding: '2px 10px',
-                                        borderRadius: '100px'
-                                    }}>{companies[currentSlide].stage}</span>
+                                        color: 'var(--color-accent-primary)',
+                                        fontSize: '0.75rem',
+                                        fontWeight: 600,
+                                    }}>
+                                        {companies[currentSlide].stage}
+                                    </div>
                                 </div>
                             </div>
-                            <p style={{ fontSize: '0.9375rem', marginBottom: '20px', color: 'var(--color-text-primary)', lineHeight: '1.5' }}>
-                                {companies[currentSlide].metrics.find(m => m.label === "Focus")?.value}
+
+                            <p style={{ fontSize: '1rem', color: 'var(--color-text-primary)', lineHeight: '1.6', marginBottom: '32px', flex: 1 }}>
+                                {companies[currentSlide].description}
                             </p>
-                            <a href="mailto:odinaka@lemina.co" className="btn btn-secondary" style={{ width: '100%', padding: '10px', fontSize: '0.875rem' }}>Request Full Profile</a>
+
+                            <div style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <div style={{ display: 'flex', gap: '8px' }}>
+                                    {companies[currentSlide].flags.map((flag, i) => (
+                                        <img
+                                            key={i}
+                                            src={`https://flagcdn.com/24x18/${flag}.png`}
+                                            alt={flag}
+                                            style={{ width: '24px', height: '18px', objectFit: 'cover', borderRadius: '2px' }}
+                                        />
+                                    ))}
+                                </div>
+                                <span style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem' }}>HQ: {companies[currentSlide].location}</span>
+                            </div>
+
+                            <button style={{
+                                width: '100%',
+                                padding: '16px',
+                                borderRadius: '100px',
+                                border: '1px solid var(--glass-border-color)',
+                                background: 'transparent',
+                                color: 'var(--color-text-primary)',
+                                fontSize: '1rem',
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease'
+                            }} className="hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)] hover:-translate-y-1">
+                                Request Full Profile
+                            </button>
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                            {companies[currentSlide].metrics.filter(m => m.label !== "Focus").map((metric, index) => (
+                            {companies[currentSlide].metrics.map((metric, index) => (
                                 <div key={index} style={{
                                     background: 'var(--card-bg)',
                                     padding: '12px',
@@ -229,7 +321,7 @@ function HomeContent() {
                                     border: '1px solid var(--glass-border-color)'
                                 }}>
                                     <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{metric.label}</div>
-                                    <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2' }}>{metric.value}</div>
+                                    <div style={{ fontSize: '0.875rem', fontWeight: 500, lineHeight: '1.2', color: 'var(--color-text-primary)' }}>{metric.value}</div>
                                 </div>
                             ))}
                         </div>
@@ -247,39 +339,6 @@ function HomeContent() {
                     <div style={{ fontSize: '3rem', marginBottom: '16px', opacity: 0.2 }}>02</div>
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '12px' }}>Connect & Scale</h3>
                     <p style={{ fontSize: '1rem' }}>For Founders. Get discovered by active investors actively listening for what you're building.</p>
-                </div>
-            </section>
-
-            <section style={{ padding: '100px 0' }}>
-                <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Comprehensive Intelligence</h2>
-                    <p style={{ maxWidth: '600px', margin: '0 auto' }}>Your team spends weeks per deal researching markets. We've done it for 80+ companies.</p>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
-                    {[
-                        {
-                            title: "Blind spots in due diligence",
-                            solution: "Complete Landscape",
-                            desc: "A Google search gets you 10-20 simple profiles. We found, verified, and built company profiles for 80+."
-                        },
-                        {
-                            title: "Regulatory Risk",
-                            solution: "Verified Compliance",
-                            desc: "See license status, expiry countdown, regulatory compliance score, and red-flag alerts — all verified."
-                        },
-                        {
-                            title: "Valuation Uncertainty",
-                            solution: "Market Benchmarks",
-                            desc: "Know sector-specific multiples. Make data-driven pricing decisions. We provide local context for your money."
-                        }
-                    ].map((item, i) => (
-                        <div key={i} className="glass-panel" style={{ padding: '32px' }}>
-                            <div style={{ fontSize: '0.875rem', color: '#ef4444', marginBottom: '8px' }}>Problem: {item.title}</div>
-                            <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', color: 'var(--color-accent-primary)' }}>{item.solution}</h3>
-                            <p style={{ fontSize: '0.875rem' }}>{item.desc}</p>
-                        </div>
-                    ))}
                 </div>
             </section>
 
